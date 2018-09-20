@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
+import Nutrition from './components/nutrition/nutrition-page.jsx';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Dashboard/>
+        <Nutrition/>
       </div>
     );
   }

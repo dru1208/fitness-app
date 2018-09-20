@@ -7,9 +7,21 @@ export default class Events extends Component {
     return (
       <main className="events">
         <h1>Events</h1>
-        <a href="https://www.w3schools.com">{events.name}</a>
-        <div className="event-description">{events.description}</div>
-        <div className="event-datetime-location">{events.location} • {events.datetime}</div>
+          <div className="single-event">
+          <a href="https://www.w3schools.com">{events.name}</a>
+          <div className="event-description">{events.description}</div>
+          <div className="event-datetime-location">{events.location} • {events.datetime}</div>
+        </div>
+        <div className="single-event">
+          <a href="https://www.w3schools.com">{events.name}</a>
+          <div className="event-description">{events.description}</div>
+          <div className="event-datetime-location">{events.location} • {events.datetime}</div>
+        </div>
+        <div className="single-event">
+          <a href="https://www.w3schools.com">{events.name}</a>
+          <div className="event-description">{events.description}</div>
+          <div className="event-datetime-location">{events.location} • {events.datetime}</div>
+        </div>
       </main>
     )
   }

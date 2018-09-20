@@ -10,10 +10,10 @@ const weekly_data = {
   user_id: 1,
   sun: 30,
   mon: 120,
-  tues: 60,
+  tues: 0,
   wed: 90,
-  thurs: 0,
-  fri: 0,
+  thurs: 160,
+  fri: 200,
   sat: 10
 }
 
@@ -21,7 +21,7 @@ const daily_nutrition = {
   user_id: 1,
   calories: 1500,
   protein: 80,
-  fat: 100,
+  fat: 40,
   carbohydrates: 250
 }
 
@@ -60,12 +60,12 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <main class="dashboard">
+      <main className="dashboard">
         <h1>Welcome, {this.state.currentUser}</h1>
         <h2>
           Your Current Fitness Goals: <br />
         </h2>
-        <div class="fitness-goals">
+        <div className="fitness-goals">
           <goal> Run 5km </goal> <input type="checkbox" checked="checked" /> <br />
           <goal> Lose 10 lbs </goal> <input type="checkbox" checked /> <br />
           <goal> Wrestle with Andrew </goal> <input type="checkbox" checked />
