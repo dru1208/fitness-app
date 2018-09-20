@@ -4,6 +4,7 @@ import Nutrition from './nutrition.jsx';
 import Events from './events.jsx';
 import Feed from './feed.jsx';
 
+
 //HARDCODED DATABASE TABLES
 const weekly_data = {
   user_id: 1,
@@ -21,7 +22,7 @@ const daily_nutrition = {
   calories: 1500,
   protein: 80,
   fat: 100,
-  carbohydrates: 0
+  carbohydrates: 250
 }
 
 const events = {

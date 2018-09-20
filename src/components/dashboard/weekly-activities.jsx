@@ -1,20 +1,54 @@
 import React, { Component } from "react";
+import { Chart } from "react-google-charts";
 
 export default class Activities extends Component {
 
   render() {
     const weekly = JSON.parse(this.props.weekly);
     return (
-      <main class="weeklyActivies">
+      <main className="weekly_activities">
       <h1>Weekly Activities</h1>
-        <div class="sun">sun: {weekly.sun}</div>
-        <div class="mon">mon: {weekly.mon}</div>
-        <div class="tues">tues: {weekly.tues}</div>
-        <div class="wed">wed: {weekly.wed}</div>
-        <div class="thurs">thurs: {weekly.thurs}</div>
-        <div class="fri">fri: {weekly.fri}</div>
-        <div class="sat">sat: {weekly.sat}</div>
+
+        <div className={"activities_chart"}>
+        <Chart
+          chartType="ColumnChart"
+          rows={[
+            ["Sunday", weekly.sun],
+            ["Monday", weekly.mon],
+            ["Tuesday", weekly.tues],
+            ["Wednesday", weekly.wed],
+            ["Thursday", weekly.thurs],
+            ["Friday", weekly.fri],
+            ["Saturday", weekly.sat]
+          ]}
+          columns={[
+            {
+              type: "string",
+              label: "Day"
+            },
+            {
+              type: "number",
+              label: "Time Spent Exercising"
+            }
+          ]}
+          options={
+            // Chart options
+            {
+              hAxis: {
+                title: "Days",
+                viewWindow: { min: 0, max: 7 }
+              },
+              vAxis: { title: "Time Spent (minutes)", viewWindow: { min: 0 } },
+              legend: "none"
+            }
+          }
+          width="100%"
+          height="400px"
+          legendToggle
+        />
+      </div>
       </main>
+
     )
   }
 }
