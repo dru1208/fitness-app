@@ -35,7 +35,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <main class="dashboard">
-        <h1>Welcome</h1>
+        <h1>Welcome, {this.state.currentUser}</h1>
         <Activities weekly={this.state.weekly}/>
         <Nutrition nutrition={this.state.nutrition}/>
       </main>

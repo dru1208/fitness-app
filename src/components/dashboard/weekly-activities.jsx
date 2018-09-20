@@ -6,6 +6,7 @@ export default class Activities extends Component {
     const weekly = JSON.parse(this.props.weekly);
     return (
       <main class="weeklyActivies">
+      <h1>Weekly Activities</h1>
         <div class="sun">sun: {weekly.sun}</div>
         <div class="mon">mon: {weekly.mon}</div>
         <div class="tues">tues: {weekly.tues}</div>
