@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 
-
 export default class Nutrition extends Component {
 
   render() {
@@ -46,6 +45,7 @@ export default class Nutrition extends Component {
     return (
       <main className="nutrition">
         <h1>Nutrition</h1>
+
         <Chart
           chartType="PieChart"
           data={[["Nutrition", "Grams"], ["Protein", nutrition.protein], ["Fat", nutrition.fat], ["Carbohydrates", nutrition.carbohydrates]]}

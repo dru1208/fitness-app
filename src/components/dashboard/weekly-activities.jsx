@@ -34,6 +34,11 @@ export default class Activities extends Component {
           options={
             // Chart options
             {
+              animation:{
+                startup: true,
+                duration: 1000,
+                easing: 'out'
+              },
               hAxis: {
                 title: "Days",
                 viewWindow: { min: 0, max: 7 }
