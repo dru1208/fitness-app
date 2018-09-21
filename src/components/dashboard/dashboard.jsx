@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Activities from './weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
-import Events from './eventlist.jsx';
-import Feed from './feed.jsx';
+import EventList from './eventlist.jsx';
+import FeedList from './feedlist.jsx';
 
 
 //HARDCODED DATABASE TABLES
@@ -35,31 +35,40 @@ const events = [{
 }, {
   id: 2,
   user_id: 2,
-  name: "rumble me",
-  description: "ROYAL RUMBLE!!!",
+  name: "Hot Yoga",
+  description: "Very hot yoga",
   datetime: "Sept. 28, 2018 4:00PM",
   location: "46 Spadina Ave, Toronto ON"
 }, {
   id: 3,
   user_id: 1,
-  name: "Fun inthesun",
-  description: "Wrestlinfunfunfunyle ROYAL RUMBLE!!!",
+  name: "Fun in the Sun",
+  description: "Having fun in the sun",
   datetime: "Sept. 22, 2018 4:30PM",
   location: "46 Spadina Ave, Toronto ON"
 }]
 
-const feed = {
+const feeds = [{
   id: 1,
   user_id: 1,
-  title: "10 fitness tips to get fitter",
-  content: "This is some quality content"
-}
+  title: "How to bench press with a towel",
+  content: "Quality HD video"
+},{
+  id: 2,
+  user_id: 1,
+  title: "10 fitness tips to get fitter, the 3rd one might shock you",
+  content: "This is some quality content no clickbait"
+},{
+  id: 3,
+  user_id: 1,
+  title: "$1 Diet vs $150 Diet",
+  content: "Which diet is more worth it at its given price point?"
+}]
 
 
 //state should not be string when api is in use
 const weekly_data_stringed = JSON.stringify(weekly_data)
 const daily_nutrition_stringed = JSON.stringify(daily_nutrition)
-const feed_stringed = JSON.stringify(feed)
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -69,7 +78,7 @@ export default class Dashboard extends Component {
       weekly: weekly_data_stringed,
       nutrition: daily_nutrition_stringed,
       events: events,
-      feed: feed_stringed
+      feeds: feeds
     };
   }
 
@@ -88,8 +97,8 @@ export default class Dashboard extends Component {
 
         <Activities weekly={this.state.weekly}/>
         <Nutrition nutrition={this.state.nutrition}/>
-        <Events events={this.state.events}/>
-        <Feed feed={this.state.feed}/>
+        <EventList events={this.state.events}/>
+        <FeedList feed={this.state.feeds}/>
       </main>
     );
   }
