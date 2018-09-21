@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Activities from './weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
-import Events from './events.jsx';
+import Events from './eventlist.jsx';
 import Feed from './feed.jsx';
 
 
@@ -25,14 +25,28 @@ const daily_nutrition = {
   carbohydrates: 250
 }
 
-const events = {
+const events = [{
   id: 1,
   user_id: 1,
   name: "Group Wrestle",
   description: "Wrestling WWE style ROYAL RUMBLE!!!",
   datetime: "Sept. 30, 2018 4:00PM",
   location: "46 Spadina Ave, Toronto ON"
-}
+}, {
+  id: 2,
+  user_id: 2,
+  name: "rumble me",
+  description: "ROYAL RUMBLE!!!",
+  datetime: "Sept. 28, 2018 4:00PM",
+  location: "46 Spadina Ave, Toronto ON"
+}, {
+  id: 3,
+  user_id: 1,
+  name: "Fun inthesun",
+  description: "Wrestlinfunfunfunyle ROYAL RUMBLE!!!",
+  datetime: "Sept. 22, 2018 4:30PM",
+  location: "46 Spadina Ave, Toronto ON"
+}]
 
 const feed = {
   id: 1,
@@ -41,9 +55,10 @@ const feed = {
   content: "This is some quality content"
 }
 
+
+//state should not be string when api is in use
 const weekly_data_stringed = JSON.stringify(weekly_data)
 const daily_nutrition_stringed = JSON.stringify(daily_nutrition)
-const events_stringed = JSON.stringify(events)
 const feed_stringed = JSON.stringify(feed)
 
 export default class Dashboard extends Component {
@@ -53,7 +68,7 @@ export default class Dashboard extends Component {
       currentUser: "Vincent",
       weekly: weekly_data_stringed,
       nutrition: daily_nutrition_stringed,
-      events: events_stringed,
+      events: events,
       feed: feed_stringed
     };
   }
@@ -66,9 +81,9 @@ export default class Dashboard extends Component {
           Your Current Fitness Goals: <br />
         </h2>
         <div className="fitness-goals">
-          <goal> Run 5km </goal> <input type="checkbox" checked="checked" /> <br />
-          <goal> Lose 10 lbs </goal> <input type="checkbox" checked /> <br />
-          <goal> Wrestle with Andrew </goal> <input type="checkbox" checked />
+          <span> Run 5km </span> <input type="checkbox" /> <br />
+          <span> Lose 10 lbs </span> <input type="checkbox"/> <br />
+          <span> Wrestle with Andrew </span> <input type="checkbox"/>
         </div>
 
         <Activities weekly={this.state.weekly}/>

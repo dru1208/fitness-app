@@ -7,6 +7,7 @@ export default class Input extends Component {
       <main className="events">
       <h2>Enter daily nutritional data</h2>
       <table className="inputboxes" style={{ width: '100%' }}>
+      <thead>
       <tr>
         <td>Calories</td><td><input type="textbox" /></td>
       </tr>
@@ -19,6 +20,7 @@ export default class Input extends Component {
        <tr>
         <td>Carbohydrates (g)</td><td><input type="textbox" /></td>
       </tr>
+      </thead>
       </table>
       <button type="button">Submit</button>
       </main>

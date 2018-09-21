@@ -24,9 +24,9 @@ export default class Dashboard extends Component {
   render() {
     return (
       <main className="nutrition-page">
-        <h1>This is the nutrition page</h1>
+        <h1>Nutrition page</h1>
         <div className="watson">
-        This is where watson api is supposed to go.
+        This is where watson api will go.
         </div>
         <NutritionInput/>
       </main>

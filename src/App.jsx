@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
 import Nutrition from './components/nutrition/nutrition-page.jsx';
+import Gyms from './components/map/gyms.jsx';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         </p>
         <Dashboard/>
         <Nutrition/>
+        <Gyms/>
       </div>
     );
   }
