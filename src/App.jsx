@@ -50,11 +50,9 @@ class App extends Component {
       }
     this.setState({current_user: registrationObj.firstName}, function(){
       console.log(this.state.current_user)
-<<<<<<< HEAD
+
        history.push("/users/1/dashboard")
-=======
-      history.push("/users/1/dashboard")
->>>>>>> andrew-lexy-frontend
+
     })
       console.log("hi", JSON.stringify(registrationObj))
   }
@@ -69,8 +67,8 @@ class App extends Component {
           <Route exact path="/users/1/dashboard" render={() => (this.state.current_user !== null ?
                                                                 <Dashboard /> : <Redirect to="/" />)} />
 
-<<<<<<< HEAD
-=======
+
+
           <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
                                                                 <Maps /> : <Redirect to="/" />)} />
 
@@ -82,7 +80,7 @@ class App extends Component {
                                                                 <Events /> : <Redirect to="/" />)} />
           <Route exact path="/users/1/recent" render={() => (this.state.current_user !== null ?
                                                                 <Maps /> : <Redirect to="/" />)} />
->>>>>>> andrew-lexy-frontend
+
 
         </Switch>
 
