@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Activities from './weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
-import EventList from './event-list/eventlist.jsx';
-import FeedList from './feed-list/feedlist.jsx';
+import EventList from './event-list/event-list.jsx';
+import FeedList from './feed-list/feed-list.jsx';
 import FitnessGoals from './fitness-goals/fitness-goal-list.jsx'
 
 
