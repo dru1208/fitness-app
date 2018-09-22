@@ -2,25 +2,13 @@ import React, { Component } from 'react'
 
 
 
-class RegistrationForm extends Component {
+const RegistrationForm = (props) => {
 
-  _handleSubmit = (e) => {
-    e.preventDefault();
-      const registrationObj = {
-        firstName: e.target.firstName.value,
-        lastName: e.target.lastName.value,
-        email: e.target.email.value,
-        password: e.target.password.value,
-        passwordConfirmation: e.target.passwordConfirmation.value,
-      }
-      console.log("hi", JSON.stringify(registrationObj))
-  }
 
-  render(){
-    return (
+  return (
     <div>
     <h2>Registration Form</h2>
-      <form onSubmit={this._handleSubmit}>
+      <form onSubmit={props.handleRegister}>
         <label htmlFor="firstName">First Name:</label>
         <input type="text" name="firstName"></input><br></br>
 
@@ -39,8 +27,7 @@ class RegistrationForm extends Component {
         <input type="submit" value="Submit"></input>
       </form>
     </div>
-    )
-  }
+  )
 };
 
 
