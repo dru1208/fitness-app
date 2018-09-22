@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BlogEntry from "./BlogEntry.jsx"
+import BlogEntry from "./blog-entry.jsx"
 
 
 

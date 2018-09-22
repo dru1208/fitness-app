@@ -1,7 +1,7 @@
 import React from 'react'
-import BlogHeader from './BlogHeader.jsx'
-import BlogList from './BlogList.jsx'
-import BlogForm from './BlogForm.jsx'
+import BlogHeader from './blog-header.jsx'
+import BlogList from './blog-list.jsx'
+import BlogForm from './blog-form.jsx'
 
 
 const user = {first_name: "andrew"}
@@ -21,3 +21,5 @@ const BlogMain = (props) => {
     </main>
   )
 }
+
+export default BlogMain;
