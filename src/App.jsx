@@ -55,13 +55,13 @@ class App extends Component {
       }
     this.setState({current_user: registrationObj.firstName}, function(){
       console.log(this.state.current_user)
-<<<<<<< HEAD
+
 
        history.push("/users/1/dashboard")
 
-=======
+
       history.push(generateUserURL(this.state.current_user_id, "dashboard"))
->>>>>>> andrew-lexy-frontend
+
     })
       console.log("hi", JSON.stringify(registrationObj))
   }
@@ -90,16 +90,15 @@ class App extends Component {
                                                                (<div><NavBar id={this.state.current_user_id}/>
                                                                 <Blog /></div>) : <Redirect to="/" />)} />
 
-<<<<<<< HEAD
 
 
           <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
                                                                 <Maps /> : <Redirect to="/" />)} />
-=======
+
           <Route exact path={generateUserURL(this.state.current_user_id, "events")} render={() => (this.state.current_user !== null ?
                                                                 (<div><NavBar id={this.state.current_user_id}/>
                                                                 <Events /></div>) : <Redirect to="/" />)} />
->>>>>>> andrew-lexy-frontend
+
 
           <Route exact path={generateUserURL(this.state.current_user_id, "recent")} render={() => (this.state.current_user !== null ?
                                                                 (<div><NavBar id={this.state.current_user_id}/>
