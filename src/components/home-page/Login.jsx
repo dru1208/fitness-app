@@ -7,7 +7,6 @@ class LoginForm extends Component {
         email: e.target.email.value,
         password: e.target.password.value
       }
-      console.log("hi")
       console.log("hi", JSON.stringify(loginObj))
   }
 
