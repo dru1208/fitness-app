@@ -1,27 +1,28 @@
 import React from 'react';
 import history from '../../history.jsx'
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
+import generateUserURL from '../../_helper.jsx';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div>
-    <Link to="/users/1/dashboard">
+    <Link to={generateUserURL(props.id, "dashboard")}>
         <button>Dashboard</button>
     </Link>
-    <Link to="/users/1/map">
+    <Link to={generateUserURL(props.id, "map")}>
         <button>Map</button>
     </Link>
-    <Link to="/users/1/nutrition">
+    <Link to={generateUserURL(props.id, "nutrition")}>
         <button>Nutrition</button>
     </Link>
-    <Link to="/users/1/recent">
+    <Link to={generateUserURL(props.id, "recent")}>
         <button>Recent</button>
     </Link>
-    <Link to="/users/1/blog">
+    <Link to={generateUserURL(props.id, "blog")}>
         <button>Blog</button>
     </Link>
-    <Link to="/users/1/events">
+    <Link to={generateUserURL(props.id, "events")}>
         <button>Events</button>
     </Link>
     </div>
