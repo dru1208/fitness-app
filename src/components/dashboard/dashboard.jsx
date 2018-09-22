@@ -65,6 +65,13 @@ const feeds = [{
   content: "Which diet is more worth it at its given price point?"
 }]
 
+const fitnessGoalsTest = [
+  {description: "Run 5km", completed: false},
+  {description: "Lose 10 lbs", completed: true},
+  {description: "Wrestle with Andrew", completed: true},
+  {description: "be fat", completed: false}
+]
+
 
 //state should not be string when api is in use
 const weekly_data_stringed = JSON.stringify(weekly_data)
