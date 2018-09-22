@@ -44,9 +44,11 @@ class App extends Component {
         email: e.target.email.value,
         password: e.target.password.value,
         passwordConfirmation: e.target.passwordConfirmation.value,
+        location: e.target.location.value
       }
-    this.setState({current_user: "andrew"}, function(){
-      console.log(this.state.firstName)
+    this.setState({current_user: registrationObj.firstName}, function(){
+      console.log(this.state.current_user)
+       history.push("/users/1/dashboard")
     })
       console.log("hi", JSON.stringify(registrationObj))
   }
@@ -60,6 +62,8 @@ class App extends Component {
 
           <Route exact path="/users/1/dashboard" render={() => (this.state.current_user !== null ?
                                                                 <Dashboard /> : <Redirect to="/" />)} />
+
+
         </Switch>
 
 
