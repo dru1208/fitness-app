@@ -6,7 +6,7 @@ import Nutrition from './components/nutrition/nutrition-page.jsx';
 import Maps from './components/map/fitnessmaps.jsx';
 
 
-import RegistrationPage from './components/registration-page/register.jsx'
+import RegistrationPage from './components/registration-page/register.jsx';
 
 class App extends Component {
   render() {
