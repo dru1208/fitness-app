@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 
-class NewBlog extends Component {
+class BlogForm extends Component {
 
   _handleSubmit = (e) => {
     e.preventDefault();
-    const blogObj = {
-      content: e.target.blogContent.value,
-      category: e.target.blogCategory.value
+    if (e.target.blogCategory.value !== "Make a choice:") {
+      const blogObj = {
+        content: e.target.blogContent.value,
+        category: e.target.blogCategory.value
+      }
+      console.log("hi")
+      console.log("hi", JSON.stringify(blogObj))
     }
-    console.log("hi")
-    console.log("hi", JSON.stringify(blogObj))
   }
 
   render() {
@@ -42,4 +44,4 @@ class NewBlog extends Component {
 
 
 
-export default NewBlog;
+export default BlogForm;

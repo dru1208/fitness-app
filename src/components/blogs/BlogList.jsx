@@ -1,45 +1,21 @@
 import React, { Component } from 'react';
-import NewBlog from './BlogNew.jsx';
+import BlogEntry from "./BlogEntry.jsx"
+
+
+
+
+
 
 const BlogList = (props) => {
+
+  const generateBlogList = props.blogArray.map((blog, index) => {
+    <BlogEntry blog={blog} key={index}/>
+  })
+
+
   return (
     <div>
-      <h2>Blog List</h2>
-
-        <br />
-        <article className="container">
-          <header>
-          <img src="https://www.w3schools.com/images/lamp.jpg" />
-          <h3>title here</h3>
-          </header>
-          <hr />
-          <p>content should be here.</p>
-          <footer>
-          <div>icon like here</div>
-          </footer>
-        </article>
-         <article className="container">
-          <header>
-          <img src="https://www.w3schools.com/images/lamp.jpg" />
-          <h3>title here</h3>
-          </header>
-          <hr />
-          <p>content should be here.</p>
-          <footer>
-          <div>icon like here</div>
-          </footer>
-        </article>
-         <article className="container">
-          <header>
-          <img src="https://www.w3schools.com/images/lamp.jpg" />
-          <h3>title here</h3>
-          </header>
-          <hr />
-          <p>content should be here.</p>
-          <footer>
-          <div>icon like here</div>
-          </footer>
-        </article>
+      {generateBlogList}
     </div>
   )
 }
