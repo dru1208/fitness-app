@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RegistrationPage from './components/home-page/Register.jsx';
-import LoginPage from './components/home-page/Login.jsx';
-import BlogList from './components/blogs/BlogList.jsx';
-import NewBlog from './components/blogs/BlogNew.jsx';
-import BlogTitleBar from './components/blogs/BlogTitleBar.jsx';
+import Dashboard from './components/dashboard/dashboard.jsx';
+import Nutrition from './components/nutrition/nutrition-page.jsx';
+import Maps from './components/map/fitnessmaps.jsx';
 
-export class App extends Component {
-
-  constructor(props) {
-    super(props);
-
-  }
-
-
-
-
+class App extends Component {
   render() {
     return (
       <div className="App">
@@ -24,19 +13,15 @@ export class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <RegistrationPage />
-        <LoginPage />
-        <BlogTitleBar />
-        <NewBlog />
-        <BlogList />
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <Dashboard/>
+        <Nutrition/>
+        <Maps/>
       </div>
     );
   }
-
 }
-
-
-
-
 
 export default App;
