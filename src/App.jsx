@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
 import Nutrition from './components/nutrition/nutrition-page.jsx';
-import Maps from './components/map/fitnessmaps.jsx';
+import Maps from './components/map/fitness-maps.jsx';
+import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
+import Events from './components/fitness-events/event-new.jsx';
 
 import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
@@ -62,6 +64,19 @@ class App extends Component {
 
           <Route exact path="/users/1/dashboard" render={() => (this.state.current_user !== null ?
                                                                 <Dashboard /> : <Redirect to="/" />)} />
+
+          <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
+                                                                <Maps /> : <Redirect to="/" />)} />
+
+          <Route exact path="/users/1/nutrition" render={() => (this.state.current_user !== null ?
+                                                                <Nutrition /> : <Redirect to="/" />)} />
+          <Route exact path="/users/1/blog" render={() => (this.state.current_user !== null ?
+                                                                <Blog /> : <Redirect to="/" />)} />
+          <Route exact path="/users/1/events" render={() => (this.state.current_user !== null ?
+                                                                <Events /> : <Redirect to="/" />)} />
+          <Route exact path="/users/1/recent" render={() => (this.state.current_user !== null ?
+                                                                <Maps /> : <Redirect to="/" />)} />
+
         </Switch>
 
 

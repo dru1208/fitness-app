@@ -1,6 +1,6 @@
 import React from 'react'
 
-const EventForm = () {
+const EventForm = () => {
 
 
   return (
@@ -11,7 +11,6 @@ const EventForm = () {
         <input type="text" name="eventName"/><br/>
         <label htmlFor="eventDescription">Description</label>
         <textarea name="eventDescription" /><br/>
-        <label htmlFor=""
 
         <label htmlFor="eventDate">Date</label>
         <input type="date" name="eventDate" /><br/>
@@ -19,3 +18,5 @@ const EventForm = () {
     </div>
   )
 }
+
+export default EventForm;

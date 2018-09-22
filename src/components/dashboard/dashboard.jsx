@@ -4,6 +4,7 @@ import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
 import FitnessGoals from './fitness-goals/fitness-goal-list.jsx'
+import NavBar from './../nav-bar/nav-bar.jsx'
 
 
 //HARDCODED DATABASE TABLES
@@ -94,6 +95,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <main className="dashboard">
+        <NavBar/>
         <h1>Welcome, {this.state.currentUser}</h1>
 
         <FitnessGoals fitnessGoals={this.state.fitnessGoals}/>
