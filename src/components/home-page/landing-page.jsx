@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-import LoginForm from './login.jsx'
+import LoginForm from './login-form.jsx'
 import RegistrationForm from './registration.jsx'
 
 

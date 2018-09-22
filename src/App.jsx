@@ -4,7 +4,7 @@ import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
 import Nutrition from './components/nutrition/nutrition-page.jsx';
 import Maps from './components/map/fitnessmaps.jsx';
-import HomePage from './components/home-page/main.jsx';
+import HomePage from './components/home-page/landing-page.jsx';
 
 
 
