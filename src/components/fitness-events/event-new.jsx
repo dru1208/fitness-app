@@ -7,10 +7,14 @@ const EventForm = () {
     <div>
       <h2>Create your new event here!</h2>
       <form>
-        <label htmlFor="name">Event Name</label>
-        <input type="text" name="name"/><br/>
-        <label htmlFor="description">Description</label>
-        <textarea name="description" />
+        <label htmlFor="eventName">Event Name</label>
+        <input type="text" name="eventName"/><br/>
+        <label htmlFor="eventDescription">Description</label>
+        <textarea name="eventDescription" /><br/>
+        <label htmlFor=""
+
+        <label htmlFor="eventDate">Date</label>
+        <input type="date" name="eventDate" /><br/>
       </form>
     </div>
   )
