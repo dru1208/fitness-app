@@ -8,8 +8,12 @@ import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
 import Events from './components/fitness-events/event-new.jsx';
 
+import NavBar from './components/nav-bar/nav-bar.jsx'
+
 import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
+
+import generateUserURL from './_helper.jsx'
 
 
 
@@ -20,7 +24,8 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      current_user: null
+      current_user: null,
+      current_user_id: 9
     }
   }
 
@@ -33,7 +38,7 @@ class App extends Component {
     }
     this.setState({current_user: "andrew"}, function() {
       console.log(this.state.current_user)
-      history.push("/users/1/dashboard")
+      history.push(generateUserURL(this.state.current_user_id, "dashboard"))
     })
   }
 
@@ -50,12 +55,17 @@ class App extends Component {
       }
     this.setState({current_user: registrationObj.firstName}, function(){
       console.log(this.state.current_user)
+<<<<<<< HEAD
 
        history.push("/users/1/dashboard")
 
+=======
+      history.push(generateUserURL(this.state.current_user_id, "dashboard"))
+>>>>>>> andrew-lexy-frontend
     })
       console.log("hi", JSON.stringify(registrationObj))
   }
+
 
   render() {
 
@@ -64,22 +74,36 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <LandingPage handleLogin={this._handleLogin} handleRegister={this._handleRegister} /> } />
 
-          <Route exact path="/users/1/dashboard" render={() => (this.state.current_user !== null ?
-                                                                <Dashboard /> : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.current_user_id, "dashboard")} render={() => (this.state.current_user !== null ?
+                                                                (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Dashboard /></div>) : <Redirect to="/" />)} />
 
+          <Route exact path={generateUserURL(this.state.current_user_id, "map")} render={() => (this.state.current_user !== null ?
+                                                                (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Maps /></div>) : <Redirect to="/" />)} />
+
+          <Route exact path={generateUserURL(this.state.current_user_id, "nutrition")} render={() => (this.state.current_user !== null ?
+                                                                (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Nutrition /></div>) : <Redirect to="/" />)} />
+
+          <Route exact path={generateUserURL(this.state.current_user_id, "blog")} render={() => (this.state.current_user !== null ?
+                                                               (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Blog /></div>) : <Redirect to="/" />)} />
+
+<<<<<<< HEAD
 
 
           <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
                                                                 <Maps /> : <Redirect to="/" />)} />
+=======
+          <Route exact path={generateUserURL(this.state.current_user_id, "events")} render={() => (this.state.current_user !== null ?
+                                                                (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Events /></div>) : <Redirect to="/" />)} />
+>>>>>>> andrew-lexy-frontend
 
-          <Route exact path="/users/1/nutrition" render={() => (this.state.current_user !== null ?
-                                                                <Nutrition /> : <Redirect to="/" />)} />
-          <Route exact path="/users/1/blog" render={() => (this.state.current_user !== null ?
-                                                                <Blog /> : <Redirect to="/" />)} />
-          <Route exact path="/users/1/events" render={() => (this.state.current_user !== null ?
-                                                                <Events /> : <Redirect to="/" />)} />
-          <Route exact path="/users/1/recent" render={() => (this.state.current_user !== null ?
-                                                                <Maps /> : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.current_user_id, "recent")} render={() => (this.state.current_user !== null ?
+                                                                (<div><NavBar id={this.state.current_user_id}/>
+                                                                <Maps /></div>) : <Redirect to="/" />)} />
 
 
         </Switch>
