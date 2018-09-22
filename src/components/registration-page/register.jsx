@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 const RegistrationPage = (props) => {
   return (
     <div>
-    <h2>Registration Form</h2>
+      <h2>Registration Form</h2>
       <form>
         <label htmlFor="firstName">First Name:</label>
         <input type="text" name="firstName"></input><br></br>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
 
-const LoginPage = (props) => {
+const LoginForm = (props) => {
   return (
     <div>
-    <h2>Login Form</h2>
       <form>
         <label htmlFor="email">Email:</label>
         <input type="email" name="email"></input><br></br>
@@ -18,4 +17,4 @@ const LoginPage = (props) => {
   )
 }
 
-export default LoginPage;
+export default LoginForm;
