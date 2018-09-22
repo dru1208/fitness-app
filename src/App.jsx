@@ -6,7 +6,6 @@ import Nutrition from './components/nutrition/nutrition-page.jsx';
 import Maps from './components/map/fitnessmaps.jsx';
 
 
-import RegistrationPage from './components/registration-page/register.jsx';
 
 class App extends Component {
   render() {
@@ -16,7 +15,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <RegistrationPage />
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
