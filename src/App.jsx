@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Dashboard from './components/dashboard/dashboard.jsx';
+import Nutrition from './components/nutrition/nutrition-page.jsx';
+import Maps from './components/map/fitnessmaps.jsx';
 
 
 import RegistrationPage from './components/registration-page/register.jsx'
@@ -14,6 +17,12 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <RegistrationPage />
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+        <Dashboard/>
+        <Nutrition/>
+        <Maps/>
       </div>
     );
   }
