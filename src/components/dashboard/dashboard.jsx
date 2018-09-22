@@ -96,7 +96,6 @@ export default class Dashboard extends Component {
       <main className="dashboard">
         <h1>Welcome, {this.state.currentUser}</h1>
 
-
         <FitnessGoals fitnessGoals={this.state.fitnessGoals}/>
         <Activities weekly={this.state.weekly}/>
         <Nutrition nutrition={this.state.nutrition}/>
