@@ -3,6 +3,7 @@ import Activities from './weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './eventlist.jsx';
 import FeedList from './feedlist.jsx';
+import FitnessGoals from './fitness-goals/fitness-goal-list.jsx'
 
 
 //HARDCODED DATABASE TABLES
@@ -85,7 +86,8 @@ export default class Dashboard extends Component {
       weekly: weekly_data_stringed,
       nutrition: daily_nutrition_stringed,
       events: events,
-      feeds: feeds
+      feeds: feeds,
+      fitnessGoals: fitnessGoalsTest
     };
   }
 
@@ -93,15 +95,9 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboard">
         <h1>Welcome, {this.state.currentUser}</h1>
-        <h2>
-          Your Current Fitness Goals: <br />
-        </h2>
-        <div className="fitness-goals">
-          <span> Run 5km </span> <input type="checkbox" /> <br />
-          <span> Lose 10 lbs </span> <input type="checkbox"/> <br />
-          <span> Wrestle with Andrew </span> <input type="checkbox"/>
-        </div>
 
+
+        <FitnessGoals fitnessGoals={this.state.fitnessGoals}/>
         <Activities weekly={this.state.weekly}/>
         <Nutrition nutrition={this.state.nutrition}/>
         <EventList events={this.state.events}/>

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Event from "./event.jsx";
 
 const EventList = (props) => {
-  const generateEventList = props.events.map((e) => {
-      return <Event event={e} name={e.name} description={e.description} location={e.location} datetime={e.datetime} />
+  const generateEventList = props.events.map((e, index) => {
+      return <Event event={e} name={e.name} description={e.description} location={e.location} datetime={e.datetime} key={index} />
     })
 
   return (
