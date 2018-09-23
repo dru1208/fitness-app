@@ -7,7 +7,6 @@ export default class ImageUpload extends Component {
 	}
 
 	uploadButtonHandler = (event) => {
-		event.preventDefault();
 		console.log(this.state.image);
 	};
 
