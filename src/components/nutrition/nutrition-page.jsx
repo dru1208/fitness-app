@@ -12,16 +12,53 @@ const daily_nutrition = {
 }
 const daily_nutrition_stringed = JSON.stringify(daily_nutrition)
 
+
+
 export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentUser: "Vincent",
-      nutrition: daily_nutrition_stringed
+      nutrition: daily_nutrition_stringed,
+      image: null
     };
+    this.uploadButtonHandler = this.uploadButtonHandler.bind(this);
+    this.selectImageHandler = this.selectImageHandler.bind(this);
+  }
+
+  uploadButtonHandler = (event) => {
+    event.preventDefault();
+    console.log(this.state.image);
+  };
+
+  //handles 'choose file' button
+  selectImageHandler = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+      reader.onload = (e) => {
+          this.setState({image: e.target.result});
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   render() {
+    //renders with image tag if a picture exists in the state
+    if (this.state.image) {
+      return (
+        <main className="nutrition-page">
+          <h1>Nutrition page</h1>
+          <div className="watson">
+          This is where watson api will go.
+          </div>
+          <NutritionInput/>
+          <input type="file" onChange={this.selectImageHandler} name="pic" accept="image/*"/>
+          <button type="button" onClick={this.uploadButtonHandler}>Upload</button>
+          <p>Image preview:</p>
+          <img class="image-preview" src={this.state.image} height="150px" width="auto"/>
+        </main>
+      );
+    }
     return (
       <main className="nutrition-page">
         <h1>Nutrition page</h1>
@@ -29,8 +66,9 @@ export default class Dashboard extends Component {
         This is where watson api will go.
         </div>
         <NutritionInput/>
+        <input type="file" onChange={this.selectImageHandler} name="pic" accept="image/*"/>
+        <button type="button" onClick={this.uploadButtonHandler}>Upload</button>
       </main>
     );
   }
-
 }
