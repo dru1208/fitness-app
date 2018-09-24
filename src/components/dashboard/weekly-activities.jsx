@@ -52,6 +52,8 @@ export default class Activities extends Component {
           legendToggle
         />
       </div>
+       <label htmlFor="add activity">Add how many minutes for your today's excercise:</label>
+        <input type="email" name="email"></input>
       </main>
 
     )

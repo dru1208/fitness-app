@@ -57,9 +57,6 @@ class App extends Component {
       console.log(this.state.current_user)
 
 
-       history.push("/users/1/dashboard")
-
-
       history.push(generateUserURL(this.state.current_user_id, "dashboard"))
 
     })
