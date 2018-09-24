@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NutritionInput from "./nutrition-input.jsx"
+import ImageUpload from "./nutrition-upload-image.jsx"
 
 //HARDCODED DATABASE TABLES
 
@@ -29,8 +30,8 @@ export default class Dashboard extends Component {
         This is where watson api will go.
         </div>
         <NutritionInput/>
+        <ImageUpload/>
       </main>
     );
   }
-
 }
