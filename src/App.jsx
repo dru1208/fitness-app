@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
@@ -14,6 +16,8 @@ import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
 import generateUserURL from './_helper.jsx'
+
+
 
 
 
@@ -44,15 +48,20 @@ class App extends Component {
 
   _handleRegister = (e) => {
     e.preventDefault();
-      console.log("hello you've registered in")
-      const registrationObj = {
-        firstName: e.target.firstName.value,
-        lastName: e.target.lastName.value,
-        email: e.target.email.value,
-        password: e.target.password.value,
-        passwordConfirmation: e.target.passwordConfirmation.value,
-        location: e.target.location.value
-      }
+    console.log("hello you've registered in")
+    const registrationObj = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+      passwordConfirmation: e.target.passwordConfirmation.value,
+      location: e.target.location.value
+    }
+    const data = JSON.stringify(registrationObj)
+    axios.post('http://localhost:3000/api/register', data)
+      .then(() => {
+        console.log("register info has been posted")
+      })
     this.setState({current_user: registrationObj.firstName}, function(){
       console.log(this.state.current_user)
       history.push(generateUserURL(this.state.current_user_id, "dashboard"))
