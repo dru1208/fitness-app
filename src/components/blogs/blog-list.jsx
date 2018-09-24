@@ -1,27 +1,12 @@
 import React, { Component } from 'react';
 import BlogEntry from "./blog-entry.jsx"
 
-
-
-
-
-
 const BlogList = (props) => {
-
-  const generateBlogList = props.blogsArray.map((blog, index) => {
-    <BlogEntry blog={blog} key={index}/>
-  })
-
-
   return (
     <div>
-      {generateBlogList}
+      <BlogEntry />
     </div>
   )
 }
-
-
-
-
 
 export default BlogList;

@@ -4,11 +4,11 @@ import axios from 'axios'
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './components/dashboard/dashboard.jsx';
-import Nutrition from './components/nutrition/nutrition-page.jsx';
+import Nutrition from './components/nutrition/nutrition-main.jsx';
 import Maps from './components/map/fitness-maps.jsx';
 import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
-import Events from './components/fitness-events/event-new.jsx';
+import Events from './components/fitness-events/event-main.jsx';
 
 import NavBar from './components/nav-bar/nav-bar.jsx'
 

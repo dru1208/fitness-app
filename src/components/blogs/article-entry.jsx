@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-export default class BlogEntry extends React.Component {
+export default class ArticleEntry extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -10,7 +10,7 @@ export default class BlogEntry extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/blogs')
+    axios.get('http://localhost:3000/api/articles')
       .then((response) => {
         const data = response.data;
         this.setState({data})
@@ -25,7 +25,7 @@ export default class BlogEntry extends React.Component {
           <header>
             <h3>{entries.title}</h3>
           </header>
-            <p>{entries.content}</p>
+            <p>{entries.link}</p>
           <footer>
             <div>icon like here</div>
           </footer>

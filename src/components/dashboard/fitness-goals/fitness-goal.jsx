@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 class FitnessGoal extends Component {
 
   generateCheckBox = () => {
-    console.log("hello")
     if (this.props.goal.completed === false) {
       return <input type="checkbox" value="completed"/>
     } else {
