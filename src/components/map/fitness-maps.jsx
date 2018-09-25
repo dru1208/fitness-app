@@ -9,7 +9,7 @@ export class MapContainer extends Component {
     return (
       <main>
         <h1>Fitness Map</h1>
-        <div>Nearby Gyms go here</div>
+        <div><GymMap /></div>
         <div>Nearby Events go here</div>
       </main>
     );
