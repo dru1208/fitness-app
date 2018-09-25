@@ -12,7 +12,10 @@ export class MapContainer extends Component {
         google={this.props.google}
         zoom={16}
         initialCenter={{lat: 43.6446002, lng: -79.3951586}}>
-           <Marker title={'Current Location'} name={'Current Location'} position={{lat: 43.6446002, lng: -79.3951586}} />
+           <Marker
+            title={'Current Location'}
+            name={'Current Location'}
+            position={{lat: 43.6446002, lng: -79.3951586}} />
           <InfoWindow onClose={this.onInfoWindowClose}></InfoWindow>
         </Map>
       </main>
