@@ -11,9 +11,9 @@ const EventForm = () => {
         <input type="text" name="eventName"/><br/>
         <label htmlFor="eventDescription">Description</label>
         <textarea name="eventDescription" /><br/>
-
         <label htmlFor="eventDate">Date</label>
         <input type="date" name="eventDate" /><br/>
+        <input type="submit"/>
       </form>
     </div>
   )

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import axios from 'axios';
 
-const latLng = (array) => {
+const coordinates = (array) => {
   return {lat: array[0], lng: array[1]}
 }
 
@@ -22,7 +22,7 @@ export class MapContainer extends Component {
         const oldMapData = this.state.mapData
         const newMapData = []
         data.forEach((location) => {
-          newMapData.push(latLng(location))
+          newMapData.push(coordinates(location))
         })
         this.setState( {mapData: [...newMapData, ...oldMapData]} )
       })
@@ -32,7 +32,12 @@ export class MapContainer extends Component {
 
   render() {
     const generateMapMarkers = this.state.mapData.map ((marker, index) => {
-      return <Marker position={marker} key={index} />
+      return <Marker position={marker} key={index} onClick = {generateInfoWindow}/>
+    })
+
+    const generateInfoWindow = this.state.mapData.map ((info, index) => {
+      console.log('clicked')
+      return <InfoWindow visible={true} />
     })
 
     console.log(generateMapMarkers);
