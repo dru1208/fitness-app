@@ -24,7 +24,9 @@ const RegistrationForm = (props) => {
         <label htmlFor="passwordConfirmation">Password Confirmation:</label>
         <input type="password" name="passwordConfirmation"></input><br></br>
 
+
         <label htmlFor="location">Location (optional):</label>
+
         <input type="text" name="location"></input><br></br>
 
         <input type="submit" value="Submit"></input>

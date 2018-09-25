@@ -24,7 +24,6 @@ import generateUserURL from './_helper.jsx'
 
 class App extends Component {
 
-
   constructor (props) {
     super(props)
     this.state = {
@@ -64,7 +63,10 @@ class App extends Component {
       })
     this.setState({current_user: registrationObj.firstName}, function(){
       console.log(this.state.current_user)
+
+
       history.push(generateUserURL(this.state.current_user_id, "dashboard"))
+
     })
       console.log("hi", JSON.stringify(registrationObj))
   }
@@ -93,13 +95,20 @@ class App extends Component {
                                                                (<div><NavBar id={this.state.current_user_id}/>
                                                                 <Blog /></div>) : <Redirect to="/" />)} />
 
+
+
+          <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
+                                                                <Maps /> : <Redirect to="/" />)} />
+
           <Route exact path={generateUserURL(this.state.current_user_id, "events")} render={() => (this.state.current_user !== null ?
                                                                 (<div><NavBar id={this.state.current_user_id}/>
                                                                 <Events /></div>) : <Redirect to="/" />)} />
 
+
           <Route exact path={generateUserURL(this.state.current_user_id, "recent")} render={() => (this.state.current_user !== null ?
                                                                 (<div><NavBar id={this.state.current_user_id}/>
                                                                 <Maps /></div>) : <Redirect to="/" />)} />
+
 
         </Switch>
 
