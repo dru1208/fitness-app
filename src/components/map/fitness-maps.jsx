@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import EventsMap from "./events-map.jsx";
 import GymMap from "./gym-map.jsx";
-import EventMap from "./events-map.jsx"
+import EventMap from "./events-map.jsx";
 
 export class MapContainer extends Component {
 
@@ -11,7 +11,7 @@ export class MapContainer extends Component {
       <main>
         <h1>Fitness Map</h1>
         <div>
-        <GymMap />
+        <EventsMap />
         </div>
         <div>Nearby Events go here</div>
       </main>

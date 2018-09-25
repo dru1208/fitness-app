@@ -16,9 +16,10 @@ export class MapContainer extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/maps')
+    axios.get('http://localhost:3000/api/event_maps')
       .then((response) => {
         const data = response.data;
+        console.log("data is", data)
         const oldMapData = this.state.mapData
         const newMapData = []
         data.forEach((location) => {
@@ -34,6 +35,8 @@ export class MapContainer extends Component {
     const generateMapMarkers = this.state.mapData.map ((marker, index) => {
       return <Marker position={marker} key={index} />
     })
+
+
 
     console.log(generateMapMarkers);
 
