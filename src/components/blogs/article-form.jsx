@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class BlogForm extends Component {
+class articleForm extends Component {
   constructor(props) {
     super(props)
     this.state ={
       title: "",
-      content: ""
+      link: ""
     }
   }
 
@@ -15,18 +15,18 @@ class BlogForm extends Component {
     console.log('setting state title', this.state.title)
   }
 
-  handleContentChange = (e) => {
+  handleLinkChange = (e) => {
     this.setState( {content: e.target.value} )
-    console.log('setting state content', this.state.content)
+    console.log('setting state content', this.state.link)
   }
 
   _handleSubmit = (e) => {
     e.preventDefault();
     let title = this.state.title
-    let content = this.state.content
-    axios.post('http://localhost:3000/api/blogs', {
+    let link = this.state.link
+    axios.post('http://localhost:3000/api/articles', {
       title: title,
-      content: content
+      link: link
     }).then((response) => {
         console.log(response)
       })
@@ -35,15 +35,15 @@ class BlogForm extends Component {
   render() {
     return (
       <div>
-        <h2>New Blog</h2>
+        <h2>New article</h2>
           <main className="container">
-            <section className="newBlog">
-              <h3 className="title">Post a blog</h3>
-              <form onSubmit={this._handleSubmit} className="newBlogForm">
-                <label htmlFor="blogTitle">Title</label>
-                <input name="blogTitle" onChange={this.handleTitleChange}/>
-                <label htmlFor="blogContent">Content</label>
-                <textarea name="blogContent" onChange={this.handleContentChange}/>
+            <section className="newarticle">
+              <h3 className="title">Post a article</h3>
+              <form onSubmit={this._handleSubmit} className="newArticleForm">
+                <label htmlFor="articleTitle">Title</label>
+                <input name="articleTitle" onChange={this.handleTitleChange}/>
+                <label htmlFor="articleLink">Link</label>
+                <textarea name="articleLink" onChange={this.handleLinkChange}/>
                 <input type="submit"/>
               </form>
                 <span>300</span>
@@ -58,4 +58,4 @@ class BlogForm extends Component {
 
 
 
-export default BlogForm;
+export default articleForm;

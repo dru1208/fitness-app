@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from './components/dashboard/dashboard.jsx';
-import Nutrition from './components/nutrition/nutrition-main.jsx';
-import Maps from './components/map/fitness-maps.jsx';
-import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
+import Dashboard from './components/dashboard/dashboard.jsx';
+import Maps from './components/map/fitness-maps.jsx';
+import Nutrition from './components/nutrition/nutrition-main.jsx';
+import Recent from './components/recent/recent-main.jsx';
+import Blog from './components/blogs/blog-main.jsx';
 import Events from './components/fitness-events/event-main.jsx';
 
 import NavBar from './components/nav-bar/nav-bar.jsx'
@@ -90,7 +91,7 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.current_user_id, "recent")} render={() => (this.state.current_user !== null ?
                                                                 (<div><NavBar id={this.state.current_user_id}/>
-                                                                <Maps /></div>) : <Redirect to="/" />)} />
+                                                                <Recent /></div>) : <Redirect to="/" />)} />
 
         </Switch>
 

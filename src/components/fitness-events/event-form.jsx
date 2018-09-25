@@ -56,7 +56,7 @@ class EventForm extends Component {
         <label htmlFor="eventLocation">Location</label>
         <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this.handleLocationChange}/><br/>
         <label htmlFor="eventDate">Date</label>
-        <input type="date" name="eventDate" onChange={this.handleDateChange}/><br/>
+        <input type="datetime-local" name="eventDate" onChange={this.handleDateChange}/><br/>
         <input type="submit"/>
       </form>
     </div>
