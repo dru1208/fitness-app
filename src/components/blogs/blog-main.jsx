@@ -13,12 +13,12 @@ const BlogMain = (props) => {
   return(
     <main>
       <BlogHeader user={user}/>
-      <BlogForm />
+      <BlogForm userID={props.userID}/>
       <h2> Blogs </h2>
-      <BlogList id={props.id}/>
+      <BlogList userID={props.userID}/>
       <h2> Articles </h2>
-      <ArticleForm />
-      <ArticleList />
+      <ArticleForm userID={props.userID}/>
+      <ArticleList userID={props.userID}/>
     </main>
   )
 }

@@ -6,7 +6,8 @@ class articleForm extends Component {
     super(props)
     this.state ={
       title: "",
-      link: ""
+      link: "",
+      userID: this.props.userID
     }
   }
 
@@ -16,7 +17,7 @@ class articleForm extends Component {
   }
 
   handleLinkChange = (e) => {
-    this.setState( {content: e.target.value} )
+    this.setState( {link: e.target.value} )
     console.log('setting state content', this.state.link)
   }
 
@@ -24,7 +25,9 @@ class articleForm extends Component {
     e.preventDefault();
     let title = this.state.title
     let link = this.state.link
+    let userID = this.state.userID
     axios.post('http://localhost:3000/api/articles', {
+      id: userID,
       title: title,
       link: link
     }).then((response) => {

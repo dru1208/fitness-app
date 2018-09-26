@@ -17,7 +17,7 @@ import NavBar from './components/nav-bar/nav-bar.jsx'
 import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 
-import generateUserURL from './_helper.jsx'
+import { generateUserURL } from './_helper.jsx'
 
 
 
@@ -145,7 +145,7 @@ class App extends Component {
             render={() => (this.state.currentUser ?
               (<div>
                 <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <BlogMain name={this.state.currentUser} id={this.state.userID}/>
+                <BlogMain name={this.state.currentUser} userID={this.state.userID}/>
               </div>) :
               <Redirect to="/" />
             )}
@@ -163,7 +163,7 @@ class App extends Component {
             render={() => (this.state.currentUser ?
               (<div>
                 <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Events />
+                <Events userID={this.state.userID} history={history}/>
               </div>) :
               <Redirect to="/" />
             )}

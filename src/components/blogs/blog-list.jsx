@@ -4,7 +4,7 @@ import BlogEntry from "./blog-entry.jsx"
 const BlogList = (props) => {
   return (
     <div>
-      <BlogEntry />
+      <BlogEntry userID={props.userID}/>
     </div>
   )
 }

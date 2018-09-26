@@ -6,7 +6,7 @@ const EventList = (props) => {
   return (
   <main className="events">
     <h1>Events</h1>
-      <EventEntry />
+      <EventEntry userID={props.userID} history={props.history}/>
   </main>
   )
 }
