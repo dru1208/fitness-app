@@ -13,9 +13,6 @@ class EventForm extends Component {
     }
   }
 
-  // componentDidMount () => {
-  //   axios.get()
-  // }
 
   _handleTitleChange = (e) => {
     this.setState( {name: e.target.value} )
@@ -47,8 +44,8 @@ class EventForm extends Component {
       location: location,
       datetime: datetime
     }).then((response) => {
-        console.log(response)
-      })
+        this.props.handleNewEvent(response.data)
+    })
   }
 
   render() {

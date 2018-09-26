@@ -24,7 +24,9 @@ const NavBar = (props) => {
       <Link to={generateUserURL(props.id, "events")}>
           <button>Events</button>
       </Link>
-      <button onClick={props.handleLogout}>Logout</button>
+      <Link to="/">
+        <button onClick={props.handleLogout}>Logout</button>
+      </Link>
     </div>
   )
 }
