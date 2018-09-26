@@ -4,11 +4,12 @@ import jwt_decode from 'jwt-decode'
 
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from './components/dashboard/dashboard.jsx';
-import Nutrition from './components/nutrition/nutrition-main.jsx';
-import Maps from './components/map/fitness-maps.jsx';
-import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
+import Dashboard from './components/dashboard/dashboard.jsx';
+import Maps from './components/map/fitness-maps.jsx';
+import Nutrition from './components/nutrition/nutrition-main.jsx';
+import Recent from './components/recent/recent-main.jsx';
+import Blog from './components/blogs/blog-main.jsx';
 import Events from './components/fitness-events/event-main.jsx';
 
 import NavBar from './components/nav-bar/nav-bar.jsx'
@@ -131,7 +132,6 @@ class App extends Component {
                                                                 <Blog /></div>) : <Redirect to="/" />)} />
 
 
-
           <Route exact path="/users/1/map" render={() => (this.state.userLoggedIn ?
                                                                 <Maps /> : <Redirect to="/" />)} />
 
@@ -139,10 +139,10 @@ class App extends Component {
                                                                 (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Events /></div>) : <Redirect to="/" />)} />
 
-
           <Route exact path={generateUserURL(this.state.currentUser_id, "recent")} render={() => (this.state.userLoggedIn ?
                                                                 (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Maps /></div>) : <Redirect to="/" />)} />
+                                                                <Recent /></div>) : <Redirect to="/" />)} />
+
 
 
         </Switch>

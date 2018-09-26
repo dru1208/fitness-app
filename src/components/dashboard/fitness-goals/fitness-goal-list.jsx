@@ -1,20 +1,17 @@
 import React from 'react'
 import FitnessGoal from './fitness-goal.jsx'
-
-const FitnessGoals = (props) => {
-
-  const generateFitnessGoalList = props.fitnessGoals.map((goal, index) => {
-      return <FitnessGoal goal={goal} key={index} />
-  })
+import GoalForm from './fitness-goal-form.jsx'
+import GoalEntry from './fitness-goal-entry.jsx'
+const GoalList = (props) => {
 
   return (
-    <div>
-      <h2>Your Current Fitness Goals:</h2>
-      <div className="fitness-goals">
-        {generateFitnessGoalList}
-      </div>
-    </div>
+  <main className="Your Current Fitness Goals:">
+    <h1>Recent Goals</h1>
+      <GoalEntry />
+      <GoalForm />
+  </main>
   )
 }
 
-export default FitnessGoals
+export default GoalList;
+
