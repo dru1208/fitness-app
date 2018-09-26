@@ -11,7 +11,7 @@ export class MapContainer extends Component {
       <main>
         <h1>Fitness Map</h1>
         <div>
-        <EventsMap />
+        <EventMap />
         </div>
         <div>Nearby Events go here</div>
       </main>
