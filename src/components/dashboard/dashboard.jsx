@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Activities from './weekly-activities.jsx';
+import Activities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
-import FitnessGoals from './fitness-goals/fitness-goal-list.jsx'
+import GoalList from './fitness-goals/fitness-goal-list.jsx'
 
 
 //HARDCODED DATABASE TABLES
@@ -96,7 +96,7 @@ export default class Dashboard extends Component {
       <main className="dashboard">
         <h1>Welcome, {this.state.currentUser}</h1>
 
-        <FitnessGoals fitnessGoals={this.state.fitnessGoals}/>
+        <GoalList GoalList={this.state.fitnessGoals}/>
         <Activities weekly={this.state.weekly}/>
         <Nutrition nutrition={this.state.nutrition}/>
         <EventList events={this.state.events}/>

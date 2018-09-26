@@ -28,6 +28,7 @@ export default class BlogEntry extends React.Component {
             <p>{entries.content}</p>
           <footer>
             <div>icon like here</div>
+            <input type="submit" value="Delete"/>
           </footer>
         </article>
       )}

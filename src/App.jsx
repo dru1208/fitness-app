@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import jwt_decode from 'jwt-decode'
 
 import logo from './logo.svg';
 import './App.css';
-import Dashboard from './components/dashboard/dashboard.jsx';
-import Nutrition from './components/nutrition/nutrition-main.jsx';
-import Maps from './components/map/fitness-maps.jsx';
-import Blog from './components/blogs/blog-main.jsx';
 import LandingPage from './components/home-page/landing-page.jsx';
+import Dashboard from './components/dashboard/dashboard.jsx';
+import Maps from './components/map/fitness-maps.jsx';
+import Nutrition from './components/nutrition/nutrition-main.jsx';
+import Recent from './components/recent/recent-main.jsx';
+import Blog from './components/blogs/blog-main.jsx';
 import Events from './components/fitness-events/event-main.jsx';
 
 import NavBar from './components/nav-bar/nav-bar.jsx'
@@ -24,12 +26,13 @@ import generateUserURL from './_helper.jsx'
 
 class App extends Component {
 
-
   constructor (props) {
     super(props)
     this.state = {
-      current_user: null,
-      current_user_id: 9
+      userLoggedIn: false,
+      currentUser: null,
+      userID: null,
+      jwt: null
     }
   }
 
@@ -40,10 +43,26 @@ class App extends Component {
       email: e.target.email.value,
       password: e.target.password.value
     }
-    this.setState({current_user: "andrew"}, function() {
-      console.log(this.state.current_user)
-      history.push(generateUserURL(this.state.current_user_id, "dashboard"))
-    })
+    const data = JSON.stringify(loginObj)
+    const options = {
+      method: "POST",
+      headers: {'content-type': 'application/json'},
+      data: data,
+      url: 'http://localhost:3000/api/login'
+    }
+    axios(options)
+      .then((response) => {
+        if (response.data) {
+          const userInfo = jwt_decode(response.data)
+          this.setState({
+            userLoggedIn: true,
+            currentUser: userInfo.firstName,
+            userID: userInfo.userID,
+            jwt: response.data
+          })
+          history.push(generateUserURL(this.state.currentUser_id, "dashboard"))
+        }
+      })
   }
 
   _handleRegister = (e) => {
@@ -58,21 +77,34 @@ class App extends Component {
       location: e.target.location.value
     }
     const data = JSON.stringify(registrationObj)
-    axios.post('http://localhost:3000/api/register', data)
-      .then(() => {
-        console.log("register info has been posted")
+    const options = {
+      method: "POST",
+      headers: {'content-type': 'application/json'},
+      data: data,
+      url: 'http://localhost:3000/api/register'
+    }
+    axios(options)
+      .then((response) => {
+        if (response.data) {
+          const userInfo = jwt_decode(response.data)
+          this.setState({
+            userLoggedIn: true,
+            currentUser: userInfo.firstName,
+            userID: userInfo.userID,
+            jwt: response.data
+          })
+          history.push(generateUserURL(this.state.currentUser_id, "dashboard"))
+        }
       })
-    this.setState({current_user: registrationObj.firstName}, function(){
-      console.log(this.state.current_user)
+  }
 
-
-       history.push("/users/1/dashboard")
-
-
-      history.push(generateUserURL(this.state.current_user_id, "dashboard"))
-
+  _handleLogout = (e) => {
+    this.setState({
+      userLoggedIn: false,
+      currentUser: null,
+      user_id: null,
+      jwt: null
     })
-      console.log("hi", JSON.stringify(registrationObj))
   }
 
 
@@ -83,35 +115,34 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <LandingPage handleLogin={this._handleLogin} handleRegister={this._handleRegister} /> } />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "dashboard")} render={() => (this.state.current_user !== null ?
-                                                                (<div><NavBar id={this.state.current_user_id}/>
+          <Route exact path={generateUserURL(this.state.currentUser_id, "dashboard")} render={() => (this.state.userLoggedIn ?
+                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Dashboard /></div>) : <Redirect to="/" />)} />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "map")} render={() => (this.state.current_user !== null ?
-                                                                (<div><NavBar id={this.state.current_user_id}/>
+          <Route exact path={generateUserURL(this.state.currentUser_id, "map")} render={() => (this.state.userLoggedIn ?
+                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Maps /></div>) : <Redirect to="/" />)} />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "nutrition")} render={() => (this.state.current_user !== null ?
-                                                                (<div><NavBar id={this.state.current_user_id}/>
+          <Route exact path={generateUserURL(this.state.currentUser_id, "nutrition")} render={() => (this.state.userLoggedIn ?
+                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Nutrition /></div>) : <Redirect to="/" />)} />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "blog")} render={() => (this.state.current_user !== null ?
-                                                               (<div><NavBar id={this.state.current_user_id}/>
+          <Route exact path={generateUserURL(this.state.currentUser_id, "blog")} render={() => (this.state.userLoggedIn ?
+                                                               (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Blog /></div>) : <Redirect to="/" />)} />
 
 
-
-          <Route exact path="/users/1/map" render={() => (this.state.current_user !== null ?
+          <Route exact path="/users/1/map" render={() => (this.state.userLoggedIn ?
                                                                 <Maps /> : <Redirect to="/" />)} />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "events")} render={() => (this.state.current_user !== null ?
-                                                                (<div><NavBar id={this.state.current_user_id}/>
+          <Route exact path={generateUserURL(this.state.currentUser_id, "events")} render={() => (this.state.userLoggedIn ?
+                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
                                                                 <Events /></div>) : <Redirect to="/" />)} />
 
+          <Route exact path={generateUserURL(this.state.currentUser_id, "recent")} render={() => (this.state.userLoggedIn ?
+                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
+                                                                <Recent /></div>) : <Redirect to="/" />)} />
 
-          <Route exact path={generateUserURL(this.state.current_user_id, "recent")} render={() => (this.state.current_user !== null ?
-                                                                (<div><NavBar id={this.state.current_user_id}/>
-                                                                <Maps /></div>) : <Redirect to="/" />)} />
 
 
         </Switch>
