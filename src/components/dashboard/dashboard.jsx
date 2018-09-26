@@ -4,6 +4,7 @@ import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
 import GoalList from './fitness-goals/fitness-goal-list.jsx'
+import EventEntry from './event-list/event-entry.jsx'
 
 
 //HARDCODED DATABASE TABLES
@@ -82,9 +83,10 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentUser: "Vincent",
-      weekly: weekly_data_stringed,
-      nutrition: daily_nutrition_stringed,
+      currentUser: props.name,
+      id: props.id,
+      weekly: weekly_data,
+      nutrition: daily_nutrition,
       events: events,
       feeds: feeds,
       fitnessGoals: fitnessGoalsTest
@@ -96,13 +98,16 @@ export default class Dashboard extends Component {
       <main className="dashboard">
         <h1>Welcome, {this.state.currentUser}</h1>
 
-        <GoalList GoalList={this.state.fitnessGoals}/>
-        <Activities weekly={this.state.weekly}/>
+        <GoalList />
+        <Activities />
         <Nutrition nutrition={this.state.nutrition}/>
-        <EventList events={this.state.events}/>
+
+        <EventEntry />
+
         <FeedList feed={this.state.feeds}/>
       </main>
     );
   }
-
 }
+
+// check how to limit event entry json from backend to only 3-5 events
