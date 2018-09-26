@@ -5,6 +5,7 @@ class EventForm extends Component {
   constructor(props) {
     super(props)
     this.state ={
+      userID: this.props.userID,
       name: "",
       description: "",
       location: "",
@@ -38,7 +39,9 @@ class EventForm extends Component {
     let description = this.state.description
     let location = this.state.location
     let datetime = this.state.datetime
+    let userID = this.state.userID
     axios.post('http://localhost:3000/api/events', {
+      id: userID,
       name: name,
       description: description,
       location: location,

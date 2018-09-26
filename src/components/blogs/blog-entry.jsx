@@ -5,7 +5,8 @@ export default class BlogEntry extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      userID: this.props.userID
     }
   }
 
