@@ -6,8 +6,10 @@ import EventForm from './event-form.jsx'
 const user = {first_name: "andrew"}
 
 const BlogMain = (props) => {
+
   return(
     <main>
+
       <EventForm />
       <EventList />
     </main>

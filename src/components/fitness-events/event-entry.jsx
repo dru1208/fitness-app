@@ -6,7 +6,7 @@ export default class EventEntry extends React.Component {
     super(props)
     this.state = {
       data: [],
-      id: 1
+      id: []
     }
   }
 
@@ -15,20 +15,19 @@ export default class EventEntry extends React.Component {
       .then((response) => {
         const data = response.data;
         this.setState({data})
+        this.state.data.forEach((x, index) => {
+          this.state.id.push(index)})
       })
   }
 
   _handleDestroy = (e) => {
     e.preventDefault();
-    let name = this.state.name
-    let description = this.state.description
-    let location = this.state.location
-    let datetime = this.state.datetime
-    let id = this.state.id
-    axios.delete('http://localhost:3000/api/events/:id', { id: id })
+    // console.log('name is here', entries.id)
+    // axios.delete('http://localhost:3000/api/events/:id', { id: id })
   }
 
   render() {
+    console.log('events', this.state.data)
     return (
       <div>
       { this.state.data.map(entries =>
