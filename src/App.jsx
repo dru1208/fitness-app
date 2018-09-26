@@ -9,7 +9,7 @@ import Dashboard from './components/dashboard/dashboard.jsx';
 import Maps from './components/map/fitness-maps.jsx';
 import Nutrition from './components/nutrition/nutrition-main.jsx';
 import Recent from './components/recent/recent-main.jsx';
-import Blog from './components/blogs/blog-main.jsx';
+import BlogMain from './components/blogs/blog-main.jsx';
 import Events from './components/fitness-events/event-main.jsx';
 
 import NavBar from './components/nav-bar/nav-bar.jsx'
@@ -29,7 +29,6 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      userLoggedIn: false,
       currentUser: null,
       userID: null,
       jwt: null
@@ -43,11 +42,10 @@ class App extends Component {
       email: e.target.email.value,
       password: e.target.password.value
     }
-    const data = JSON.stringify(loginObj)
     const options = {
       method: "POST",
       headers: {'content-type': 'application/json'},
-      data: data,
+      data: loginObj,
       url: 'http://localhost:3000/api/login'
     }
     axios(options)
@@ -55,12 +53,12 @@ class App extends Component {
         if (response.data) {
           const userInfo = jwt_decode(response.data)
           this.setState({
-            userLoggedIn: true,
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
             jwt: response.data
+          }, () => {
+            history.push(generateUserURL(this.state.userID, "dashboard"))
           })
-          history.push(generateUserURL(this.state.currentUser_id, "dashboard"))
         }
       })
   }
@@ -76,11 +74,10 @@ class App extends Component {
       passwordConfirmation: e.target.passwordConfirmation.value,
       location: e.target.location.value
     }
-    const data = JSON.stringify(registrationObj)
     const options = {
       method: "POST",
       headers: {'content-type': 'application/json'},
-      data: data,
+      data: registrationObj,
       url: 'http://localhost:3000/api/register'
     }
     axios(options)
@@ -88,26 +85,25 @@ class App extends Component {
         if (response.data) {
           const userInfo = jwt_decode(response.data)
           this.setState({
-            userLoggedIn: true,
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
             jwt: response.data
+          }, () => {
+            history.push(generateUserURL(this.state.userID, "dashboard"))
           })
-          history.push(generateUserURL(this.state.currentUser_id, "dashboard"))
         }
       })
   }
 
   _handleLogout = (e) => {
     this.setState({
-      userLoggedIn: false,
       currentUser: null,
-      user_id: null,
+      userID: null,
       jwt: null
     })
   }
 
-
+// do i need the user ID for navbar?? think some more
   render() {
 
     return (
@@ -115,33 +111,73 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => <LandingPage handleLogin={this._handleLogin} handleRegister={this._handleRegister} /> } />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "dashboard")} render={() => (this.state.userLoggedIn ?
-                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Dashboard /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "dashboard")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <Dashboard name={this.state.currentUser} id={this.state.userID}/>
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "map")} render={() => (this.state.userLoggedIn ?
-                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Maps /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "map")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <Maps />
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "nutrition")} render={() => (this.state.userLoggedIn ?
-                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Nutrition /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "nutrition")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <Nutrition />
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "blog")} render={() => (this.state.userLoggedIn ?
-                                                               (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Blog /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "blog")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <BlogMain name={this.state.currentUser} id={this.state.userID}/>
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
 
-          <Route exact path="/users/1/map" render={() => (this.state.userLoggedIn ?
-                                                                <Maps /> : <Redirect to="/" />)} />
+          <Route exact path="/users/1/map"
+            render={() => (this.state.currentUser ?
+              <Maps /> :
+              <Redirect to="/" />
+            )}
+          />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "events")} render={() => (this.state.userLoggedIn ?
-                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Events /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "events")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <Events />
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
-          <Route exact path={generateUserURL(this.state.currentUser_id, "recent")} render={() => (this.state.userLoggedIn ?
-                                                                (<div><NavBar handleLogout={this._handleLogout} id={this.state.currentUser_id}/>
-                                                                <Recent /></div>) : <Redirect to="/" />)} />
+          <Route exact path={generateUserURL(this.state.userID, "recent")}
+            render={() => (this.state.currentUser ?
+              (<div>
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
+                <Recent />
+              </div>) :
+              <Redirect to="/" />
+            )}
+          />
 
 
 

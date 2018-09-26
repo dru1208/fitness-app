@@ -15,7 +15,7 @@ const BlogMain = (props) => {
       <BlogHeader user={user}/>
       <BlogForm />
       <h2> Blogs </h2>
-      <BlogList />
+      <BlogList id={props.id}/>
       <h2> Articles </h2>
       <ArticleForm />
       <ArticleList />

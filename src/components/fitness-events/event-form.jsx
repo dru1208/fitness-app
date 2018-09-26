@@ -12,19 +12,23 @@ class EventForm extends Component {
     }
   }
 
-  handleTitleChange = (e) => {
+  // componentDidMount () => {
+  //   axios.get()
+  // }
+
+  _handleTitleChange = (e) => {
     this.setState( {name: e.target.value} )
   }
 
-  handleDescriptionChange = (e) => {
+  _handleDescriptionChange = (e) => {
     this.setState( {description: e.target.value} )
   }
 
-  handleLocationChange = (e) => {
+  _handleLocationChange = (e) => {
     this.setState( {location: e.target.value} )
   }
 
-  handleDateChange = (e) => {
+  _handleDateChange = (e) => {
     this.setState( {datetime: e.target.value} )
   }
 
@@ -50,13 +54,13 @@ class EventForm extends Component {
       <h2>Create your new event here!</h2>
       <form onSubmit={this._handleSubmit} className="newEventForm">
         <label htmlFor="eventName">Event Name</label>
-        <input type="text" name="eventName" onChange={this.handleTitleChange}/><br/>
+        <input type="text" name="eventName" onChange={this._handleTitleChange}/><br/>
         <label htmlFor="eventDescription">Description</label>
-        <textarea name="eventDescription" onChange={this.handleDescriptionChange} /><br/>
+        <textarea name="eventDescription" onChange={this._handleDescriptionChange} /><br/>
         <label htmlFor="eventLocation">Location</label>
-        <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this.handleLocationChange}/><br/>
+        <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this._handleLocationChange}/><br/>
         <label htmlFor="eventDate">Date</label>
-        <input type="datetime-local" name="eventDate" onChange={this.handleDateChange}/><br/>
+        <input type="datetime-local" name="eventDate" onChange={this._handleDateChange}/><br/>
         <input type="submit"/>
       </form>
     </div>

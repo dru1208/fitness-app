@@ -13,26 +13,27 @@ export default class GoalEntry extends React.Component {
     axios.get('http://localhost:3000/api/fitness_goals')
       .then((response) => {
         const data = response.data;
+        console.log(data, typeof data)
         this.setState({data})
       })
   }
 
-  generateCheckBox = () => {
+  generateCheckBox = (entry) => {
     console.log("hello")
-    if (this.state.data.completed === false) {
-      return <input type="checkbox" value="completed"/>
+    if (entry.completed === false) {
+      return <input type="checkbox" defaultunchecked="true"/>
     } else {
-      return <input type="checkbox" value="completed" defaultunchecked/>
+      return <input type="checkbox" defaultChecked="true"/>
     }
   }
 
   render() {
     return (
       <div>
-      { this.state.data.map(entries =>
-        <div className="single-goal">
-          <span>{entries.description} | {entries.datetime}</span>
-          {this.generateCheckBox()}
+      { this.state.data.map((entry, index) =>
+        <div className="single-goal" key={index}>
+          <span>{entry.description} | {entry.datetime.split('T')[0]}</span>
+          {this.generateCheckBox(entry)}
         </div>
       )}
       </div>

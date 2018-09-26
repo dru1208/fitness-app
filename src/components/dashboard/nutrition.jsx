@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 export default class Nutrition extends Component {
 
   render() {
-    const nutrition = JSON.parse(this.props.nutrition);
+    const nutrition = this.props.nutrition;
     const pieOptions = {
       title: "",
       pieHole: 0.6,

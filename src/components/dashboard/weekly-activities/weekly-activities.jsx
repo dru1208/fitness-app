@@ -65,12 +65,9 @@ export default class Activities extends Component {
   }
 
   render() {
-    const weekly = JSON.parse(this.props.weekly);
-    // if (this.state.data) {
-    // }
 
     return (
-      <main className="weekly_activities">
+      <main className="weekly_ activities">
       <h1>Weekly Activities</h1>
 
         <div className={"activities_chart"}>

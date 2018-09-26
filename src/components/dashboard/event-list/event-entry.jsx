@@ -23,13 +23,13 @@ export default class EventEntry extends React.Component {
   render() {
     return (
       <div>
-      { this.state.data.map(entries =>
-        <div className="single-event">
-          <a href="https://www.w3schools.com">{entries.name}</a>
-          <div className="event-description">{entries.description}</div>
-          <div className="event-datetime-location">{entries.location} • {entries.datetime}</div>
-        </div>
-      )}
+        { this.state.data.map((entry, index) =>
+          <div className="single-event" key={index}>
+            <div >{entry.name}</div>
+            <div className="event-description">{entry.description}</div>
+            <div className="event-datetime-location">{entry.location} • {entry.datetime}</div>
+          </div>
+        )}
       </div>
     )
   }

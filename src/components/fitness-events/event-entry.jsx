@@ -31,8 +31,8 @@ export default class EventEntry extends React.Component {
   render() {
     return (
       <div>
-      { this.state.data.map(entries =>
-        <form onSubmit={this._handleDestroy}>
+      { this.state.data.map((entries, index) =>
+        <form onSubmit={this._handleDestroy} key={index}>
           <div className="single-event">
             <span className="event-name">{entries.name}</span>
             <div className="event-description">{entries.description}</div>
