@@ -60,7 +60,7 @@ export class MapContainer extends Component {
         <Map
         google={this.props.google}
         zoom={16}
-        initialCenter={ {lat: 43.6446002, lng: -79.3951586} }>
+        initialCenter={ {lat: 37.389439, lng: -121.992289} }>
         {generateMapMarkers}
           <InfoWindow onClose={this.onInfoWindowClose}
                       marker={this.state.activeMarker}
