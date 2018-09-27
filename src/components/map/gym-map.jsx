@@ -7,7 +7,7 @@ const generateLatLng = (x, y) => {
   return {lat: x, lng: y}
 }
 
-export class MapContainer extends Component {
+export class GymMap extends Component {
 
   constructor(props) {
     super(props)
@@ -21,14 +21,30 @@ export class MapContainer extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/gym_maps')
-      .then((response) => {
-        const data = response.data;
-         console.log("data is", data);
-        this.setState({data})
-      })
+    const options = {
+      method: "GET",
+      url: "http://localhost:3000/api/gym_maps",
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': this.props.jwt
+      }
+    }
+    axios(options)
+      .then(response => {
+        console.log('this is our response')
+        console.log(response.data)
+    })
 
   }
+
+    // axios.get('http://localhost:3000/api/gym_maps')
+    //   .then((response) => {
+    //     const data = response.data;
+    //      console.log("data is", data);
+    //     this.setState({data})
+    //   })
+
+  // }
 
 
   onMarkerClick = (props, marker, event) => {
@@ -81,5 +97,5 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: (process.env.REACT_APP_GOOGLE_API_KEY),
   libraries: ['places']
-})(MapContainer)
+})(GymMap)
 

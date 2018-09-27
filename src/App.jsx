@@ -125,7 +125,7 @@ class App extends Component {
             render={() => (this.state.currentUser ?
               (<div>
                 <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Maps />
+                <Maps jwt={this.state.jwt}/>
               </div>) :
               <Redirect to="/" />
             )}
@@ -151,13 +151,6 @@ class App extends Component {
             )}
           />
 
-
-          <Route exact path="/users/1/map"
-            render={() => (this.state.currentUser ?
-              <Maps /> :
-              <Redirect to="/" />
-            )}
-          />
 
           <Route exact path={generateUserURL(this.state.userID, "events")}
             render={() => (this.state.currentUser ?

@@ -4,14 +4,14 @@ import EventsMap from "./events-map.jsx";
 import GymMap from "./gym-map.jsx";
 import EventMap from "./events-map.jsx";
 
-export class MapContainer extends Component {
+export class Maps extends Component {
 
   render() {
     return (
       <main>
         <h1>Fitness Map</h1>
         <div>
-        <EventMap />
+        <GymMap jwt={this.props.jwt}/>
         </div>
         <div>Nearby Events go here</div>
       </main>
@@ -21,7 +21,7 @@ export class MapContainer extends Component {
 
 export default GoogleApiWrapper({
   apiKey: (process.env.REACT_APP_GOOGLE_API_KEY)
-})(MapContainer)
+})(Maps)
 
 
 
