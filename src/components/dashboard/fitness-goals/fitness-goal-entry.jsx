@@ -13,7 +13,11 @@ export default class GoalEntry extends React.Component {
     axios.get('http://localhost:3000/api/fitness_goals')
       .then((response) => {
         const data = response.data;
-        console.log(data, typeof data)
+        data.sort(function(a, b) {
+          let dateA = new Date(a.datetime)
+          let dateB = new Date(b.datetime)
+          return dateA - dateB
+        })
         this.setState({data})
       })
   }

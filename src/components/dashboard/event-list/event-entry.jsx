@@ -16,7 +16,13 @@ export default class EventEntry extends React.Component {
     axios.get('http://localhost:3000/api/events')
       .then((response) => {
         const data = response.data;
-        this.setState({data})
+        data.sort(function(a, b) {
+          let dateA = new Date(a.datetime)
+          let dateB = new Date(b.datetime)
+          return dateA - dateB
+        })
+        const slicedData = data.slice(0,5)
+        this.setState({data: slicedData})
       })
   }
 
@@ -25,9 +31,9 @@ export default class EventEntry extends React.Component {
       <div>
         { this.state.data.map((entry, index) =>
           <div className="single-event" key={index}>
-            <div >{entry.name}</div>
+            <h3 >{entry.name}</h3>
             <div className="event-description">{entry.description}</div>
-            <div className="event-datetime-location">{entry.location} • {entry.datetime}</div>
+            <div className="event-datetime-location">{entry.location} • {entry.datetime.split('T')[0]}</div>
           </div>
         )}
       </div>

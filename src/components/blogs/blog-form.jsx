@@ -25,9 +25,9 @@ class BlogForm extends Component {
     e.preventDefault();
     let title = this.state.title
     let content = this.state.content
-    let userID = this.state.userID
+    let userID = this.props.userID
     axios.post('http://localhost:3000/api/blogs', {
-      id: userID,
+      user_id: userID,
       title: title,
       content: content
     }).then((response) => {
@@ -36,7 +36,7 @@ class BlogForm extends Component {
   }
 
   render() {
-    console.log(this.props, 'dslafdskla')
+    console.log(this.state.user_id, 'dslafdskla')
     return (
       <div>
         <h2>New Blog</h2>
