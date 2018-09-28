@@ -55,6 +55,8 @@ export default class Input extends Component {
           <input type="textbox" name="fat" /><br />
           <label htmlFor="sodium">Sodium (g)</label>
           <input type="textbox" name="sodium" /><br />
+          <label htmlFor="sodium">Carbohydrates (g)</label>
+          <input type="textbox" name="carbohydrates" /><br />
           <label htmlFor="cholesterol" >Cholesterol (g)</label>
           <input type="textbox" name="cholesterol" /><br />
           <label htmlFor="servingSize">Serving Size</label>
