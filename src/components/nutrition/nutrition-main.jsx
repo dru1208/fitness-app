@@ -17,7 +17,8 @@ export default class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentUser: "Vincent",
+      currentUser: this.props.name,
+      userID: this.props.userID,
       nutrition: daily_nutrition_stringed
     };
   }
@@ -29,7 +30,7 @@ export default class Dashboard extends Component {
         <div className="watson">
         This is where watson api will go.
         </div>
-        <NutritionInput/>
+        <NutritionInput userID={this.state.userID}/>
         <ImageUpload/>
       </main>
     );
