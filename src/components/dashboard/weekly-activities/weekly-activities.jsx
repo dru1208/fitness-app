@@ -21,7 +21,7 @@ export default class Activities extends Component {
     axios.get('http://localhost:3000/api/exercise_sessions')
     .then((response) => {
       const data = response.data;
-      for (let obj of data) {
+      data.map( (obj) => {
 
         let date = new Date(obj.datetime)
         let day = date.getDay()
@@ -58,8 +58,7 @@ export default class Activities extends Component {
             break;
 
         }
-      }
-
+      });
     })
 
   }

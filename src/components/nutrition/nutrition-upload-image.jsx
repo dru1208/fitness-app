@@ -11,8 +11,8 @@ export default class ImageUpload extends Component {
 	}
 
 	uploadButtonHandler = (event) => {
-		var string = this.state.image;
-		var result = string.split("base64,");
+		const string = this.state.image;
+		const result = string.split("base64,");
 		axios.post('http://localhost:3000/api/image_recognition', {
 			image: result[1],
 			imageName: this.state.imageName
