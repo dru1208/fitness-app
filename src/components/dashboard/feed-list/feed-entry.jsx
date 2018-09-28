@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-export default class BlogEntry extends React.Component {
+export default class FeedEntry extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,7 +13,7 @@ export default class BlogEntry extends React.Component {
     axios.get('http://localhost:3000/api/feeds')
       .then((response) => {
         const feeds = response.data;
-        this.setState({feeds: feeds})
+        this.setState({feeds})
       })
   }
 
@@ -23,24 +23,15 @@ export default class BlogEntry extends React.Component {
         let dateB = new Date(b.created_at)
         return dateA - dateB
     })
-    const sortedFeeds = this.state.feeds.reverse()
+    const sortedFeeds = this.state.feeds.reverse().slice(0,5)
     return (
       <div>
-      { sortedFeeds.map(entries =>
-        <article className="container">
-          <header>
-            <h3>{entries.title}</h3>
-          </header>
-            <p>{entries.content}</p>
-            <p>{entries.link}</p>
-          <footer>
-            <div>icon like here</div>
-          </footer>
-        </article>
-      )}
+        { sortedFeeds.map((entry, index) =>
+          <div className="single-feed">
+             <div>{entry.title}</div>
+          </div>
+        )}
       </div>
     )
   }
 }
-
-

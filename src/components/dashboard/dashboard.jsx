@@ -5,6 +5,7 @@ import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
 import GoalList from './fitness-goals/fitness-goal-list.jsx'
 import EventEntry from './event-list/event-entry.jsx'
+import FeedEntry from './feed-list/feed-entry.jsx'
 
 
 //HARDCODED DATABASE TABLES
@@ -102,9 +103,8 @@ export default class Dashboard extends Component {
         <Activities />
         <Nutrition nutrition={this.state.nutrition}/>
 
-        <EventEntry />
-
-        <FeedList feed={this.state.feeds}/>
+        <EventList />
+        <FeedList />
       </main>
     );
   }

@@ -11,14 +11,16 @@ export default class BlogEntry extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/blogs')
+    axios.get('http://localhost:3000/api/blogs', {params: {user_id: this.state.userID}})
       .then((response) => {
         const data = response.data;
+        data.reverse();
         this.setState({data})
       })
   }
 
   render() {
+    console.log(this.state.user_id, 'uiwquiwhq')
     return (
       <div>
       { this.state.data.map(entries =>
@@ -29,7 +31,6 @@ export default class BlogEntry extends React.Component {
             <p>{entries.content}</p>
           <footer>
             <div>icon like here</div>
-            <input type="submit" value="Delete"/>
           </footer>
         </article>
       )}

@@ -11,9 +11,10 @@ export default class ArticleEntry extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/articles')
+    axios.get('http://localhost:3000/api/articles', {params: {user_id: this.state.userID}})
       .then((response) => {
         const data = response.data;
+        data.reverse()
         this.setState({data})
       })
   }

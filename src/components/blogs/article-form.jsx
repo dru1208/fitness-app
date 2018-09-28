@@ -27,7 +27,7 @@ class articleForm extends Component {
     let link = this.state.link
     let userID = this.state.userID
     axios.post('http://localhost:3000/api/articles', {
-      id: userID,
+      user_id: userID,
       title: title,
       link: link
     }).then((response) => {
