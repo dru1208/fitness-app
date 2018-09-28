@@ -5,7 +5,7 @@ export default class Nutrition extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: 2,
+      user_id: 1,
       nutrition: null
     }
   }
@@ -17,7 +17,7 @@ export default class Nutrition extends Component {
       }
     })
     .then(response => {
-      const data = response.data[0];
+      const data = response.data;
       this.setState({
         nutrition: {
           calories: data.calories,

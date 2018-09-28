@@ -10,7 +10,7 @@ export default class Input extends Component {
     const fat = event.target.elements.Fat.value
     const carbohydrates = event.target.elements.Carbohydrates.value
     axios.post('http://localhost:3000/api/user_nutritions', {
-      user_id: 3,
+      user_id: 1,
       calories: calories,
       protein: protein,
       fat: fat,
