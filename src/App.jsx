@@ -20,10 +20,6 @@ import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-
 import { generateUserURL } from './_helper.jsx'
 
 
-
-
-
-
 class App extends Component {
 
   constructor (props) {
