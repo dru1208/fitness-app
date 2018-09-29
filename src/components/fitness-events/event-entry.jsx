@@ -1,36 +1,18 @@
 import React from 'react'
-import axios from 'axios'
 
 
-
-
-export default class EventEntry extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      data: []
-    }
-  }
-
-  componentDidMount() {
-    axios.get('http://localhost:3000/api/events')
-      .then((response) => {
-        const data = response.data;
-        this.setState({data})
-      })
-  }
-
-  render() {
-    return (
-      <div>
-      { this.state.data.map(entries =>
-        <div className="single-event">
-          <a href="https://www.w3schools.com">{entries.name}</a>
-          <div className="event-description">{entries.description}</div>
-          <div className="event-datetime-location">{entries.location} • {entries.datetime}</div>
-        </div>
-      )}
-      </div>
-    )
-  }
+const EventEntry = (props) => {
+  return(
+    <div className="single-event">
+      <form onSubmit={props.handleDestroy}>
+        <input type="hidden" name="eventID" value={props.event.id} />
+        <span className="event-name">{props.event.name}</span>
+        <div className="event-description">{props.event.description}</div>
+        <div className="event-datetime-location">{props.event.location} • {props.event.datetime}</div>
+        <input type="submit" value="Delete Event"/>
+      </form>
+    </div>
+  )
 }
+
+export default EventEntry

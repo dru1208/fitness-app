@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import generateUserURL from '../../_helper.jsx';
+import { generateUserURL } from '../../_helper.jsx';
 
 
 const NavBar = (props) => {
@@ -23,6 +23,9 @@ const NavBar = (props) => {
       </Link>
       <Link to={generateUserURL(props.id, "events")}>
           <button>Events</button>
+      </Link>
+      <Link to="/">
+        <button onClick={props.handleLogout}>Logout</button>
       </Link>
     </div>
   )

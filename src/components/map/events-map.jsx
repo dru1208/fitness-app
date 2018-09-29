@@ -10,13 +10,14 @@ const latLng = (object) => {
     point : {
       lat: object.lat,
       lng: object.lng
-    }
+    },
+    id: object.id
 
   }
 }
 
 
-export class MapContainer extends Component {
+export class EventMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -76,15 +77,28 @@ export class MapContainer extends Component {
   const myPlacesArray = this.state.mapData;
   console.log("myPlacesArray",myPlacesArray);
 
+
   const mapInfos = !myPlacesArray ? null : myPlacesArray.filter(event => event.name === this.state.selectedPlace.name).map((mapInfo) => {
+
+     let date = mapInfo.datetime;
+     let splitDate = date.split('T')
+     let dateStr = splitDate.slice(0,1);
+     let timeStr = splitDate.slice(1,2);
+     let splitTimeStr = timeStr[0].split('.');
+     let time = splitTimeStr[0];
+
+
+     let timeResult = dateStr + " " + time;
+
     return (
       <div>
 
-        <h3>{ mapInfo.name }</h3>
+        <h3>{mapInfo.name }</h3>
         <p>{mapInfo.description }</p>
-        <p>{mapInfo.datetime}</p>
+        <p>{timeResult}</p>
 
-      </div>)
+      </div>
+      )
   });
 
     return (
@@ -115,7 +129,7 @@ export class MapContainer extends Component {
 
 export default GoogleApiWrapper({
   apiKey: (process.env.REACT_APP_GOOGLE_API_KEY)
-})(MapContainer)
+})(EventMap)
 
 /*
 const myPlaces = this.state.mapData

@@ -7,27 +7,35 @@ const generateLatLng = (x, y) => {
   return {lat: x, lng: y}
 }
 
-export class MapContainer extends Component {
+export class GymMap extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      data: [],
+      data: null,
       showingInfoWindow: false,
-      selectedPlace: {},
-
-
+      selectedPlace: {}
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/gym_maps')
-      .then((response) => {
-        const data = response.data;
-         console.log("data is", data);
-        this.setState({data})
-      })
+    const options = {
+      method: "GET",
+      url: "http://localhost:3000/api/gym_maps",
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': this.props.jwt
+      }
+    }
+    axios(options)
+      .then(response => {
+        console.log('this is our response')
+        console.log(response.data)
 
+        this.setState({
+          data: response.data
+        })
+      })
   }
 
 
@@ -39,18 +47,33 @@ export class MapContainer extends Component {
     });
   }
 
+
+
   render() {
-   const generateMapMarkers = this.state.data.map ((marker, index) => {
-     return <Marker position={marker} key={index}
-                    onClick={this.onMarkerClick}
-                    name={marker.name}
+
+    let generateMapMarkers = [];
+
+    if (this.state.data && this.state.data.maps) {
+      console.log("this state data is ",this.state.data);
+
+        generateMapMarkers = this.state.data.maps.map ((marker, index) => {
+          return <Marker position={marker} key={index}
+                         onClick={this.onMarkerClick}
+                         name={marker.name}
+                 />
+        });
+
+    }
 
 
-             />
-   })
-   console.log("this.state.selectedPlace", this.state.selectedPlace);
-    console.log("this.state.selectedPlace.position", this.state.selectedPlace.position);
-     console.log("type of this.state.selectedPlace.position", typeof(this.state.selectedPlace.position));
+
+    let center = {lat: 0, lng: 0};
+
+    if (this.state.data) {
+
+      center={lat: this.state.data.centerLat, lng: this.state.data.centerLng};
+
+    }
 
 
     return (
@@ -60,7 +83,8 @@ export class MapContainer extends Component {
         <Map
         google={this.props.google}
         zoom={16}
-        initialCenter={ {lat: 37.389439, lng: -121.992289} }>
+        center= {center} >
+
         {generateMapMarkers}
           <InfoWindow onClose={this.onInfoWindowClose}
                       marker={this.state.activeMarker}
@@ -76,10 +100,11 @@ export class MapContainer extends Component {
       </main>
     );
   }
+
 }
 
 export default GoogleApiWrapper({
   apiKey: (process.env.REACT_APP_GOOGLE_API_KEY),
   libraries: ['places']
-})(MapContainer)
+})(GymMap)
 

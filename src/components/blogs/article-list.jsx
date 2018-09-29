@@ -4,7 +4,7 @@ import ArticleEntry from "./article-entry.jsx"
 const ArticleList = (props) => {
   return (
     <div>
-      <ArticleEntry />
+      <ArticleEntry userID={props.userID}/>
     </div>
   )
 }
