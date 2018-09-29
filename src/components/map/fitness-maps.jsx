@@ -11,7 +11,9 @@ export class Maps extends Component {
       <main>
         <h1>Fitness Map</h1>
         <div>
-        <GymMap jwt={this.props.jwt}/>
+
+        <EventsMap jwt={this.props.jwt}/>
+
         </div>
         <div>Nearby Events go here</div>
       </main>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Activities from './weekly-activities/weekly-activities.jsx';
+import WeeklyActivities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
@@ -100,8 +100,10 @@ export default class Dashboard extends Component {
         <h1>Welcome, {this.state.currentUser}</h1>
 
         <GoalList />
-        <Activities />
-        <Nutrition nutrition={this.state.nutrition} userID={this.state.userID}/>
+
+        <WeeklyActivities userID={this.props.userID}/>
+        <Nutrition nutrition={this.state.nutrition}/>
+
 
         <EventList />
         <FeedList />

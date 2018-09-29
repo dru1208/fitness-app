@@ -12,11 +12,9 @@ export class GymMap extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: [],
+      data: null,
       showingInfoWindow: false,
-      selectedPlace: {},
-
-
+      selectedPlace: {}
     }
   }
 
@@ -33,18 +31,12 @@ export class GymMap extends Component {
       .then(response => {
         console.log('this is our response')
         console.log(response.data)
-    })
 
+        this.setState({
+          data: response.data
+        })
+      })
   }
-
-    // axios.get('http://localhost:3000/api/gym_maps')
-    //   .then((response) => {
-    //     const data = response.data;
-    //      console.log("data is", data);
-    //     this.setState({data})
-    //   })
-
-  // }
 
 
   onMarkerClick = (props, marker, event) => {
@@ -55,18 +47,33 @@ export class GymMap extends Component {
     });
   }
 
+
+
   render() {
-   const generateMapMarkers = this.state.data.map ((marker, index) => {
-     return <Marker position={marker} key={index}
-                    onClick={this.onMarkerClick}
-                    name={marker.name}
+
+    let generateMapMarkers = [];
+
+    if (this.state.data && this.state.data.maps) {
+      console.log("this state data is ",this.state.data);
+
+        generateMapMarkers = this.state.data.maps.map ((marker, index) => {
+          return <Marker position={marker} key={index}
+                         onClick={this.onMarkerClick}
+                         name={marker.name}
+                 />
+        });
+
+    }
 
 
-             />
-   })
-   console.log("this.state.selectedPlace", this.state.selectedPlace);
-    console.log("this.state.selectedPlace.position", this.state.selectedPlace.position);
-     console.log("type of this.state.selectedPlace.position", typeof(this.state.selectedPlace.position));
+
+    let center = {lat: 0, lng: 0};
+
+    if (this.state.data) {
+
+      center={lat: this.state.data.centerLat, lng: this.state.data.centerLng};
+
+    }
 
 
     return (
@@ -76,7 +83,8 @@ export class GymMap extends Component {
         <Map
         google={this.props.google}
         zoom={16}
-        initialCenter={ {lat: 43.6446002, lng: -79.3951586} }>
+        center= {center} >
+
         {generateMapMarkers}
           <InfoWindow onClose={this.onInfoWindowClose}
                       marker={this.state.activeMarker}
@@ -92,6 +100,7 @@ export class GymMap extends Component {
       </main>
     );
   }
+
 }
 
 export default GoogleApiWrapper({

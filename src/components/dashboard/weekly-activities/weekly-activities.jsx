@@ -13,7 +13,7 @@ export default class Activities extends Component {
       wed: 0,
       thurs: 0,
       fri: 0,
-      sat: 0
+      sat: 0,
     }
   }
 
@@ -62,6 +62,20 @@ export default class Activities extends Component {
     })
 
   }
+
+  _handleSumbit = (e) => {
+    e.preventDefault();
+     axios.post('http://localhost:3000/api/exercise_sessions', {
+      minutes: e.target.elements.timeOnExercise.value,
+      datetime: e.target.elements.timeOfExercise.value,
+      user_id: this.props.userID
+    }).then((response) => {
+        console.log(response);
+
+      })
+  }
+
+
 
   render() {
 
@@ -112,6 +126,14 @@ export default class Activities extends Component {
           legendToggle
         />
       </div>
+      <h3>Form Input</h3>
+      <form onSubmit={this._handleSumbit} className="weeklyExercise">
+        <label htmlFor="timeOnExercise">Time spent on exercise:</label>
+        <input name="timeOnExercise" />min(s)<br/>
+        <label htmlFor="timeOfExercise">DateTime:</label>
+        <input type="datetime-local" name="timeOfExercise" onChange={this.handleDateChange}/><br/>
+        <input type="submit"/>
+      </form>
       </main>
 
     )
