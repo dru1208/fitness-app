@@ -2,17 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios'
 import NutritionInput from "./nutrition-input.jsx"
 import ImageUpload from "./nutrition-upload-image.jsx"
+import NutritionQuery from './nutrition-natural-language-query.jsx'
+import NutritionList from './nutrition-list.jsx'
 
-//HARDCODED DATABASE TABLES
-
-const daily_nutrition = {
-  user_id: 1,
-  calories: 1500,
-  protein: 80,
-  fat: 100,
-  carbohydrates: 250
-}
-const daily_nutrition_stringed = JSON.stringify(daily_nutrition)
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -20,13 +12,27 @@ export default class Dashboard extends Component {
     this.state = {
       currentUser: this.props.name,
       userID: this.props.userID,
-      nutrition: daily_nutrition_stringed
+      nutrition: [],
+      image: null,
+      imageName: null
     };
   }
 
+  componentDidMount () {
+    const options = {
+      method: "GET",
+      headers: {'content-type': 'application/json', 'Authorization': this.props.jwt},
+      url: 'http://localhost:3000/api/user_nutritions'
+    }
+    axios(options)
+      .then(response => {
+        this.setState({nutrition: response.data})
+      })
+  }
+
+  // manual submission of nutrition info
 
   _submitNutritionHandler = (e) => {
-
     e.preventDefault();
     const formInput = e.target.elements
     const inputDate = formInput.date.value.split('-')
@@ -63,6 +69,60 @@ export default class Dashboard extends Component {
     })
   }
 
+  // image upload
+
+  // handles image submission
+  _uploadButtonHandler = (event) => {
+    event.preventDefault();
+    const string = this.state.image;
+    const result = string.split("base64,");
+    axios.post('http://localhost:3000/api/image_recognition', {
+      image: result[1],
+      imageName: this.state.imageName,
+      user_id: this.state.userID,
+      datetime: event.target.datetime.value
+    })
+    .then((response) => {
+      console.log(response.data);
+      this.setState({nutrition: response.data})
+    })
+  };
+
+  //handles 'choose file' button
+  _selectImageHandler = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      this.setState({
+        imageName: event.target.files[0].name
+      })
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.setState({ image: e.target.result });
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+
+  // natural language query
+
+  _handleQuerySubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      query: e.target.query.value,
+      datetime: e.target.datetime.value,
+      user_id: this.state.userID
+    }
+    const options = {
+      method: "POST",
+      headers: {'content-type': 'application/json', 'Authorization': this.props.jwt},
+      data: data,
+      url: 'http://localhost:3000/api/nutrition_search'
+    }
+    axios(options)
+      .then(response => {
+        this.setState({nutrition: response.data})
+      })
+  }
 
 
   render() {
@@ -72,8 +132,10 @@ export default class Dashboard extends Component {
         <div className="watson">
         This is where watson api will go.
         </div>
-        <NutritionInput userID={this.state.userID} submitNutritionHandle={this._submitNutritionHandler}/>
-        <ImageUpload/>
+        <NutritionInput userID={this.state.userID} submitNutritionHandle={this._submitNutritionHandler} />
+        <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image}/>
+        <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />
+        <NutritionList nutritionList={this.state.nutrition} />
       </main>
     );
   }

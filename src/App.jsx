@@ -135,7 +135,7 @@ class App extends Component {
             render={() => (this.state.currentUser ?
               (<div>
                 <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID}/>
+                <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
               </div>) :
               <Redirect to="/" />
             )}

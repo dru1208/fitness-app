@@ -7,22 +7,22 @@ const NavBar = (props) => {
   return (
     <div>
       <Link to={generateUserURL(props.id, "dashboard")}>
-          <button>Dashboard</button>
+          <button>Dashboard</button><br />
       </Link>
       <Link to={generateUserURL(props.id, "map")}>
-          <button>Map</button>
+          <button>Map</button><br />
       </Link>
       <Link to={generateUserURL(props.id, "nutrition")}>
-          <button>Nutrition</button>
+          <button>Nutrition</button><br />
       </Link>
       <Link to={generateUserURL(props.id, "recent")}>
-          <button>Recent</button>
+          <button>Recent</button><br />
       </Link>
       <Link to={generateUserURL(props.id, "blog")}>
-          <button>Blog</button>
+          <button>Blog</button><br />
       </Link>
       <Link to={generateUserURL(props.id, "events")}>
-          <button>Events</button>
+          <button>Events</button><br />
       </Link>
       <Link to="/">
         <button onClick={props.handleLogout}>Logout</button>
