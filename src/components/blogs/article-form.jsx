@@ -4,35 +4,22 @@ import axios from 'axios';
 class articleForm extends Component {
   constructor(props) {
     super(props)
-    this.state ={
-      title: "",
-      link: "",
+    this.state = {
       userID: this.props.userID
     }
   }
 
-  handleTitleChange = (e) => {
-    this.setState( {title: e.target.value} )
-    console.log('setting state title', this.state.title)
-  }
-
-  handleLinkChange = (e) => {
-    this.setState( {link: e.target.value} )
-    console.log('setting state content', this.state.link)
-  }
-
   _handleSubmit = (e) => {
     e.preventDefault();
-    let title = this.state.title
-    let link = this.state.link
-    let userID = this.state.userID
-    axios.post('http://localhost:3000/api/articles', {
-      user_id: userID,
-      title: title,
-      link: link
-    }).then((response) => {
-        console.log(response)
+    if (e.target.articleTitle.value !== "" && e.target.articleLink.value !== "") {
+      axios.post('http://localhost:3000/api/articles', {
+        user_id: this.state.userID,
+        title: e.target.articleTitle.value,
+        link: e.target.articleLink.value
+      }).then((response) => {
+          this.props.handleNewArticle(response.data)
       })
+    }
   }
 
   render() {
@@ -43,10 +30,12 @@ class articleForm extends Component {
             <section className="newarticle">
               <h3 className="title">Post a article</h3>
               <form onSubmit={this._handleSubmit} className="newArticleForm">
+
                 <label htmlFor="articleTitle">Title</label>
-                <input name="articleTitle" onChange={this.handleTitleChange}/>
+                <input name="articleTitle" />
+
                 <label htmlFor="articleLink">Link</label>
-                <textarea name="articleLink" onChange={this.handleLinkChange}/>
+                <textarea name="articleLink" />
                 <input type="submit"/>
               </form>
                 <span>300</span>

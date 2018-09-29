@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import { css } from "emotion"
 import NutritionInput from "./nutrition-input.jsx"
 import ImageUpload from "./nutrition-upload-image.jsx"
 
 //HARDCODED DATABASE TABLES
+
+const nutritionPage = css`
+  padding: 0 8em;
+`
 
 const daily_nutrition = {
   user_id: 1,
@@ -24,7 +29,7 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <main className="nutrition-page">
+      <main className={ nutritionPage }>
         <h1>Nutrition page</h1>
         <div className="watson">
         This is where watson api will go.

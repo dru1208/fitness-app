@@ -1,42 +1,28 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class BlogForm extends Component {
+class blogForm extends Component {
   constructor(props) {
     super(props)
-    this.state ={
-      title: "",
-      content: "",
+    this.state = {
       userID: this.props.userID
     }
   }
 
-  handleTitleChange = (e) => {
-    this.setState( {title: e.target.value} )
-    console.log('setting state title', this.state.title)
-  }
-
-  handleContentChange = (e) => {
-    this.setState( {content: e.target.value} )
-    console.log('setting state content', this.state.content)
-  }
-
   _handleSubmit = (e) => {
     e.preventDefault();
-    let title = this.state.title
-    let content = this.state.content
-    let userID = this.props.userID
-    axios.post('http://localhost:3000/api/blogs', {
-      user_id: userID,
-      title: title,
-      content: content
-    }).then((response) => {
-        console.log(response)
+    if (e.target.blogTitle.value !== "" && e.target.blogContent.value !== "") {
+      axios.post('http://localhost:3000/api/blogs', {
+        user_id: this.state.userID,
+        title: e.target.blogTitle.value,
+        content: e.target.blogContent.value
+      }).then((response) => {
+        this.props.handleNewBlog(response.data)
       })
+    }
   }
 
   render() {
-    console.log(this.state.user_id, 'dslafdskla')
     return (
       <div>
         <h2>New Blog</h2>
@@ -44,10 +30,12 @@ class BlogForm extends Component {
             <section className="newBlog">
               <h3 className="title">Post a blog</h3>
               <form onSubmit={this._handleSubmit} className="newBlogForm">
+
                 <label htmlFor="blogTitle">Title</label>
-                <input name="blogTitle" onChange={this.handleTitleChange}/>
+                <input name="blogTitle" />
+
                 <label htmlFor="blogContent">Content</label>
-                <textarea name="blogContent" onChange={this.handleContentChange}/>
+                <textarea name="blogContent" />
                 <input type="submit"/>
               </form>
                 <span>300</span>
@@ -56,10 +44,6 @@ class BlogForm extends Component {
       </div>
     )
   }
-};
+}
 
-
-
-
-
-export default BlogForm;
+export default blogForm;

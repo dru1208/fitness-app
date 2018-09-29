@@ -1,33 +1,47 @@
 import React from 'react';
+import { css } from 'emotion';
 import {Link} from 'react-router-dom';
 import { generateUserURL } from '../../_helper.jsx';
+
+const NavBarStyling = css`
+  list-style: none;
+  background: #3d3d3d;
+  display: block;
+  padding: 0 1em;
+  margin: 0;
+  height: 100%;
+  float: left;
+  position: fixed;
+  z-index: 1;
+`
 
 
 const NavBar = (props) => {
   return (
-    <div>
-      <Link to={generateUserURL(props.id, "dashboard")}>
+    <div className={NavBarStyling}>
+      <li><Link to={generateUserURL(props.id, "dashboard")}>
           <button>Dashboard</button>
-      </Link>
-      <Link to={generateUserURL(props.id, "map")}>
+      </Link></li>
+      <li><Link to={generateUserURL(props.id, "map")}>
           <button>Map</button>
-      </Link>
-      <Link to={generateUserURL(props.id, "nutrition")}>
+      </Link></li>
+      <li><Link to={generateUserURL(props.id, "nutrition")}>
           <button>Nutrition</button>
-      </Link>
-      <Link to={generateUserURL(props.id, "recent")}>
+      </Link></li>
+      <li><Link to={generateUserURL(props.id, "recent")}>
           <button>Recent</button>
-      </Link>
-      <Link to={generateUserURL(props.id, "blog")}>
+      </Link></li>
+      <li><Link to={generateUserURL(props.id, "blog")}>
           <button>Blog</button>
-      </Link>
-      <Link to={generateUserURL(props.id, "events")}>
+      </Link></li>
+      <li><Link to={generateUserURL(props.id, "events")}>
           <button>Events</button>
-      </Link>
-      <Link to="/">
+      </Link></li>
+      <li><Link to="/">
         <button onClick={props.handleLogout}>Logout</button>
-      </Link>
+      </Link></li>
     </div>
+
   )
 }
 
