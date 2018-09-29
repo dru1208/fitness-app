@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 // change defaultChecked to a handler that changes the completed value in database
 
+//not currently being used
 class FitnessGoal extends Component {
 
   generateCheckBox = () => {
