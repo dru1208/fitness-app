@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { css } from 'emotion';
-import Activities from './weekly-activities/weekly-activities.jsx';
+import WeeklyActivities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
@@ -91,7 +91,7 @@ export default class Dashboard extends Component {
     super(props)
     this.state = {
       currentUser: props.name,
-      id: props.id,
+      userID: props.id,
       weekly: weekly_data,
       nutrition: daily_nutrition,
       events: events,
@@ -106,8 +106,10 @@ export default class Dashboard extends Component {
         <h1>Welcome, {this.state.currentUser}</h1>
 
         <GoalList />
-        <Activities />
+
+        <WeeklyActivities userID={this.props.userID}/>
         <Nutrition nutrition={this.state.nutrition}/>
+
 
         <EventList />
         <FeedList />

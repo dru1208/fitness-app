@@ -5,25 +5,28 @@ export default class Nutrition extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: 1,
+      user_id: props.userID,
       nutrition: null
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/user_nutritions', {
+    axios.get('http://localhost:3000/api/dashboard_nutritions', {
       params: {
         user_id: this.state.user_id
       }
     })
     .then(response => {
-      const data = response.data;
+      console.log('you have a response')
       this.setState({
         nutrition: {
-          calories: data.calories,
-          protein: data.protein,
-          fat: data.fat,
-          carbohydrates: data.carbohydrates
+          calories: response.data.calories,
+          protein: response.data.protein,
+          fat: response.data.fat,
+          carbohydrates: response.data.carbohydrates,
+          sugar: response.data.sugar,
+          sodium: response.data.sodium,
+          cholesterol: response.data.cholesterol
         }
       })
     })
@@ -87,7 +90,7 @@ export default class Nutrition extends Component {
     } else {
       return (
         <main className="nutrition">
-
+          <h1>Fill out your past nutrition info!</h1>
         </main>
       )
     }

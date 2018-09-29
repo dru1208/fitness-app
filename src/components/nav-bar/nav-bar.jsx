@@ -18,6 +18,7 @@ const NavBarStyling = css`
 
 const NavBar = (props) => {
   return (
+
     <div className={NavBarStyling}>
       <li><Link to={generateUserURL(props.id, "dashboard")}>
           <button>Dashboard</button>
