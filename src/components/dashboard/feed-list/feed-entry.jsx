@@ -27,7 +27,7 @@ export default class FeedEntry extends React.Component {
     return (
       <div className="dashboardFeedEntry">
         { sortedFeeds.map((entry, index) =>
-          <div className="single-feed">
+          <div className="single-feed" key={index}>
              <div>{entry.title}</div>
           </div>
         )}

@@ -18,7 +18,6 @@ export default class Nutrition extends Component {
     })
     .then(response => {
       const data = response.data;
-      console.log('you have a response')
       this.setState({
         nutrition: {
           calories: data.calories,

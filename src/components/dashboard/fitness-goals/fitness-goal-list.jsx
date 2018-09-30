@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FitnessGoal from './fitness-goal.jsx';
 import GoalForm from './fitness-goal-form.jsx';
-import GoalEntry from './fitness-goal-entry.jsx';
 import axios from 'axios';
 
 class GoalList extends Component {
@@ -31,7 +30,6 @@ class GoalList extends Component {
         return dateA - dateB
       })
       this.setState({data})
-      console.log(data);
     })
   };
 
@@ -44,7 +42,6 @@ class GoalList extends Component {
   }
 
   _handleCheckbox = (e) => {
-    console.log("id is " + e.target.value)
     axios.patch('http://localhost:3000/api/fitness_goals/' + e.target.value, {
       id: e.target.value,
       completed: e.target.checked
@@ -60,7 +57,7 @@ class GoalList extends Component {
         <main className="dashboardGoalList">
           <h1>Recent Goals</h1>
           <div className="dashboardGoalCheckbox">
-            <GoalForm user_id={this.state.user_id} />
+            <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
             <div className="dashboardGoalEntry">
               { this.state.data.map((entry, index) =>
                 <div className="single-goal" key={index}>
@@ -78,7 +75,7 @@ class GoalList extends Component {
         <main className="dashboardGoalList">
           <h1>Recent Goals</h1>
           <div className="dashboardGoalCheckbox">
-            <GoalForm user_id={this.state.user_id} />
+            <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
           </div>
         </main>
       )
