@@ -6,7 +6,7 @@ const GoalList = (props) => {
 
   return (
   <main className="dashboardGoalList">
-    <h1>Recent Goals</h1>
+    <h1 className="dashboardGoalHeader">Recent Goals</h1>
     <div className="dashboardGoalCheckbox">
       <GoalForm />
       <GoalEntry />
