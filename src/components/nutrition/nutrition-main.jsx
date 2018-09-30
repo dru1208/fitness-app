@@ -6,7 +6,7 @@ import NutritionQuery from './nutrition-natural-language-query.jsx'
 import NutritionList from './nutrition-list.jsx'
 
 
-export default class Dashboard extends Component {
+export default class Nutrition extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -73,17 +73,27 @@ export default class Dashboard extends Component {
   // handles image submission
   _uploadButtonHandler = (event) => {
     event.preventDefault();
-    const string = this.state.image;
-    const result = string.split("base64,");
-    axios.post('http://localhost:3000/api/image_recognition', {
-      image: result[1],
-      imageName: this.state.imageName,
-      user_id: this.state.userID,
-      datetime: event.target.datetime.value
-    })
-    .then((response) => {
-      this.setState({nutrition: response.data})
-    })
+    if (this.state.image) {
+      const string = this.state.image;
+      const result = string.split("base64,");
+      axios.post('http://localhost:3000/api/image_recognition', {
+        image: result[1],
+        imageName: this.state.imageName,
+        user_id: this.state.userID,
+        datetime: event.target.datetime.value
+      })
+      .then((response) => {
+        this.setState({
+          nutrition: response.data,
+          image: null,
+          imageName: null
+        })
+      })
+    } else {
+      alert("Please choose an image to upload!");
+    }
+    event.target.elements.datetime.value = null;
+    event.target.elements.pic.value = null;
   };
 
   //handles 'choose file' button
@@ -132,7 +142,7 @@ export default class Dashboard extends Component {
         This is where watson api will go.
         </div>
         <NutritionInput userID={this.state.userID} submitNutritionHandler={this._submitNutritionHandler} />
-        <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image}/>
+        <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image} />
         <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />
         <NutritionList nutritionList={this.state.nutrition} />
       </main>
