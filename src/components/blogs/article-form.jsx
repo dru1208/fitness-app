@@ -24,7 +24,7 @@ class articleForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="articleForm">
         <h2>New article</h2>
           <main className="container">
             <section className="newarticle">

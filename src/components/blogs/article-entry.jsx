@@ -3,8 +3,8 @@ import axios from 'axios'
 
 const ArticleEntry = (props) => {
   return (
-    <div>
-      <article className="single-article">
+    <div className="articleEntryWrapper">
+      <article className="articleEntry">
         <header>
           <h3>{props.article.title}</h3>
         </header>

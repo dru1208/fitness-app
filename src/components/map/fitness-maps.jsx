@@ -5,23 +5,15 @@ import EventsMap from "./events-map.jsx";
 import GymMap from "./gym-map.jsx";
 import EventMap from "./events-map.jsx";
 
-const mapPage = css`
-  padding: 0 8em;
-`
 
 export class Maps extends Component {
 
   render() {
     return (
-      <main className={mapPage}>
+      <div className="mapPage">
         <h1>Fitness Map</h1>
-        <div>
-
-        <EventsMap jwt={this.props.jwt}/>
-
-        </div>
-        <div>Nearby Events go here</div>
-      </main>
+          <EventMap jwt={this.props.jwt}/>
+      </div>
     );
   }
 }

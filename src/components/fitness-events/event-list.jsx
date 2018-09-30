@@ -10,10 +10,10 @@ const EventList = (props) => {
   })
 
   return (
-    <main className="events">
+    <div className="eventList">
       <h1>Events</h1>
       {generateEventList}
-    </main>
+    </div>
   )
 }
 
