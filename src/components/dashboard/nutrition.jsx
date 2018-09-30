@@ -11,7 +11,6 @@ export default class Nutrition extends Component {
   }
 
   componentDidMount() {
-    console.log("id is ", this.state.user_id)
     axios.get('http://localhost:3000/api/dashboard_nutritions', {
       params: {
         user_id: this.state.user_id
