@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 const NutritionQuery = (props) => {
 
   return(
-    <div>
+    <div className="nutritionNatLang border">
+      <h2>Natural Language Query</h2><br/>
       <form onSubmit={props.handleQuerySubmit}>
-        <textarea name="query" />
-        <input name="datetime" type="datetime-local" />
+        <textarea name="query" rows="6" columns="150"/><br />
+        <input name="datetime" type="datetime-local" className="nutritionNatLangDatetime"/><br />
         <input type="submit" />
       </form>
     </div>

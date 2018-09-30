@@ -39,7 +39,7 @@ h1 {
 .navBar {
   background-color: #212121;
   display: grid;
-  grid-row: 1;
+  grid-row: 1 / 4;
   align-content: start;
 }
 
@@ -340,10 +340,91 @@ h1 {
   padding: 20px;
 }
 
-/* pagelayouts */
+/* nutrition page */
+.nutritionPage {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-rows: repeat(3, min-content) 0;
+  grid-template-columns: repeat(3, minmax(min-content, 1fr)) 0;
+}
+
+.nutritionHeader {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.nutritionInput {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.nutritionImageUpload {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.nutritionNatLang {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+}
+
+textarea {
+  font-size: 18px;
+  height: auto;
+  width: 100%;
+}
+
+.nutritionNatLangDatetime {
+  font-size: 16px;
+}
+
+.nutritionTable {
+  line-height: 35px;
+  margin-top: 30px;
+  grid-row: 3 / 4;
+  grid-column: 1 / span 3;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.tableHeaderRow {
+  background-color: #2098D1;
+}
+
+th {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.tableCell {
+  text-align: center;
+}
+
+
+/* page layouts */
 
 .pageLayout {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: 0fr 1fr 0fr;
   grid-template-columns: 0.1fr 1fr;
+  grid-gap: 50px;
+  background-color: #ddd;
+}
+
+.border {
+  border: solid thin grey;
+  border-radius: 20px;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  background-color:#f9f7ecc9;
+  border: solid 0.5px grey;
+  opacity: 0.8;
+  transition: transform .2s;
+}
+
+.border:hover {
+  opacity: 1;
+  transform: scale(1.005);
 }

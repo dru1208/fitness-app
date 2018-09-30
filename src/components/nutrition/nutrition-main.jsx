@@ -128,11 +128,8 @@ export default class Dashboard extends Component {
   render() {
     return (
 
-      <main>
-        <h1>Nutrition page</h1>
-        <div className="watson">
-        This is where watson api will go.
-        </div>
+      <main className="nutritionPage">
+        <h1 className="nutritionHeader">Nutrition</h1>
         <NutritionInput userID={this.state.userID} submitNutritionHandler={this._submitNutritionHandler} />
         <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image}/>
         <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />

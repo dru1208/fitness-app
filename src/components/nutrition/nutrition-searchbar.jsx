@@ -1,3 +1,4 @@
+// delete this, we're not using it
 import React, { Component } from 'react'
 
 const NutritionSearchbar = (props) => {
