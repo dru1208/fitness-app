@@ -8,7 +8,8 @@ const BlogList = (props) => {
   })
 
   return (
-    <div>
+    <div className="blogList">
+    <h2>My Blogs</h2>
       {generateBlogList}
     </div>
   )

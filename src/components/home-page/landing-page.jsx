@@ -7,17 +7,13 @@ import RegistrationForm from './registration.jsx'
 
 
 const LandingPage = (props) => {
-
-
-
     return (
-      <div>
-        <h2>Welcome to fit n fun</h2>
+      <div className="landingPage">
+        <h2>YourFitnessPal</h2>
         <LoginForm handleLogin={props.handleLogin}/>
         <RegistrationForm handleRegister={props.handleRegister}/>
       </div>
     )
-
 }
 
 export default LandingPage;

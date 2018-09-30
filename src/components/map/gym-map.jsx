@@ -27,6 +27,7 @@ export class GymMap extends Component {
         'Authorization': this.props.jwt
       }
     }
+
     axios(options)
       .then(response => {
         console.log('this is our response')
@@ -38,7 +39,6 @@ export class GymMap extends Component {
       })
   }
 
-
   onMarkerClick = (props, marker, event) => {
     this.setState({
       selectedPlace: props,
@@ -47,57 +47,37 @@ export class GymMap extends Component {
     });
   }
 
-
-
   render() {
 
     let generateMapMarkers = [];
-
     if (this.state.data && this.state.data.maps) {
-      console.log("this state data is ",this.state.data);
-
-        generateMapMarkers = this.state.data.maps.map ((marker, index) => {
-          return <Marker position={marker} key={index}
-                         onClick={this.onMarkerClick}
-                         name={marker.name}
-                 />
-        });
-
+      generateMapMarkers = this.state.data.maps.map ((marker, index) => {
+        return <Marker position={marker} key={index}
+                       onClick={this.onMarkerClick}
+                       name={marker.name}/>
+      });
     }
-
-
 
     let center = {lat: 0, lng: 0};
-
     if (this.state.data) {
-
       center={lat: this.state.data.centerLat, lng: this.state.data.centerLng};
-
     }
 
-
     return (
-      <main>
+      <div className="gymsMap">
         <h2>Nearby Gyms:</h2>
         <div>
-        <Map
-        google={this.props.google}
-        zoom={16}
-        center= {center} >
-
-        {generateMapMarkers}
-          <InfoWindow onClose={this.onInfoWindowClose}
-                      marker={this.state.activeMarker}
-                      visible={this.state.showingInfoWindow}
-          >
-            <div>
-              <h3>{this.state.selectedPlace.name}</h3>
-              <p>{this.state.selectedPlace.position ? this.state.selectedPlace.position.vicinity : "none"}</p>
-            </div>
-          </InfoWindow>
-        </Map>
-        </div>
-      </main>
+          <Map google={this.props.google} zoom={16} center= {center} >
+          {generateMapMarkers}
+            <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
+              <div>
+                <h3>{this.state.selectedPlace.name}</h3>
+                <p>{this.state.selectedPlace.position ? this.state.selectedPlace.position.vicinity : "none"}</p>
+              </div>
+            </InfoWindow>
+          </Map>
+          </div>
+      </div>
     );
   }
 
@@ -107,4 +87,3 @@ export default GoogleApiWrapper({
   apiKey: (process.env.REACT_APP_GOOGLE_API_KEY),
   libraries: ['places']
 })(GymMap)
-

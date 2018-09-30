@@ -24,7 +24,7 @@ class blogForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="blogForm">
         <h2>New Blog</h2>
           <main className="container">
             <section className="newBlog">

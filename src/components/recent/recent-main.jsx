@@ -2,14 +2,10 @@ import React from 'react'
 import RecentList from './recent-list.jsx'
 import { css } from 'emotion'
 
-const recentPage = css`
-  padding: 0 8em;
-`
-
 const Recent = (props) => {
   return(
-    <main className={recentPage}>
-      <h2> Recent </h2>
+    <main className="feedPage">
+      <h2 className="feedHeader"> Recent Feed </h2>
       <RecentList />
     </main>
   )

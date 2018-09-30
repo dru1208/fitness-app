@@ -4,8 +4,8 @@ import axios from 'axios'
 
 const BlogEntry = (props) => {
   return (
-    <div>
-      <article className="container">
+    <div className="blogEntryWrapper">
+      <article className="blogEntry">
         <header>
           <h3>{props.blog.title}</h3>
         </header>

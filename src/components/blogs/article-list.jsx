@@ -8,7 +8,8 @@ const ArticleList = (props) => {
   })
 
   return (
-    <div>
+    <div className="articleList">
+    <h2>My Articles</h2>
       {generateArticleList}
     </div>
   )

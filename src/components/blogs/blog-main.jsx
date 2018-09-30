@@ -7,11 +7,6 @@ import BlogForm from './blog-form.jsx'
 import ArticleList from './article-list.jsx'
 import ArticleForm from './article-form.jsx'
 
-
-const profilePage = css`
-  padding: 0 8em;
-`
-
 class BlogMain extends React.Component {
   constructor (props) {
     super(props)
@@ -50,13 +45,11 @@ class BlogMain extends React.Component {
 
     render() {
       return(
-        <main className={ profilePage } >
-          <BlogHeader name={this.state.name}/>
+        <main className="profilePage" >
+          <div className="profileHeader">{this.state.name}'s Profile</div>
           <BlogForm userID={this.state.userID} handleNewBlog={this._handleNewBlog} />
-          <h2> Blogs </h2>
           <BlogList userID={this.state.userID} blogsList={this.state.blogsList} />
           <ArticleForm userID={this.state.userID} handleNewArticle={this._handleNewArticle} />
-          <h2> Articles </h2>
           <ArticleList userID={this.state.userID} articlesList = {this.state.articlesList} />
         </main>
     )}

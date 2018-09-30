@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { css } from "emotion"
 import axios from 'axios'
 import NutritionInput from "./nutrition-input.jsx"
 import ImageUpload from "./nutrition-upload-image.jsx"
@@ -128,7 +127,7 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <main className={ nutritionPage }>
+      <main>
         <h1>Nutrition page</h1>
         <div className="watson">
         This is where watson api will go.
