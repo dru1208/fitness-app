@@ -37,39 +37,80 @@ h1 {
 /* Navbar */
 
 .navBar {
-  background-color: #ddd;
+  background-color: #212121;
   display: grid;
-  grid-template-columns: 7;
-  grid-gap: 10px;
+  grid-row: 1;
+  align-content: start;
 }
 
+
 .navBarButtons {
-  background-color: black;
+  background-color: #474747;
   border: none;
   color: white;
   padding: 15px 32px;
   text-align: center;
   font-size: 20px;
-  margin: 4px 2px;
+  width: 100%;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.navBarButtons:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098D1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.navBarButtons:hover, .navBarButtons:focus, .navBarButtons:active {
+  color: white;
+  cursor: pointer;
+}
+.navBarButtons:hover:before, .navBarButtons:focus:before, .navBarButtons:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 /* Recent feeds page */
 .feedPage {
+  grid-column: 2;
   display: grid;
   background-color: #ddd;
-  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-columns: 1fr 2fr 5fr 2fr;
   grid-gap: 50px;
   justify-items: center;
 }
 
 .feedHeader {
   grid-row: 1;
-  grid-column: 2;
+  grid-column: 3;
 }
 
 .feedList {
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 3;
   justify-items: center;
 }
 
@@ -94,33 +135,35 @@ h1 {
 
 .profilePage {
   display: grid;
-  background-color: #7c7c7c;
+  background-color: #535353;
   grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: repeat(2, min-content) 5fr;
   grid-gap: 50px;
 }
 
 .profileHeader {
+  color: #86C232;
   font-size: 50px;
   text-align: center;
-  background-color: red;
   width: 100%;
   grid-column: 2 / 4;
 
 }
 
 .blogForm {
-  background-color: #ecceff;
+  background-color: #c1c8e4;
   padding: 15px;
   grid-row: 2;
   grid-column: 2;
+  border-radius: 10px;
 }
 
 .articleForm {
-  background-color: #ecceff;
+  background-color: #c1c8e4;
   padding: 15px;
   grid-row: 2;
   grid-column: 3;
+  border-radius: 10px;
 }
 
 .blogList {
@@ -140,25 +183,20 @@ h1 {
 }
 
 .blogEntry {
-  background-color: #ffceea;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  background-color: #5ab9ea;
+  color: white;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
   justify-items: center;
   border-radius: 10px;
   padding: 20px;
-  border: solid thin grey;
 }
 
 .articleEntry {
-  background-color: #ffceea;
-  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+  background-color: #5ab9ea;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
   justify-items: center;
   border-radius: 10px;
   padding: 20px;
-  border: solid thin grey;
 }
 
 /* Event Page */
@@ -203,14 +241,15 @@ h1 {
   justify-content: center;
   margin: auto;
   width: 50%;
+  color: #363636;
   background-color: white;
   border: solid thin grey;
   border-radius: 20px;
   padding: 50px;
   display: grid;
-  grid-template-rows: min-content min-content min-content;
+  grid-template-rows: repeat(3, min-content);
   grid-template-columns: 1fr 1fr;
-
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
 }
 
 .landingHeader {
@@ -225,6 +264,7 @@ h1 {
   grid-row: 3 / 4;
   grid-column: 1 / 2;
 }
+
 
 .loginForm {
   margin-left: 20px;
@@ -300,3 +340,10 @@ h1 {
   padding: 20px;
 }
 
+/* pagelayouts */
+
+.pageLayout {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.1fr 1fr;
+}
