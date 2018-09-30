@@ -6,7 +6,7 @@ export default class Activities extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: null,
+      user_id: this.props.user_id,
       sun: 0,
       mon: 0,
       tues: 0,
@@ -18,9 +18,14 @@ export default class Activities extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/exercise_sessions')
+    axios.get('http://localhost:3000/api/exercise_sessions', {
+      params: {
+        user_id: 1   //this.state.user_id
+      }
+    })
     .then((response) => {
       const data = response.data;
+      console.log("weekly data: ", data)
       data.map( (obj) => {
 
         let date = new Date(obj.datetime)

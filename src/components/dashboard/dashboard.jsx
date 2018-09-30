@@ -107,7 +107,7 @@ export default class Dashboard extends Component {
 
         <GoalList />
 
-        <WeeklyActivities userID={this.props.userID}/>
+        <WeeklyActivities user_id={this.props.user_id}/>
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
 
 
