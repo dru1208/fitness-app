@@ -50,7 +50,7 @@ class EventForm extends Component {
 
   render() {
     return (
-    <div className="eventForm">
+    <div className="eventForm border">
       <h2>Create your new event here!</h2>
       <form onSubmit={this._handleSubmit} className="newEventForm">
         <label htmlFor="eventName">Event Name</label>

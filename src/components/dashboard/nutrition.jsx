@@ -79,7 +79,7 @@ export default class Nutrition extends Component {
 
     if (this.state.nutrition) {
       return (
-        <div className="dashboardNutrition">
+        <main className="dashboardNutrition border">
           <h1>Nutrition</h1>
 
           <Chart
@@ -99,11 +99,11 @@ export default class Nutrition extends Component {
             height={"400px"}
             legend_toggle
           />
-        </div>
+        </main>
       )
     } else {
       return (
-        <main className="dashboardNutrition">
+        <main className="dashboardNutrition border">
           <h1>Fill out your past nutrition info!</h1>
         </main>
       )

@@ -118,7 +118,7 @@ export default class Activities extends Component {
   render() {
 
     return (
-      <main className="dashboardWeeklyActivities">
+      <main className="dashboardWeeklyActivities border">
         <h1>Weekly Activities</h1>
 
           <div className={"activities_chart"}>

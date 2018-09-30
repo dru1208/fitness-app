@@ -39,7 +39,7 @@ h1 {
 .navBar {
   background-color: #212121;
   display: grid;
-  grid-row: 1;
+  grid-row: 1 / 4;
   align-content: start;
 }
 
@@ -50,6 +50,7 @@ h1 {
   color: white;
   padding: 15px 32px;
   text-align: center;
+  text-transform: uppercase;
   font-size: 20px;
   width: 100%;
   border: none;
@@ -95,47 +96,53 @@ h1 {
 
 /* Recent feeds page */
 .feedPage {
+  grid-row: 2;
   grid-column: 2;
   display: grid;
-  background-color: #ddd;
-  grid-template-columns: 1fr 2fr 5fr 2fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-gap: 50px;
   justify-items: center;
 }
 
 .feedHeader {
   grid-row: 1;
-  grid-column: 3;
+  grid-column: 2;
 }
 
 .feedList {
   grid-row: 2;
-  grid-column: 3;
+  grid-column: 2;
   justify-items: center;
 }
 
 .feedEntryWrapper {
-  background-color: #a6edaa;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 50px;
 }
 
 .feedEntry {
-  background-color: #ffceea;
+  background-color: white;
   -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
   justify-items: center;
   border-radius: 10px;
   padding: 20px;
-  border: solid thin grey;
+  border: solid 0.5px grey;
+  opacity: 0.5;
+  transition: transform .2s;
+}
+
+.feedEntry:hover {
+  opacity: 1;
+  transform: scale(1.005);
 }
 
 /* blog/profile page */
 
 .profilePage {
+  grid-row: 2;
   display: grid;
-  background-color: #535353;
   grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: repeat(2, min-content) 5fr;
   grid-gap: 50px;
@@ -184,7 +191,6 @@ h1 {
 
 .blogEntry {
   background-color: #5ab9ea;
-  color: white;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
   justify-items: center;
   border-radius: 10px;
@@ -202,6 +208,7 @@ h1 {
 /* Event Page */
 
 .eventPage {
+  grid-row: 2;
   display: grid;
   grid-template-columns: 1fr 2fr 6fr 1fr;
   grid-gap: 30px;
@@ -210,12 +217,12 @@ h1 {
 .eventForm {
   grid-column: 2;
   padding: 20px;
+  height: 10%;
 }
 
 .eventList {
-  background-color: #94d1b4;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   font-size: 20px;
   grid-column: 3;
   padding: 20px;
@@ -229,6 +236,7 @@ h1 {
 /* Landing page */
 
 .landingPage {
+  grid-row: 2;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
@@ -283,10 +291,36 @@ h1 {
 /* Dashboard */
 
 .dashboardPage {
+  grid-row: 2;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr 0.03fr;
   grid-template-rows: max-content;
   grid-gap: 50px;
+}
+
+.dashboardHeader {
+  grid-row: 1;
+  grid-column: 1;
+  padding: 20px;
+  text-transform: uppercase;
+  color: #212121;
+}
+
+.dashboardIconPic {
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  -webkit-animation: rotation 4s infinite linear;
+}
+
+
+@-webkit-keyframes rotation {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
 }
 
 .dashboardGoalList {
@@ -308,12 +342,6 @@ h1 {
 .dashboardGoalEntry {
   display: grid;
   grid-gap: 15px;
-}
-
-.dashboardHeader {
-  grid-row: 1;
-  grid-column: 1;
-  padding: 20px;
 }
 
 .dashboardWeeklyActivities {
@@ -344,6 +372,30 @@ h1 {
 
 .pageLayout {
   display: grid;
-  grid-template-rows: 1fr;
+  grid-template-rows: 0fr 1fr 0fr;
   grid-template-columns: 0.1fr 1fr;
+  grid-gap: 50px;
+  background-color: #ddd;
 }
+
+.border {
+  border: solid thin grey;
+  border-radius: 20px;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  padding: 50px;
+  color: #212121;
+  background-color: #fefaf0;
+  border: solid 0.5px grey;
+  opacity: 0.8;
+  transition: transform .2s;
+}
+
+.border:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+
+
+

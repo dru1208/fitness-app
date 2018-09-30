@@ -10,7 +10,7 @@ const EventEntry = (props) => {
   }
 
   return (
-    <div className="eventEntry">
+    <div className="eventEntry border">
       <form onSubmit={props.handleDestroy}>
         <input type="hidden" name="eventID" value={props.event.id} />
         <span className="event-name">{props.event.name}</span>
