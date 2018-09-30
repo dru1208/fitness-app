@@ -95,6 +95,9 @@ export default class Dashboard extends Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
     return (
       <main className="dashboardPage">
@@ -102,7 +105,7 @@ export default class Dashboard extends Component {
           <h1>Welcome, {this.state.currentUser}</h1>
         </div>
         <GoalList />
-        <WeeklyActivities userID={this.props.userID}/>
+        <WeeklyActivities user_id={this.state.user_id}/>
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
         <EventList />
         <FeedList />

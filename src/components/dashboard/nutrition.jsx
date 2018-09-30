@@ -11,7 +11,6 @@ export default class Nutrition extends Component {
   }
 
   componentDidMount() {
-    console.log("id is ", this.state.user_id)
     axios.get('http://localhost:3000/api/dashboard_nutritions', {
       params: {
         user_id: this.state.user_id
@@ -50,6 +49,12 @@ export default class Nutrition extends Component {
         },
         {
           color: "#e9a227"
+        },
+        {
+          color: "#7F3FBF"
+        },
+        {
+          color: "#A5A5A5"
         }
       ],
       legend: {
@@ -79,7 +84,15 @@ export default class Nutrition extends Component {
 
           <Chart
             chartType="PieChart"
-            data={[["Nutrition", "Grams"], ["Protein", this.state.nutrition.protein], ["Fat", this.state.nutrition.fat], ["Carbohydrates", this.state.nutrition.carbohydrates]]}
+            data={[
+              ["Nutrition", "Grams"],
+              ["Protein", this.state.nutrition.protein],
+              ["Fat", this.state.nutrition.fat],
+              ["Carbohydrates", this.state.nutrition.carbohydrates],
+              ["Cholesterol", this.state.nutrition.cholesterol],
+              ["Sugar", this.state.nutrition.sugar],
+              ["Sodium", this.state.nutrition.sodium]
+            ]}
             options={pieOptions}
             graph_id="PieChart"
             width={"100%"}
