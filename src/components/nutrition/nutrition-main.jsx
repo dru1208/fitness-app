@@ -51,7 +51,6 @@ export default class Dashboard extends Component {
         datetime = findDatetime(inputDate, 18);
         break;
     }
-    console.log(datetime)
     axios.post('http://localhost:3000/api/user_nutritions', {
       user_id: this.props.userID,
       calories: formInput.calories.value ? formInput.calories.value : 0,
@@ -83,7 +82,6 @@ export default class Dashboard extends Component {
       datetime: event.target.datetime.value
     })
     .then((response) => {
-      console.log(response.data);
       this.setState({nutrition: response.data})
     })
   };

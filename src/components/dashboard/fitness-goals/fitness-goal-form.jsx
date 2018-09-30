@@ -28,8 +28,8 @@ class GoalForm extends Component {
       description: description,
       datetime: datetime
     }).then((response) => {
-        console.log(response)
-      })
+      this.props.getGoals();
+    })
   }
 
   render() {

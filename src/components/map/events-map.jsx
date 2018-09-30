@@ -37,7 +37,6 @@ export class EventMap extends Component {
     axios.get('http://localhost:3000/api/event_maps')
       .then((response) => {
         const data = response.data;
-        console.log("data is", data)
         const oldMapData = this.state.mapData
         const newMapData = []
         data.forEach((location) => {
@@ -56,7 +55,6 @@ export class EventMap extends Component {
   }
 
   render() {
-    console.log("this.state.selectedPlace",this.state.selectedPlace);
     const generateMapMarkers = this.state.mapData.map ((marker, index) => {
       return <Marker position={marker.point} key={index} onClick={this.onMarkerClick} name={marker.name}/>
     })
