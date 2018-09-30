@@ -30,9 +30,6 @@ export class GymMap extends Component {
 
     axios(options)
       .then(response => {
-        console.log('this is our response')
-        console.log(response.data)
-
         this.setState({
           data: response.data
         })

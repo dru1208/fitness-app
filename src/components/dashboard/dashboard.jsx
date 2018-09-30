@@ -106,8 +106,8 @@ export default class Dashboard extends Component {
           <h1>Welcome Back, {this.state.currentUser}</h1>
           <img className="dashboardIconPic" src={IconPic} alt="IMG"></img>
         </div>
-        <GoalList />
-        <WeeklyActivities user_id={this.state.user_id}/>
+        <GoalList user_id={this.state.user_id} />
+        <WeeklyActivities user_id={this.state.user_id} />
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
         <EventList />
         <FeedList />

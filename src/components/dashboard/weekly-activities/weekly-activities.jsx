@@ -121,7 +121,7 @@ export default class Activities extends Component {
       <main className="dashboardWeeklyActivities border">
         <h1>Weekly Activities</h1>
 
-          <div className={"activities_chart"}>
+          <div className={"dashboardCharts"}>
           <Chart
             chartType="ColumnChart"
             rows={[
