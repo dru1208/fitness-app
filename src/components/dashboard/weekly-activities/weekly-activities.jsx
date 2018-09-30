@@ -111,6 +111,8 @@ export default class Activities extends Component {
           break;
       }
     })
+    e.target.elements.timeOnExercise.value = "";
+    e.target.elements.timeOfExercise.value = null;
   }
 
   render() {
