@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 // change defaultChecked to a handler that changes the completed value in database
 
+//not currently being used
 class FitnessGoal extends Component {
 
   generateCheckBox = () => {
@@ -14,7 +15,7 @@ class FitnessGoal extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <span>{this.props.goal.description}</span>
         {this.generateCheckBox()}
       </div>

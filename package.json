@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^6.0.0",
+    "emotion": "^9.2.10",
     "google-maps-react": "^2.0.2",
     "history": "^4.7.2",
     "jwt-decode": "^2.2.0",

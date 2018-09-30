@@ -3,7 +3,7 @@ import RecentEntry from "./recent-entry.jsx"
 
 const RecentList = (props) => {
   return (
-    <div>
+    <div className="feedList">
       <RecentEntry />
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Activities from './weekly-activities/weekly-activities.jsx';
+import { css } from 'emotion';
+import WeeklyActivities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
 import FeedList from './feed-list/feed-list.jsx';
@@ -85,7 +86,7 @@ export default class Dashboard extends Component {
     super(props)
     this.state = {
       currentUser: props.name,
-      userID: props.id,
+      user_id: props.userID,
       weekly: weekly_data,
       nutrition: daily_nutrition,
       events: events,
@@ -94,15 +95,18 @@ export default class Dashboard extends Component {
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
     return (
-      <main className="dashboard">
-        <h1>Welcome, {this.state.currentUser}</h1>
-
+      <main className="dashboardPage">
+        <div className="dashboardHeader">
+          <h1>Welcome, {this.state.currentUser}</h1>
+        </div>
         <GoalList />
-        <Activities />
-        <Nutrition nutrition={this.state.nutrition} userID={this.state.userID}/>
-
+        <WeeklyActivities user_id={this.state.user_id}/>
+        <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
         <EventList />
         <FeedList />
       </main>

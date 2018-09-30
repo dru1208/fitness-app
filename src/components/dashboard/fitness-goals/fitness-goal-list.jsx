@@ -5,10 +5,13 @@ import GoalEntry from './fitness-goal-entry.jsx'
 const GoalList = (props) => {
 
   return (
-  <main className="Your Current Fitness Goals:">
-    <h1>Recent Goals</h1>
-      <GoalEntry />
+  <main className="dashboardGoalList">
+    <h1 className="dashboardGoalHeader">Recent Goals</h1>
+    <div className="dashboardGoalCheckbox">
       <GoalForm />
+      <GoalEntry />
+
+    </div>
   </main>
   )
 }

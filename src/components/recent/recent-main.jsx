@@ -1,13 +1,11 @@
 import React from 'react'
 import RecentList from './recent-list.jsx'
-
-
-const user = {first_name: "andrew"}
+import { css } from 'emotion'
 
 const Recent = (props) => {
   return(
-    <main>
-      <h2> Recent </h2>
+    <main className="feedPage">
+      <h2 className="feedHeader"> Recent Feed </h2>
       <RecentList />
     </main>
   )

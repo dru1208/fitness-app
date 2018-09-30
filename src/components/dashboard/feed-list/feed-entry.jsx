@@ -25,10 +25,12 @@ export default class FeedEntry extends React.Component {
     })
     const sortedFeeds = this.state.feeds.reverse().slice(0,5)
     return (
-      <div>
+      <div className="dashboardFeedEntry">
         { sortedFeeds.map((entry, index) =>
-          <div className="single-feed">
-             <div>{entry.title}</div>
+          <div>
+             <h3>{entry.title}</h3>
+             <div>{entry.content}</div>
+             <div>{entry.link}</div>
           </div>
         )}
       </div>

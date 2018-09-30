@@ -6,7 +6,7 @@ const RegistrationForm = (props) => {
 
 
   return (
-    <div>
+    <div className="registrationForm">
     <h2>Registration Form</h2>
       <form onSubmit={props.handleRegister}>
         <label htmlFor="firstName">First Name:</label>

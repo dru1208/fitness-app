@@ -5,7 +5,7 @@ export default class Nutrition extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: props.userID,
+      user_id: props.user_id,
       nutrition: null
     }
   }
@@ -49,6 +49,12 @@ export default class Nutrition extends Component {
         },
         {
           color: "#e9a227"
+        },
+        {
+          color: "#7F3FBF"
+        },
+        {
+          color: "#A5A5A5"
         }
       ],
       legend: {
@@ -73,23 +79,31 @@ export default class Nutrition extends Component {
 
     if (this.state.nutrition) {
       return (
-        <main className="nutrition">
+        <div className="dashboardNutrition">
           <h1>Nutrition</h1>
 
           <Chart
             chartType="PieChart"
-            data={[["Nutrition", "Grams"], ["Protein", this.state.nutrition.protein], ["Fat", this.state.nutrition.fat], ["Carbohydrates", this.state.nutrition.carbohydrates]]}
+            data={[
+              ["Nutrition", "Grams"],
+              ["Protein", this.state.nutrition.protein],
+              ["Fat", this.state.nutrition.fat],
+              ["Carbohydrates", this.state.nutrition.carbohydrates],
+              ["Cholesterol", this.state.nutrition.cholesterol],
+              ["Sugar", this.state.nutrition.sugar],
+              ["Sodium", this.state.nutrition.sodium]
+            ]}
             options={pieOptions}
             graph_id="PieChart"
             width={"100%"}
             height={"400px"}
             legend_toggle
           />
-        </main>
+        </div>
       )
     } else {
       return (
-        <main className="nutrition">
+        <main className="dashboardNutrition">
           <h1>Fill out your past nutrition info!</h1>
         </main>
       )

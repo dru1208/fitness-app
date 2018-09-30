@@ -1,5 +1,10 @@
 import React from 'react'
 import axios from 'axios'
+import { css } from 'emotion'
+
+
+
+
 
 export default class BlogEntry extends React.Component {
   constructor(props) {
@@ -18,16 +23,18 @@ export default class BlogEntry extends React.Component {
   }
 
   render() {
+
     this.state.feeds.sort(function(a,b) {
         let dateA = new Date(a.created_at)
         let dateB = new Date(b.created_at)
         return dateA - dateB
     })
     const sortedFeeds = this.state.feeds.reverse()
+
     return (
-      <div>
+      <div className="feedEntryWrapper">
       { sortedFeeds.map(entries =>
-        <article className="container">
+        <div className="feedEntry">
           <header>
             <h3>{entries.title}</h3>
           </header>
@@ -36,7 +43,7 @@ export default class BlogEntry extends React.Component {
           <footer>
             <div>icon like here</div>
           </footer>
-        </article>
+        </div>
       )}
       </div>
     )

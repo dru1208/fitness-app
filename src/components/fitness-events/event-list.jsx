@@ -6,14 +6,14 @@ import { generateEventURL } from '../../_helper.jsx'
 const EventList = (props) => {
 
   const generateEventList = props.eventsList.map ((event, index) => {
-    return <EventEntry event={event} key={index} handleDestroy={props.handleDestroy}/>
+    return <EventEntry userID={props.userID} event={event} key={index} handleDestroy={props.handleDestroy}/>
   })
 
   return (
-    <main className="events">
+    <div className="eventList">
       <h1>Events</h1>
       {generateEventList}
-    </main>
+    </div>
   )
 }
 
