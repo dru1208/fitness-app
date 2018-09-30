@@ -5,6 +5,7 @@ class GoalForm extends Component {
   constructor(props) {
     super(props)
     this.state ={
+      user_id: this.props.user_id,
       description: "",
       datetime: ""
     }
@@ -23,6 +24,7 @@ class GoalForm extends Component {
     let description = this.state.description
     let datetime = this.state.datetime
     axios.post('http://localhost:3000/api/fitness_goals', {
+      user_id: this.state.user_id,
       description: description,
       datetime: datetime
     }).then((response) => {

@@ -104,8 +104,8 @@ export default class Dashboard extends Component {
         <div className="dashboardHeader">
           <h1>Welcome, {this.state.currentUser}</h1>
         </div>
-        <GoalList />
-        <WeeklyActivities user_id={this.state.user_id}/>
+        <GoalList user_id={this.state.user_id} />
+        <WeeklyActivities user_id={this.state.user_id} />
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
         <EventList />
         <FeedList />

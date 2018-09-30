@@ -17,16 +17,17 @@ export default class Nutrition extends Component {
       }
     })
     .then(response => {
+      const data = response.data;
       console.log('you have a response')
       this.setState({
         nutrition: {
-          calories: response.data.calories,
-          protein: response.data.protein,
-          fat: response.data.fat,
-          carbohydrates: response.data.carbohydrates,
-          sugar: response.data.sugar,
-          sodium: response.data.sodium,
-          cholesterol: response.data.cholesterol
+          calories: data.calories,
+          protein: data.protein,
+          fat: data.fat,
+          carbohydrates: data.carbohydrates,
+          sugar: data.sugar,
+          sodium: data.sodium,
+          cholesterol: data.cholesterol
         }
       })
     })

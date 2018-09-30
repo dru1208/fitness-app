@@ -5,12 +5,17 @@ export default class GoalEntry extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      user_id: this.props.user_id,
       data: []
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/fitness_goals')
+    axios.get('http://localhost:3000/api/fitness_goals', {
+      params: {
+        user_id: this.state.user_id
+      }
+    })
       .then((response) => {
         const data = response.data;
         data.sort(function(a, b) {
