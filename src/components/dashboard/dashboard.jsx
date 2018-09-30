@@ -7,6 +7,7 @@ import FeedList from './feed-list/feed-list.jsx';
 import GoalList from './fitness-goals/fitness-goal-list.jsx'
 import EventEntry from './event-list/event-entry.jsx'
 import FeedEntry from './feed-list/feed-entry.jsx'
+import IconPic from './image.png'
 
 
 //HARDCODED DATABASE TABLES
@@ -102,10 +103,11 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboardPage">
         <div className="dashboardHeader">
-          <h1>Welcome, {this.state.currentUser}</h1>
+          <h1>Welcome Back, {this.state.currentUser}</h1>
+          <img className="dashboardIconPic" src={IconPic} alt="IMG"></img>
         </div>
-        <GoalList />
-        <WeeklyActivities user_id={this.state.user_id}/>
+        <GoalList user_id={this.state.user_id} />
+        <WeeklyActivities user_id={this.state.user_id} />
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
         <EventList />
         <FeedList />

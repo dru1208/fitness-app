@@ -34,7 +34,7 @@ export default class BlogEntry extends React.Component {
     return (
       <div className="feedEntryWrapper">
       { sortedFeeds.map(entries =>
-        <div className="feedEntry">
+        <div className="feedEntry border">
           <header>
             <h3>{entries.title}</h3>
           </header>

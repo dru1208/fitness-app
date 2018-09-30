@@ -20,7 +20,8 @@ const ImageUpload = (props) => {
 			<input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
 			<button type="button" onClick={props.uploadButtonHandler}>Upload</button>
 		</main>
-	)
+	);
+
 }
 
 export default ImageUpload

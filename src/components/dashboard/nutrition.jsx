@@ -17,16 +17,16 @@ export default class Nutrition extends Component {
       }
     })
     .then(response => {
-      console.log('you have a response')
+      const data = response.data;
       this.setState({
         nutrition: {
-          calories: response.data.calories,
-          protein: response.data.protein,
-          fat: response.data.fat,
-          carbohydrates: response.data.carbohydrates,
-          sugar: response.data.sugar,
-          sodium: response.data.sodium,
-          cholesterol: response.data.cholesterol
+          calories: data.calories,
+          protein: data.protein,
+          fat: data.fat,
+          carbohydrates: data.carbohydrates,
+          sugar: data.sugar,
+          sodium: data.sodium,
+          cholesterol: data.cholesterol
         }
       })
     })
@@ -79,31 +79,32 @@ export default class Nutrition extends Component {
 
     if (this.state.nutrition) {
       return (
-        <div className="dashboardNutrition">
+        <main className="dashboardNutrition border">
           <h1>Nutrition</h1>
-
-          <Chart
-            chartType="PieChart"
-            data={[
-              ["Nutrition", "Grams"],
-              ["Protein", this.state.nutrition.protein],
-              ["Fat", this.state.nutrition.fat],
-              ["Carbohydrates", this.state.nutrition.carbohydrates],
-              ["Cholesterol", this.state.nutrition.cholesterol],
-              ["Sugar", this.state.nutrition.sugar],
-              ["Sodium", this.state.nutrition.sodium]
-            ]}
-            options={pieOptions}
-            graph_id="PieChart"
-            width={"100%"}
-            height={"400px"}
-            legend_toggle
-          />
-        </div>
+          <div className="dashboardCharts">
+            <Chart
+              chartType="PieChart"
+              data={[
+                ["Nutrition", "Grams"],
+                ["Protein", this.state.nutrition.protein],
+                ["Fat", this.state.nutrition.fat],
+                ["Carbohydrates", this.state.nutrition.carbohydrates],
+                ["Cholesterol", this.state.nutrition.cholesterol],
+                ["Sugar", this.state.nutrition.sugar],
+                ["Sodium", this.state.nutrition.sodium]
+              ]}
+              options={pieOptions}
+              graph_id="PieChart"
+              width={"100%"}
+              height={"400px"}
+              legend_toggle
+            />
+          </div>
+        </main>
       )
     } else {
       return (
-        <main className="dashboardNutrition">
+        <main className="dashboardNutrition border">
           <h1>Fill out your past nutrition info!</h1>
         </main>
       )
