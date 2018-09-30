@@ -79,7 +79,7 @@ export default class Nutrition extends Component {
 
     if (this.state.nutrition) {
       return (
-        <div className="dashboardNutrition">
+        <div className="dashboardCharts">
           <h1>Nutrition</h1>
 
           <Chart
