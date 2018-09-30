@@ -28,7 +28,7 @@ export default class EventEntry extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboardEventEntry">
         { this.state.data.map((entry, index) =>
           <div className="single-event" key={index}>
             <h3 >{entry.name}</h3>

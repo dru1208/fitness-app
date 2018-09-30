@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-
-
+import Pic from './img-01.png'
 import LoginForm from './login-form.jsx'
 import RegistrationForm from './registration.jsx'
 
@@ -9,9 +8,14 @@ import RegistrationForm from './registration.jsx'
 const LandingPage = (props) => {
     return (
       <div className="landingPage">
-        <h2>YourFitnessPal</h2>
-        <LoginForm handleLogin={props.handleLogin}/>
-        <RegistrationForm handleRegister={props.handleRegister}/>
+        <div className="landingForms">
+          <div className="landingHeader">YourFitnessPal</div>
+          <div className="landingImg">
+            <img src={Pic} alt="IMG"></img>
+          </div>
+          <LoginForm handleLogin={props.handleLogin}/>
+          <RegistrationForm handleRegister={props.handleRegister}/>
+        </div>
       </div>
     )
 }

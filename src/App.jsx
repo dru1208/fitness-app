@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './components/home-page/landing-page.jsx';
@@ -11,13 +10,18 @@ import Nutrition from './components/nutrition/nutrition-main.jsx';
 import Recent from './components/recent/recent-main.jsx';
 import BlogMain from './components/blogs/blog-main.jsx';
 import EventMain from './components/fitness-events/event-main.jsx';
-
 import NavBar from './components/nav-bar/nav-bar.jsx'
-
 import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
-
 import { generateUserURL } from './_helper.jsx'
+import { injectGlobal } from 'emotion'
+
+
+injectGlobal`
+  * {
+    font-family: 'Open Sans', sans-serif;
+  }
+`
 
 
 class App extends Component {

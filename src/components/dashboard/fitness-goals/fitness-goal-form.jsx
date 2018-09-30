@@ -32,8 +32,8 @@ class GoalForm extends Component {
 
   render() {
     return (
-    <div>
-      <h4>Enter Goals:</h4>
+    <div className="dashboardGoalForm">
+      <h4 className="dashboardGoalFormTitle">Enter Goals:</h4>
       <form onSubmit={this._handleSubmit} className="newGoalForm">
         <label htmlFor="goalDescription">Goal</label>
         <textarea name="goalDescription" onChange={this.handleDescriptionChange} /><br/>

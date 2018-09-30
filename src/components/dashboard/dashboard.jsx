@@ -77,11 +77,6 @@ const fitnessGoalsTest = [
 ]
 
 
-const dashboard = css`
-  padding: 0 8em;
-`
-
-
 //state should not be string when api is in use
 const weekly_data_stringed = JSON.stringify(weekly_data)
 const daily_nutrition_stringed = JSON.stringify(daily_nutrition)
@@ -102,15 +97,13 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <main className={dashboard}>
-        <h1>Welcome, {this.state.currentUser}</h1>
-
+      <main className="dashboardPage">
+        <div className="dashboardHeader">
+          <h1>Welcome, {this.state.currentUser}</h1>
+        </div>
         <GoalList />
-
         <WeeklyActivities userID={this.props.userID}/>
         <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
-
-
         <EventList />
         <FeedList />
       </main>

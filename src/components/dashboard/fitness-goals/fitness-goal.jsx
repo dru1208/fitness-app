@@ -15,7 +15,7 @@ class FitnessGoal extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <span>{this.props.goal.description}</span>
         {this.generateCheckBox()}
       </div>

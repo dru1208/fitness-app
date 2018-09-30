@@ -44,7 +44,7 @@ export default class GoalEntry extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboardGoalEntry">
       { this.state.data.map((entry, index) =>
         <div className="single-goal" key={index}>
           <span>{entry.description} | {entry.datetime.split('T')[0]}</span>

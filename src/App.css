@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 .App {
   text-align: center;
 }
@@ -26,6 +28,29 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Navbar */
+
+.navBar {
+  background-color: #ddd;
+  display: grid;
+  grid-template-columns: 7;
+  grid-gap: 10px;
+}
+
+.navBarButtons {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 20px;
+  margin: 4px 2px;
 }
 
 /* Recent feeds page */
@@ -69,7 +94,7 @@
 
 .profilePage {
   display: grid;
-  background-color: #ddd;
+  background-color: #7c7c7c;
   grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: repeat(2, min-content) 5fr;
   grid-gap: 50px;
@@ -166,20 +191,107 @@
 /* Landing page */
 
 .landingPage {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   background-image: url("./components/home-page/background.jpg");
+  height: 100vh;
   background-size: cover;
 }
 
-.loginForm {
+.landingForms{
+  grid-row: 2;
+  margin: auto;
   width: 50%;
-  border: solid thin black;
   background-color: white;
+  border: solid thin grey;
+  border-radius: 20px;
+  padding: 50px;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.landingHeader {
+  font-size: 50px;
+  text-align: center;
+  grid-column: 1 / 4;
+}
+
+.landingImg {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.loginForm {
+  grid-row: 2;
+  grid-column: 2;
   padding: 20px;
 }
 
 .registrationForm {
-  width: 50%;
-  border: solid thin black;
-  background-color: white;
+  grid-row: 2;
+  grid-column: 3;
   padding: 20px;
 }
+
+/* Dashboard */
+
+.dashboardPage {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: max-content;
+  grid-gap: 50px;
+}
+
+.dashboardGoalList {
+  grid-row: 1;
+  grid-column: 2;
+  padding: 20px;
+}
+
+.dashboardGoalCheckbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 20px
+}
+
+.dashboardGoalFormTitle {
+  margin-top: 0px;
+}
+
+.dashboardGoalEntry {
+  display: grid;
+  grid-gap: 15px;
+}
+
+.dashboardHeader {
+  grid-row: 1;
+  grid-column: 1;
+  padding: 20px;
+}
+
+.dashboardWeeklyActivities {
+  grid-row: 2;
+  grid-column: 2;
+  padding: 20px;
+}
+
+.dashboardNutrition {
+  grid-row: 2;
+  grid-column: 1;
+  padding: 20px;
+}
+
+.dashboardEventList {
+  grid-row: 3;
+  grid-column: 2;
+  padding: 20px;
+}
+
+.dashboardFeedList {
+  grid-row: 3;
+  grid-column: 1;
+  padding: 20px;
+}
+

@@ -80,52 +80,51 @@ export default class Activities extends Component {
   render() {
 
     return (
-      <main className="weekly_ activities">
-      <h1>Weekly Activities</h1>
+      <main className="dashboardWeeklyActivities">
+        <h1>Weekly Activities</h1>
 
-        <div className={"activities_chart"}>
-        <Chart
-          chartType="ColumnChart"
-          rows={[
-            ["Sunday", this.state.sun],
-            ["Monday", this.state.mon],
-            ["Tuesday", this.state.tues],
-            ["Wednesday", this.state.wed],
-            ["Thursday", this.state.thurs],
-            ["Friday", this.state.fri],
-            ["Saturday", this.state.sat]
-          ]}
-          columns={[
-            {
-              type: "string",
-              label: "Day"
-            },
-            {
-              type: "number",
-              label: "Time Spent Exercising"
-            }
-          ]}
-          options={
-            // Chart options
-            {
-              animation:{
-                startup: true,
-                duration: 1000,
-                easing: 'out'
+          <div className={"activities_chart"}>
+          <Chart
+            chartType="ColumnChart"
+            rows={[
+              ["Sunday", this.state.sun],
+              ["Monday", this.state.mon],
+              ["Tuesday", this.state.tues],
+              ["Wednesday", this.state.wed],
+              ["Thursday", this.state.thurs],
+              ["Friday", this.state.fri],
+              ["Saturday", this.state.sat]
+            ]}
+            columns={[
+              {
+                type: "string",
+                label: "Day"
               },
-              hAxis: {
-                title: "Days",
-                viewWindow: { min: 0, max: 7 }
-              },
-              vAxis: { title: "Time Spent (minutes)", viewWindow: { min: 0 } },
-              legend: "none"
+              {
+                type: "number",
+                label: "Time Spent Exercising"
+              }
+            ]}
+            options={
+              // Chart options
+              {
+                animation:{
+                  startup: true,
+                  duration: 1000,
+                  easing: 'out'
+                },
+                hAxis: {
+                  title: "Days",
+                  viewWindow: { min: 0, max: 7 }
+                },
+                vAxis: { title: "Time Spent (minutes)", viewWindow: { min: 0 } },
+                legend: "none"
+              }
             }
-          }
-          width="100%"
-          height="400px"
-          legendToggle
-        />
-      </div>
+
+            legendToggle
+          />
+        </div >
       <h3>Form Input</h3>
       <form onSubmit={this._handleSumbit} className="weeklyExercise">
         <label htmlFor="timeOnExercise">Time spent on exercise:</label>
