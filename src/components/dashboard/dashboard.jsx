@@ -91,7 +91,7 @@ export default class Dashboard extends Component {
     super(props)
     this.state = {
       currentUser: props.name,
-      userID: props.id,
+      user_id: props.userID,
       weekly: weekly_data,
       nutrition: daily_nutrition,
       events: events,
@@ -108,7 +108,7 @@ export default class Dashboard extends Component {
         <GoalList />
 
         <WeeklyActivities userID={this.props.userID}/>
-        <Nutrition nutrition={this.state.nutrition}/>
+        <Nutrition nutrition={this.state.nutrition} user_id={this.state.user_id} />
 
 
         <EventList />

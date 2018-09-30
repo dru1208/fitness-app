@@ -5,12 +5,13 @@ export default class Nutrition extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      user_id: props.userID,
+      user_id: props.user_id,
       nutrition: null
     }
   }
 
   componentDidMount() {
+    console.log("id is ", this.state.user_id)
     axios.get('http://localhost:3000/api/dashboard_nutritions', {
       params: {
         user_id: this.state.user_id
