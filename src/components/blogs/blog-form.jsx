@@ -36,7 +36,7 @@ class blogForm extends Component {
 
                 <label htmlFor="blogContent">Content</label>
                 <textarea name="blogContent" />
-                <input type="submit"/>
+                <input type="submit" value="Post Blog"/>
               </form>
                 <span>300</span>
             </section>
