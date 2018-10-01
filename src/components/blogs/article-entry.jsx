@@ -8,7 +8,7 @@ const ArticleEntry = (props) => {
         <header>
           <h3>{props.article.title}</h3>
         </header>
-          <p>{props.article.link}</p>
+          <a href={props.article.link}>{props.article.link}</a>
         <footer>
           <div>icon like here</div>
         </footer>
