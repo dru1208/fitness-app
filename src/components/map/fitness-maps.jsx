@@ -26,9 +26,17 @@ export class Maps extends Component {
 
   generateMap = () => {
     if (this.state.currentMap === "showGymMap") {
-      return <GymMap closeMap={this.closeMap} jwt={this.props.jwt}/>
+      return (
+        <div className="mapContent">
+          <GymMap closeMap={this.closeMap} jwt={this.props.jwt}/>
+        </div>
+      )
     } else if (this.state.currentMap === "showEventsMap") {
-      return <EventMap closeMap={this.closeMap} jwt={this.props.jwt}/>
+      return (
+        <div className="mapContent">
+          <EventMap closeMap={this.closeMap} jwt={this.props.jwt}/>
+        </div>
+      )
     }
   }
 
@@ -55,14 +63,12 @@ export class Maps extends Component {
 
     return (
       <div className="mapPage">
-        <h1>Fitness Map</h1>
-        <ul>
+        <h1 className="mapHeader">Fitness Map</h1>
+        <ul className="mapLinks">
             <li className="gymMapLink" onClick={this.showGymMap}>Nearby Gym Map</li>
             <li className="eventsMapLink" onClick={this.showEventsMap}>Nearby Events Map</li>
         </ul>
-        <div className="mapContent">
           {this.generateMap()}
-        </div>
       </div>
     );
   }
