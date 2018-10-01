@@ -53,16 +53,16 @@ class EventForm extends Component {
   render() {
     return (
     <div className="eventForm border">
-      <h2>Create your new event here!</h2>
+      <h3>Create your new event here!</h3>
       <form onSubmit={this._handleSubmit} className="newEventForm">
-        <label htmlFor="eventName">Event Name</label>
-        <input type="text" name="eventName" onChange={this._handleTitleChange}/><br/>
-        <label htmlFor="eventDescription">Description</label>
-        <textarea name="eventDescription" onChange={this._handleDescriptionChange} /><br/>
-        <label htmlFor="eventLocation">Location</label>
-        <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this._handleLocationChange}/><br/>
-        <label htmlFor="eventDate">Date</label>
-        <input type="datetime-local" name="eventDate" defaultValue={generateCurrentDateTime()} onChange={this._handleDateChange}/><br/>
+        <label htmlFor="eventName">Event Name: </label>
+        <input type="text" name="eventName" onChange={this._handleTitleChange}/>
+        <label htmlFor="eventDescription">Description: </label>
+        <textarea name="eventDescription" onChange={this._handleDescriptionChange} />
+        <label htmlFor="eventLocation">Location: </label>
+        <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this._handleLocationChange}/>
+        <label htmlFor="eventDate">Date: </label>
+        <input type="datetime-local" name="eventDate" defaultValue={generateCurrentDateTime()} onChange={this._handleDateChange}/>
         <input type="submit"/>
       </form>
     </div>
