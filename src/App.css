@@ -561,13 +561,23 @@ th {
 
 .mapPage {
   display: grid;
-  grid-template-rows: 0.1fr 0.1fr 1fr;
+  grid-template-rows: 0.1fr 0.1fr min-content;
+  grid-template-columns: 1fr;
   padding: 20px;
+}
 
+.mapHeader {
+  grid-row: 1 / 2;
+}
+
+.mapLinks {
+  grid-row: 2 / 3;
+  padding: 0;
 }
 
 .mapContent {
-  grid-row: 3/4;
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
 }
 
 

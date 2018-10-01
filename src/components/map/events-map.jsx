@@ -24,6 +24,12 @@ const style = {
   height: '500px'
 }
 
+const containerStyle = {
+  position: 'relative',
+  width: '100%',
+  height: '500px'
+}
+
 export class EventMap extends Component {
   constructor(props) {
     super(props)
@@ -85,16 +91,14 @@ export class EventMap extends Component {
     });
 
     return (
-      <div className="mapStyling">
-        <Map google={this.props.google} style={style} zoom={16} initialCenter={{lat: 43.6446002, lng: -79.3951586}}>
-          {generateMapMarkers}
-          <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-            <div className="mapInfo">
-              {mapInfos}
-            </div>
-          </InfoWindow>
-        </Map>
-      </div>
+      <Map google={this.props.google} style={style} containerStyle={containerStyle} zoom={16} initialCenter={{lat: 43.6446002, lng: -79.3951586}}>
+        {generateMapMarkers}
+        <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
+          <div className="mapInfo">
+            {mapInfos}
+          </div>
+        </InfoWindow>
+      </Map>
   )}
 }
 
