@@ -5,6 +5,7 @@ const ImageUpload = (props) => {
 	if (props.image) {
 		return (
 			<main className="nutritionImageUpload border">
+				<h2>Image Upload</h2>
 				<form onSubmit={props.uploadButtonHandler}>
 					<input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
 					<input type="datetime-local" name="datetime" />
@@ -17,6 +18,7 @@ const ImageUpload = (props) => {
 	}
 	return (
 		<main className="nutritionImageUpload border">
+			<h2>Image Upload</h2>
 			<input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
 			<button type="button" onClick={props.uploadButtonHandler}>Upload</button>
 		</main>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { generateCurrentDateTime } from "../../_helper.jsx"
+
 class EventForm extends Component {
   constructor(props) {
     super(props)
@@ -60,7 +62,7 @@ class EventForm extends Component {
         <label htmlFor="eventLocation">Location</label>
         <textarea placeholder="e.g. 46 Spadina, Toronto" name="eventLocation" onChange={this._handleLocationChange}/><br/>
         <label htmlFor="eventDate">Date</label>
-        <input type="datetime-local" name="eventDate" onChange={this._handleDateChange}/><br/>
+        <input type="datetime-local" name="eventDate" defaultValue={generateCurrentDateTime()} onChange={this._handleDateChange}/><br/>
         <input type="submit"/>
       </form>
     </div>

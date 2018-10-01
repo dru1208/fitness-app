@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { generateCurrentDateTime } from '../../_helper.jsx'
 
 const NutritionQuery = (props) => {
 
@@ -7,7 +8,7 @@ const NutritionQuery = (props) => {
       <h2>Natural Language Query</h2><br/>
       <form onSubmit={props.handleQuerySubmit}>
         <textarea name="query" rows="6" columns="150"/><br />
-        <input name="datetime" type="datetime-local" className="nutritionNatLangDatetime"/><br />
+        <input name="datetime" type="datetime-local" defaultValue={generateCurrentDateTime()} className="nutritionNatLangDatetime"/><br />
         <input type="submit" />
       </form>
     </div>
