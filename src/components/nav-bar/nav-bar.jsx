@@ -33,7 +33,7 @@ const NavBar = (props) => {
           <button className="navBarButtons">Recent</button>
       </Link></li>
       <li><Link to={generateUserURL(props.id, "blog")}>
-          <button className="navBarButtons">Blog</button>
+          <button className="navBarButtons">Profile</button>
       </Link></li>
       <li><Link to={generateUserURL(props.id, "events")}>
           <button className="navBarButtons">Events</button>

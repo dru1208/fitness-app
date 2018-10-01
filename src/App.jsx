@@ -38,7 +38,6 @@ class App extends Component {
 
   _handleLogin = (e) => {
     e.preventDefault();
-    console.log("hello you've logged in")
     const loginObj = {
       email: e.target.email.value,
       password: e.target.password.value
@@ -66,7 +65,6 @@ class App extends Component {
 
   _handleRegister = (e) => {
     e.preventDefault();
-    console.log("hello you've registered in")
     const registrationObj = {
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
@@ -135,7 +133,7 @@ class App extends Component {
           <Route exact path={generateUserURL(this.state.userID, "nutrition")}
             render={() => (this.state.currentUser ?
               (<div className="pageLayout">
-
+                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
                 <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
               </div>) :
               <Redirect to="/" />
