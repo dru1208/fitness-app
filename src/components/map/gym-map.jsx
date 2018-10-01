@@ -8,8 +8,10 @@ const generateLatLng = (x, y) => {
 }
 
 const style = {
-  width: '100%',
-  height: '500px'
+  height: '500px',
+  width: '500px',
+  display: 'grid',
+  position: 'none'
 }
 
 
@@ -67,7 +69,7 @@ export class GymMap extends Component {
     }
 
     return (
-      <div className="gymsMap" id="gymsMap">
+
           <Map google={this.props.google} style={style} zoom={16} center= {center} >
           {generateMapMarkers}
             <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
@@ -78,7 +80,6 @@ export class GymMap extends Component {
             </InfoWindow>
           </Map>
 
-      </div>
     );
   }
 
