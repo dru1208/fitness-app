@@ -32,6 +32,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       userID: null,
+      location: "",
       jwt: null
     }
   }
@@ -55,6 +56,7 @@ class App extends Component {
           this.setState({
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
+            location: userInfo.location,
             jwt: response.data
           }, () => {
             history.push(generateUserURL(this.state.userID, "dashboard"))
@@ -86,6 +88,7 @@ class App extends Component {
           this.setState({
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
+            location: userInfo.location,
             jwt: response.data
           }, () => {
             history.push(generateUserURL(this.state.userID, "dashboard"))
@@ -100,6 +103,17 @@ class App extends Component {
       userID: null,
       jwt: null
     })
+  }
+
+  _handleLocationUpdate = (e) => {
+    e.preventDefault();
+      axios.patch('http://localhost:3000/api/users/' + this.state.userID, {
+        id: this.state.userID,
+        location: e.target.location.value,
+        password: e.target.password.value
+      }).then(response => {
+        this.setState({location: response.data.location})
+      })
   }
 
 // do i need the user ID for navbar?? think some more
@@ -124,7 +138,7 @@ class App extends Component {
             render={() => (this.state.currentUser ?
               (<div className="pageLayout">
                 <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Maps jwt={this.state.jwt}/>
+                <Maps jwt={this.state.jwt} location={this.state.location} handleLocationUpdate={this._handleLocationUpdate}/>
               </div>) :
               <Redirect to="/" />
             )}

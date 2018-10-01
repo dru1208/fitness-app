@@ -33,30 +33,37 @@ const containerStyle = {
 export class EventMap extends Component {
   constructor(props) {
     super(props)
+    this._source = axios.CancelToken.source();
     this.state = {
       mapData: [],
       showingInfoWindow: false,
       selectedPlace: {},
-      name: '',
-      description: '',
-      location: '',
-      datetime: '',
-      loading: true
+      loading: true,
+      location: this.props.location,
+      isMounted: false
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/event_maps')
-      .then((response) => {
-        const data = response.data;
-        const oldMapData = this.state.mapData
-        const newMapData = []
-        data.forEach((location) => {
-          newMapData.push(latLng(location))
+      axios.get('http://localhost:3000/api/event_maps', {cancelToken: this._source.token})
+        .then((response) => {
+          const data = response.data;
+          const oldMapData = this.state.mapData
+          const newMapData = []
+          data.forEach((location) => {
+            newMapData.push(latLng(location))
+          })
+          this.setState( {mapData: [...newMapData, ...oldMapData], loading: false} )
         })
-        this.setState( {mapData: [...newMapData, ...oldMapData], loading: false} )
-      })
+        .catch(err => {
+          console.log(err)
+        })
   }
+
+  componentWillUnmount() {
+    this._source.cancel('event map failing.')
+  }
+
 
   onMarkerClick = (props, marker, event) => {
     this.setState({
