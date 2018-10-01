@@ -36,6 +36,7 @@ export default class Nutrition extends Component {
     const nutrition = this.props.nutrition;
     const pieOptions = {
       title: "",
+      backgroundColor: 'grey',
       pieHole: 0.6,
       slices: [
         {
