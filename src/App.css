@@ -53,7 +53,8 @@
   to { transform: rotate(360deg); }
 }
 
-h1 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -176,7 +177,7 @@ li {
 }
 
 .profileHeader {
-  color: #86C232;
+  color: #995044;
   font-size: 50px;
   text-align: center;
   width: 100%;
@@ -185,7 +186,7 @@ li {
 }
 
 .blogForm {
-  background-color: #c1c8e4;
+  background-color: #f9f7ecc9;
   padding: 15px;
   grid-row: 2;
   grid-column: 2;
@@ -193,7 +194,7 @@ li {
 }
 
 .articleForm {
-  background-color: #c1c8e4;
+  background-color: #f9f7ecc9;
   padding: 15px;
   grid-row: 2;
   grid-column: 3;
@@ -232,6 +233,12 @@ li {
   padding: 20px;
 }
 
+.newBlogForm,
+.newArticleForm {
+  display: grid;
+  grid-gap: 5px;
+}
+
 /* Event Page */
 
 .eventPage {
@@ -261,6 +268,44 @@ li {
   padding: 20px;
 }
 
+.newEventForm {
+  display: grid;
+  grid-template-rows: repeat(9, 0.5fr);
+  grid-gap: 5px;
+}
+
+.eventForm input, textarea {
+  border: none;
+  border-radius: 5px;
+}
+
+.newBlogForm input, textarea {
+  border: none;
+  border-radius: 5px;
+}
+
+.newArticleForm input, textarea {
+  border: none;
+  border-radius: 5px;
+}
+
+.eventForm input[type=submit] {
+   background: #d5d2ce;
+   padding: 8px;
+   margin-top: 10px;
+}
+
+.newArticleForm input[type=submit] {
+   background: #d5d2ce;
+   padding: 8px;
+   margin-top: 10px;
+}
+
+.newBlogForm input[type=submit] {
+   background: #d5d2ce;
+   padding: 8px;
+   margin-top: 10px;
+}
 /* Landing page */
 
 .landingPage {
@@ -493,9 +538,9 @@ th {
   border: solid thin grey;
   border-radius: 20px;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
-  padding: 50px;
-  background-color:#f9f7ecc9;
-  border: solid 0.5px grey;
+  padding: 20px 50px 60px 50px;
+  background-color: #f9f7ecc9;
+  border: solid 0.5px #f9f7ecc9;
   opacity: 0.8;
   transition: transform .2s;
 
