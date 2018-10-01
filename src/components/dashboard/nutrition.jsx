@@ -43,27 +43,35 @@ export default class Nutrition extends Component {
             <Chart
               chartType="PieChart"
               data={[
-                ["Nutrition", "Grams"],
-                ["Protein", this.state.nutrition.protein],
-                ["Fat", this.state.nutrition.fat],
-                ["Carbohydrates", this.state.nutrition.carbohydrates],
-                ["Cholesterol", this.state.nutrition.cholesterol],
-                ["Sugar", this.state.nutrition.sugar],
-                ["Sodium", this.state.nutrition.sodium]
+                ["Nutrition", "Calories"],
+                ["Protein", this.state.nutrition.protein * 4],
+                ["Fat", this.state.nutrition.fat * 9],
+                ["Carbohydrates", this.state.nutrition.carbohydrates * 4]
+                // ["Cholesterol", this.state.nutrition.cholesterol],
+                // ["Sugar", this.state.nutrition.sugar],
+                // ["Sodium", this.state.nutrition.sodium]
               ]}
-              options={options}
+              options={pieOptions}
               graph_id="PieChart"
               width={"100%"}
               height={"400px"}
               legend_toggle
             />
+            <h2>Total calories: {this.state.nutrition.calories}</h2>
           </div>
         )
       }
     }
 
     const pieOptions = {
-      title: "",
+      title: "Calories/Nutrient",
+      titleTextStyle: {
+        color: 'black',
+        fontName: 'Roboto',
+        fontSize: 30,
+        bold: true,
+        italic: false
+      },
       backgroundColor: { fill: 'transparent' },
       pieHole: 0.6,
       slices: [
@@ -99,7 +107,7 @@ export default class Nutrition extends Component {
       },
       chartArea: {
         left: 0,
-        top: 0,
+        top: 50,
         width: "100%",
         height: "80%"
       },
@@ -109,8 +117,11 @@ export default class Nutrition extends Component {
 
     return (
       <main className="dashboardNutrition border">
-        <h1>Nutrition</h1>
-        {generateNutritionChart(pieOptions)}
+        {this.state.nutrition &&
+          <div>
+            {generateNutritionChart(pieOptions)}
+          </div>
+        }
       </main>
     )
   }
