@@ -59,9 +59,10 @@ export class Maps extends Component {
         <ul>
             <li className="gymMapLink" onClick={this.showGymMap}>Nearby Gym Map</li>
             <li className="eventsMapLink" onClick={this.showEventsMap}>Nearby Events Map</li>
-          {this.generateMap()}
         </ul>
-
+        <div className="mapContent">
+          {this.generateMap()}
+        </div>
       </div>
     );
   }

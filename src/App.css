@@ -462,11 +462,23 @@ th {
 
 .pageLayout {
   display: grid;
-  grid-template-rows: 0fr 1fr 0fr;
+  grid-template-rows: 1fr;
   grid-template-columns: 0.1fr 1fr;
 }
 
 /* map page */
+
+.mapPage {
+  display: grid;
+  grid-template-rows: 0.1fr 0.1fr 1fr;
+  padding: 20px;
+
+}
+
+.mapContent {
+  grid-row: 3/4;
+}
+
 
 .gymMapLink {
   padding: 2%;
@@ -503,10 +515,6 @@ th {
 
 .eventsMapButton {
   background-color: #blue;
-}
-
-.mapStyling {
-  background: blue;
 }
 
 .mapInfo {
