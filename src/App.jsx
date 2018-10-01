@@ -20,6 +20,7 @@ import { injectGlobal } from 'emotion'
 injectGlobal`
   * {
     font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
   }
 `
 

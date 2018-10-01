@@ -118,6 +118,9 @@ h1 {
   transform: scaleX(1);
 }
 
+li {
+  list-style: none;
+}
 /* Recent feeds page */
 .feedPage {
   grid-row: 2;
@@ -480,6 +483,61 @@ th {
   display: grid;
   grid-template-rows: 0fr 1fr 0fr;
   grid-template-columns: 0.1fr 1fr;
+}
+
+/* map page */
+
+.gymMapLink {
+  padding: 2%;
+  text-align: center;
+  width: 50%;
+  font-size: 25px;
+  border:none;
+  background: #f2f2f2;
+  color: #5c7483;
+  display: inline-block;
+}
+
+.gymMapButton:hover {
+  background-color: #faf5e8;
+}
+
+
+.eventsMapLink {
+  padding: 2%;
+  text-align: center;
+  width: 50%;
+  border:none;
+  font-size: 25px;
+  background: #f2f2f2;
+  color: #5c7483;
+  border-left: 1px solid #5c7483;
+  display: inline-block;
+}
+
+
+.eventsMapButton:hover {
+  background-color: #faf5e8;
+}
+
+.eventsMapButton {
+  background-color: #blue;
+}
+
+.mapStyling {
+  background: blue;
+}
+
+.mapInfo {
+  text-align: left;
+}
+
+.mapInfo h3 {
+  text-align: center;
+}
+
+.gymsMapInfo {
+  text-align: center;
   grid-gap: 50px;
   background-color: #ddd;
 }
