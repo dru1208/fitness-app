@@ -10,6 +10,7 @@
     "history": "^4.7.2",
     "jwt-decode": "^2.2.0",
     "react": "^16.5.2",
+    "react-burger-menu": "^2.5.3",
     "react-dom": "^16.5.2",
     "react-google-charts": "^3.0.8",
     "react-router-dom": "^4.3.1",
