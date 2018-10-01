@@ -233,22 +233,23 @@ h1 {
 .eventPage {
   grid-row: 2;
   display: grid;
-  grid-template-columns: 1fr 2fr 6fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-gap: 30px;
 }
 
 .eventForm {
   grid-column: 2;
   padding: 20px;
-  height: 10%;
+  height: min-content;
 }
 
 .eventList {
   display: grid;
   grid-gap: 20px;
   font-size: 20px;
-  grid-column: 3;
+  grid-column: 2;
   padding: 20px;
+  text-align: center;
 }
 
 .eventEntry {
@@ -426,4 +427,5 @@ h1 {
   -o-animation: fadein 1.5s;
   animation: fadein 1.5s;
 }
+
 

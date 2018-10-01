@@ -11,7 +11,7 @@ const EventList = (props) => {
 
   return (
     <div className="eventList">
-      <h1>Events</h1>
+      <h3> Current Events: </h3>
       {generateEventList}
     </div>
   )
