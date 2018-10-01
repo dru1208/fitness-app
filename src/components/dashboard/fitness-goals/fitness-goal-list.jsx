@@ -52,12 +52,12 @@ class GoalList extends Component {
   }
 
   render() {
-    if (this.state.data) {
-      return (
-        <main className="dashboardGoalList border">
-          <h1>Recent Goals</h1>
-          <div className="dashboardGoalCheckbox">
-            <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
+    return (
+      <main className="dashboardGoalList border">
+        <h1>Recent Goals</h1>
+        <div className="dashboardGoalCheckbox">
+          <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
+          {this.state.data &&
             <div className="dashboardGoalEntry">
               { this.state.data.map((entry, index) =>
                 <div className="single-goal" key={index}>
@@ -66,20 +66,11 @@ class GoalList extends Component {
                 </div>
               )}
             </div>
+          }
+        </div>
+      </main>
+    )
 
-          </div>
-        </main>
-      )
-    } else {
-      return (
-        <main className="dashboardGoalList">
-          <h1>Recent Goals</h1>
-          <div className="dashboardGoalCheckbox">
-            <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
-          </div>
-        </main>
-      )
-    }
   }
 }
 

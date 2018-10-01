@@ -64,6 +64,7 @@ h1 {
   display: grid;
   grid-row: 1 / 4;
   align-content: start;
+  z-index: 100;
 }
 
 
@@ -473,19 +474,16 @@ th {
   border: solid 0.5px grey;
   opacity: 0.8;
   transition: transform .2s;
-}
 
-.border:hover {
-  opacity: 1;
-  transform: scale(1.005);
-}
-
-
-.dashboardCharts {
   -webkit-animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
   -ms-animation: fadein 1.5s;
   -o-animation: fadein 1.5s;
   animation: fadein 1.5s;
+}
+
+.border:hover {
+  opacity: 1;
+  transform: scale(1.005);
 }
 

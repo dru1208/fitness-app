@@ -36,7 +36,7 @@ export default class Nutrition extends Component {
     const nutrition = this.props.nutrition;
     const pieOptions = {
       title: "",
-      backgroundColor: 'grey',
+      backgroundColor: { fill: 'transparent' },
       pieHole: 0.6,
       slices: [
         {
@@ -78,10 +78,10 @@ export default class Nutrition extends Component {
       fontName: "Roboto"
     };
 
-    if (this.state.nutrition) {
-      return (
-        <main className="dashboardNutrition border">
-          <h1>Nutrition</h1>
+    return (
+      <main className="dashboardNutrition border">
+        <h1>Nutrition</h1>
+        {this.state.nutrition &&
           <div className="dashboardCharts">
             <Chart
               chartType="PieChart"
@@ -101,14 +101,8 @@ export default class Nutrition extends Component {
               legend_toggle
             />
           </div>
-        </main>
-      )
-    } else {
-      return (
-        <main className="dashboardNutrition border">
-          <h1>Fill out your past nutrition info!</h1>
-        </main>
-      )
-    }
+        }
+      </main>
+    )
   }
 }
