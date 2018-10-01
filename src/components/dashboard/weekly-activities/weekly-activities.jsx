@@ -146,6 +146,7 @@ export default class Activities extends Component {
             options={
               // Chart options
               {
+                backgroundColor: { fill: 'transparent' },
                 animation:{
                   startup: true,
                   duration: 1000,
