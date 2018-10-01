@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { generateCurrentDateTime } from "../../../_helper.jsx"
+
 class GoalForm extends Component {
   constructor(props) {
     super(props)
     this.state ={
+      user_id: this.props.user_id,
       description: "",
-      datetime: ""
+      datetime: new Date()
     }
   }
 
@@ -23,11 +26,12 @@ class GoalForm extends Component {
     let description = this.state.description
     let datetime = this.state.datetime
     axios.post('http://localhost:3000/api/fitness_goals', {
+      user_id: this.state.user_id,
       description: description,
       datetime: datetime
     }).then((response) => {
-        console.log(response)
-      })
+      this.props.getGoals();
+    })
   }
 
   render() {
@@ -38,7 +42,7 @@ class GoalForm extends Component {
         <label htmlFor="goalDescription">Goal</label>
         <textarea name="goalDescription" onChange={this.handleDescriptionChange} /><br/>
         <label htmlFor="goalDate">Date</label>
-        <input type="datetime-local" name="goalDate" onChange={this.handleDateChange}/><br/>
+        <input type="datetime-local" name="goalDate" defaultValue={generateCurrentDateTime()} onChange={this.handleDateChange}/><br/>
         <input type="submit"/>
       </form>
     </div>

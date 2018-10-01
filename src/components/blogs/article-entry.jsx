@@ -4,7 +4,7 @@ import axios from 'axios'
 const ArticleEntry = (props) => {
   return (
     <div className="articleEntryWrapper">
-      <article className="articleEntry">
+      <article className="articleEntry border">
         <header>
           <h3>{props.article.title}</h3>
         </header>

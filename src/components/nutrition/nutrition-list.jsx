@@ -7,10 +7,10 @@ const NutritionList = (props) => {
   })
 
   return(
-    <div>
+    <div className="nutritionTable border">
       <table>
         <thead>
-          <tr>
+          <tr className="tableHeaderRow">
             <th>Calories</th>
             <th>Protein (g)</th>
             <th>Fat (g)</th>

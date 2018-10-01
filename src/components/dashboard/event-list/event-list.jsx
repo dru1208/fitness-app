@@ -4,7 +4,7 @@ import EventEntry from "./event-entry.jsx";
 
 const EventList = (props) => {
   return (
-  <div className="dashboardEventList">
+  <div className="dashboardEventList border">
     <h1>Events</h1>
       <EventEntry />
   </div>
