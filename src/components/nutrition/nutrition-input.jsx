@@ -4,7 +4,7 @@ import React, { Component } from "react";
 const Input = (props) => {
 
   return (
-    <main className="events">
+    <main className="nutritionInput border">
       <h2>Enter daily nutritional data</h2>
       <form onSubmit={props.submitNutritionHandler}>
         <label htmlFor="calories">Calories</label>

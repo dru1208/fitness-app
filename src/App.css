@@ -64,6 +64,7 @@ h1 {
   display: grid;
   grid-row: 1 / 4;
   align-content: start;
+  z-index: 100;
 }
 
 
@@ -117,6 +118,9 @@ h1 {
   transform: scaleX(1);
 }
 
+li {
+  list-style: none;
+}
 /* Recent feeds page */
 .feedPage {
   grid-row: 2;
@@ -347,25 +351,44 @@ h1 {
     }
 }
 
-.dashboardGoalList {
+.dashboardGoals {
   grid-row: 1;
   grid-column: 2;
   padding: 20px;
+  display: grid;
+  grid-template-columns: min-content, max-content;
+  grid-template-rows: repeat(2, min-content);
 }
 
-.dashboardGoalCheckbox {
+.dashboardGoalHeader {
+  grid-row: 1 / 2;
+  grid-column: 1 / span 2;
+}
+
+
+.dashboardGoalInfo {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-template-rows: repeat(2, min-content);
   padding: 20px
 }
 
-.dashboardGoalFormTitle {
-  margin-top: 0px;
+.dashboardGoalForm {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.dashboardGoalTextarea {
+  font-size: 18px;
+  width: 90%;
 }
 
 .dashboardGoalEntry {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
   display: grid;
   grid-gap: 15px;
+  justify-content: end;
 }
 
 .dashboardWeeklyActivities {
@@ -380,38 +403,105 @@ h1 {
   padding: 20px;
 }
 
-.dashboardEventList {
+.dashboardFeedList {
   grid-row: 3;
   grid-column: 2;
   padding: 20px;
 }
 
-.dashboardFeedList {
+.dashboardEventList {
   grid-row: 3;
   grid-column: 1;
   padding: 20px;
 }
 
-/* pagelayouts */
+/* nutrition page */
+.nutritionPage {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-rows: repeat(3, min-content) 0;
+  grid-template-columns: repeat(3, minmax(min-content, 1fr)) 0;
+}
+
+.nutritionHeader {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.nutritionInput {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.nutritionImageUpload {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.nutritionNatLang {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+}
+
+.nutritionNatLangTextarea {
+  font-size: 18px;
+  height: auto;
+  width: 100%;
+}
+
+.nutritionNatLangDatetime {
+  font-size: 16px;
+}
+
+.nutritionTable {
+  line-height: 35px;
+  margin-top: 30px;
+  grid-row: 3 / 4;
+  grid-column: 1 / span 3;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.tableHeaderRow {
+  background-color: #2098D1;
+}
+
+th {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.tableCell {
+  text-align: center;
+}
+
+
+/* page layouts */
 
 .pageLayout {
   display: grid;
   grid-template-rows: 0fr 1fr 0fr;
   grid-template-columns: 0.1fr 1fr;
-  grid-gap: 50px;
-  background-color: #ddd;
 }
+
 
 .border {
   border: solid thin grey;
   border-radius: 20px;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
   padding: 50px;
-  color: #212121;
-  background-color: #fefaf0;
+  background-color:#f9f7ecc9;
   border: solid 0.5px grey;
   opacity: 0.8;
   transition: transform .2s;
+
+  -webkit-animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -ms-animation: fadein 1.5s;
+  -o-animation: fadein 1.5s;
+  animation: fadein 1.5s;
 }
 
 .border:hover {
@@ -420,12 +510,61 @@ h1 {
 }
 
 
-.dashboardCharts {
-  -webkit-animation: fadein 1.5s;
-  -moz-animation: fadein 1.5s;
-  -ms-animation: fadein 1.5s;
-  -o-animation: fadein 1.5s;
-  animation: fadein 1.5s;
+/* map page */
+
+.gymMapLink {
+  padding: 2%;
+  text-align: center;
+  width: 50%;
+  font-size: 25px;
+  border:none;
+  background: #f2f2f2;
+  color: #5c7483;
+  display: inline-block;
+}
+
+.gymMapButton:hover {
+  background-color: #faf5e8;
+}
+
+
+.eventsMapLink {
+  padding: 2%;
+  text-align: center;
+  width: 50%;
+  border:none;
+  font-size: 25px;
+  background: #f2f2f2;
+  color: #5c7483;
+  border-left: 1px solid #5c7483;
+  display: inline-block;
+}
+
+
+.eventsMapButton:hover {
+  background-color: #faf5e8;
+}
+
+.eventsMapButton {
+  background-color: #blue;
+}
+
+.mapStyling {
+  background: blue;
+}
+
+.mapInfo {
+  text-align: left;
+}
+
+.mapInfo h3 {
+  text-align: center;
+}
+
+.gymsMapInfo {
+  text-align: center;
+  grid-gap: 50px;
+  background-color: #ddd;
 }
 
 

@@ -1,26 +1,15 @@
 import React, { Component } from 'react'
 
-// change defaultChecked to a handler that changes the completed value in database
 
-//not currently being used
-class FitnessGoal extends Component {
-
-  generateCheckBox = () => {
-    if (this.props.goal.completed === false) {
-      return <input type="checkbox" value="completed"/>
-    } else {
-      return <input type="checkbox" value="completed" defaultChecked/>
-    }
-  }
-
-  render() {
-    return (
-      <div >
-        <span>{this.props.goal.description}</span>
-        {this.generateCheckBox()}
-      </div>
-    )
-  }
+const FitnessGoal = (props) =>{
+  return (
+    <div className="single-goal">
+      <span>{props.entry.description} | {props.entry.datetime.split('T')[0]}</span>
+        {props.generateCheckBox(props.entry)}
+      <button value={props.entry.id} onClick={props.handleDeleteGoal}>Delete</button>
+    </div>
+  )
 }
+
 
 export default FitnessGoal

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 import axios from "axios";
 
+import { generateCurrentDateTime } from "../../../_helper.jsx"
+
 export default class Activities extends Component {
   constructor(props) {
     super(props)
@@ -67,7 +69,7 @@ export default class Activities extends Component {
 
   }
 
-  _handleSumbit = (e) => {
+  _handleSubmit = (e) => {
     e.preventDefault();
      axios.post('http://localhost:3000/api/exercise_sessions', {
       minutes: e.target.elements.timeOnExercise.value,
@@ -115,6 +117,7 @@ export default class Activities extends Component {
     e.target.elements.timeOfExercise.value = null;
   }
 
+
   render() {
 
     return (
@@ -146,6 +149,7 @@ export default class Activities extends Component {
             options={
               // Chart options
               {
+                backgroundColor: { fill: 'transparent' },
                 animation:{
                   startup: true,
                   duration: 1000,
@@ -164,11 +168,11 @@ export default class Activities extends Component {
           />
         </div >
       <h3>Form Input</h3>
-      <form onSubmit={this._handleSumbit} className="weeklyExercise">
+      <form onSubmit={this._handleSubmit} className="weeklyExercise">
         <label htmlFor="timeOnExercise">Time spent on exercise:</label>
         <input name="timeOnExercise" />min(s)<br/>
         <label htmlFor="timeOfExercise">DateTime:</label>
-        <input type="datetime-local" name="timeOfExercise" onChange={this.handleDateChange}/><br/>
+        <input type="datetime-local" name="timeOfExercise" defaultValue={generateCurrentDateTime()}/><br/>
         <input type="submit"/>
       </form>
       </main>
