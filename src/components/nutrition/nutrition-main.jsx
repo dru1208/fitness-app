@@ -88,8 +88,8 @@ export default class Nutrition extends Component {
           image: null,
           imageName: null
         })
-        event.target.elements.datetime.value = null;
-        event.target.elements.pic.value = null;
+        // event.target.elements.datetime.value = null;
+        // event.target.elements.pic.value = null;
       })
     } else {
       alert("Please choose an image to upload!");
