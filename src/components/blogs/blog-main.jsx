@@ -23,6 +23,7 @@ class BlogMain extends React.Component {
       .then((response) => {
         response.data.reverse()
         this.setState({blogsList: response.data})
+        console.log(this.state.blogsList[4].content)
       })
 
     axios.get('http://localhost:3000/api/articles', {params: {user_id: this.state.userID}})

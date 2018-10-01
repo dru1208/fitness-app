@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { generateUserURL } from '../../_helper.jsx';
-import { scaleDown as Menu } from "react-burger-menu";
+import { push as Menu } from "react-burger-menu";
 
 
 

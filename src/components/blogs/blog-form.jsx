@@ -19,6 +19,7 @@ class blogForm extends Component {
       }).then((response) => {
         this.props.handleNewBlog(response.data)
       })
+        console.log(e.target.blogContent.value)
     }
   }
 
