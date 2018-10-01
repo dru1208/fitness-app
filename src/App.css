@@ -484,6 +484,8 @@ th {
   display: grid;
   grid-template-rows: 0fr 1fr 0fr;
   grid-template-columns: 0.1fr 1fr;
+  grid-gap: 50px;
+  background-color: #ddd;
 }
 
 
