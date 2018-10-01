@@ -126,9 +126,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "dashboard")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Dashboard name={this.state.currentUser} userID={this.state.userID}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID} />
+                <div id="page-wrap">
+                  <Dashboard name={this.state.currentUser} userID={this.state.userID}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -136,9 +138,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "map")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Maps jwt={this.state.jwt} location={this.state.location} handleLocationUpdate={this._handleLocationUpdate}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Maps jwt={this.state.jwt} location={this.state.location} handleLocationUpdate={this._handleLocationUpdate} />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -146,9 +150,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "nutrition")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -156,9 +162,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "blog")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <BlogMain name={this.state.currentUser} userID={this.state.userID}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <BlogMain name={this.state.currentUser} userID={this.state.userID}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -167,9 +175,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "events")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <EventMain userID={this.state.userID} />
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <EventMain userID={this.state.userID} />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -177,9 +187,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "recent")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Recent />
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Recent />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
