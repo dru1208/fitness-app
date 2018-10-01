@@ -7,6 +7,12 @@ const generateLatLng = (x, y) => {
   return {lat: x, lng: y}
 }
 
+const style = {
+  width: '100%',
+  height: '500px'
+}
+
+
 export class GymMap extends Component {
 
   constructor(props) {
@@ -64,19 +70,17 @@ export class GymMap extends Component {
     }
 
     return (
-      <div className="gymsMap">
-        <h2>Nearby Gyms:</h2>
-        <div>
-          <Map google={this.props.google} zoom={16} center= {center} >
+      <div className="gymsMap" id="gymsMap">
+          <Map google={this.props.google} style={style} zoom={16} center= {center} >
           {generateMapMarkers}
             <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-              <div>
+              <div className="gymsMapInfo">
                 <h3>{this.state.selectedPlace.name}</h3>
-                <p>{this.state.selectedPlace.position ? this.state.selectedPlace.position.vicinity : "none"}</p>
+                <p><strong>Address: </strong>{this.state.selectedPlace.position ? this.state.selectedPlace.position.vicinity : "none"}</p>
               </div>
             </InfoWindow>
           </Map>
-          </div>
+
       </div>
     );
   }

@@ -8,6 +8,7 @@ const latLng = (object) => {
   return {
     name: object.name,
     description: object.description,
+    location: object.location,
     datetime: object.datetime,
     point : {
       lat: object.lat,
@@ -18,6 +19,10 @@ const latLng = (object) => {
   }
 }
 
+const style = {
+  width: '100%',
+  height: '500px'
+}
 
 export class EventMap extends Component {
   constructor(props) {
@@ -28,6 +33,7 @@ export class EventMap extends Component {
       selectedPlace: {},
       name: '',
       description: '',
+      location: '',
       datetime: '',
       loading: true
     }
@@ -74,18 +80,18 @@ export class EventMap extends Component {
         <div>
           <h3>{mapInfo.name }</h3>
           <p>{mapInfo.description }</p>
-          <p>{timeResult}</p>
+          <p><strong>Address: </strong>{mapInfo.location}</p>
+          <p><strong>Time: </strong>{timeResult}</p>
         </div>
       )
     });
 
     return (
-      <div className="eventsMap">
-        <h2>Nearby Events:</h2>
-        <Map google={this.props.google} zoom={16} initialCenter={{lat: 43.6446002, lng: -79.3951586}}>
+      <div className="mapStyling">
+        <Map google={this.props.google} style={style} zoom={16} initialCenter={{lat: 43.6446002, lng: -79.3951586}}>
           {generateMapMarkers}
           <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
-            <div>
+            <div className="mapInfo">
               {mapInfos}
             </div>
           </InfoWindow>
