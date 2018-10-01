@@ -7,7 +7,7 @@ const NutritionQuery = (props) => {
     <div className="nutritionNatLang border">
       <h2>Natural Language Query</h2><br/>
       <form onSubmit={props.handleQuerySubmit}>
-        <textarea name="query" rows="6" columns="150"/><br />
+        <textarea className="nutritionNatLangTextarea" name="query" rows="6" columns="150"/><br />
         <input name="datetime" type="datetime-local" defaultValue={generateCurrentDateTime()} className="nutritionNatLangDatetime"/><br />
         <input type="submit" />
       </form>

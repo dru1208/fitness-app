@@ -1,78 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FitnessGoal from './fitness-goal.jsx';
-import GoalForm from './fitness-goal-form.jsx';
-import axios from 'axios';
 
-class GoalList extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      user_id: this.props.user_id,
-      data: null
-    }
-  }
-
-  componentDidMount() {
-    this.getGoals();
-  }
-
-  getGoals = () => {
-    axios.get('http://localhost:3000/api/fitness_goals', {
-      params: {
-        user_id: this.state.user_id
-      }
-    })
-    .then((response) => {
-      const data = response.data;
-      data.sort(function(a, b) {
-        let dateA = new Date(a.datetime)
-        let dateB = new Date(b.datetime)
-        return dateA - dateB
-      })
-      this.setState({data})
-    })
-  };
-
-  generateCheckBox = (entry) => {
-    if (entry.completed === false) {
-      return <input type="checkbox" value={entry.id} onClick={this._handleCheckbox} />
-    } else {
-      return <input type="checkbox" value={entry.id} defaultChecked="true" onClick={this._handleCheckbox} />
-    }
-  }
-
-  _handleCheckbox = (e) => {
-    axios.patch('http://localhost:3000/api/fitness_goals/' + e.target.value, {
-      id: e.target.value,
-      completed: e.target.checked
-    })
-    .then((response) => {
-
-    })
-  }
-
-  render() {
+const GoalList = (props) => {
+  const generateGoals = props.data.map((entry, index) => {
     return (
-      <main className="dashboardGoalList border">
-        <h1>Recent Goals</h1>
-        <div className="dashboardGoalCheckbox">
-          <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
-          {this.state.data &&
-            <div className="dashboardGoalEntry">
-              { this.state.data.map((entry, index) =>
-                <div className="single-goal" key={index}>
-                  <span>{entry.description} | {entry.datetime.split('T')[0]}</span>
-                  {this.generateCheckBox(entry)}
-                </div>
-              )}
-            </div>
-          }
-        </div>
-      </main>
+      <FitnessGoal entry={entry} key={index} generateCheckBox={props.generateCheckBox} handleDeleteGoal={props.handleDeleteGoal} />
     )
+  })
 
-  }
+  return (
+    <div className="dashboardGoalEntry">
+      {generateGoals}
+    </div>
+  )
 }
 
-export default GoalList;
-
+export default GoalList

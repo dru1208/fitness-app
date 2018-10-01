@@ -35,7 +35,6 @@ export default class Nutrition extends Component {
   }
 
   render() {
-    const nutrition = this.props.nutrition;
 
     const generateNutritionChart = (options) => {
       if (this.state.nutrition) {

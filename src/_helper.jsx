@@ -10,6 +10,10 @@ const generateFullUserURL = (id, path) => {
   return "http://localhost:3002" + generateUserURL(id, path)
 }
 
+const generateFitnessGoalDeleteURL = (id) => {
+  return `http://localhost:3000/api/fitness_goals/${id}`
+}
+
 const generateCurrentDateTime = () => {
   const date = new Date();
   let day = date.getDate();
@@ -26,6 +30,7 @@ export {
   generateUserURL,
   generateEventURL,
   generateFullUserURL,
-  generateCurrentDateTime
+  generateCurrentDateTime,
+  generateFitnessGoalDeleteURL
 }
 

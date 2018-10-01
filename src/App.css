@@ -347,25 +347,44 @@ h1 {
     }
 }
 
-.dashboardGoalList {
+.dashboardGoals {
   grid-row: 1;
   grid-column: 2;
   padding: 20px;
+  display: grid;
+  grid-template-columns: min-content, max-content;
+  grid-template-rows: repeat(2, min-content);
 }
 
-.dashboardGoalCheckbox {
+.dashboardGoalHeader {
+  grid-row: 1 / 2;
+  grid-column: 1 / span 2;
+}
+
+
+.dashboardGoalInfo {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(min-content, 1fr));
+  grid-template-rows: repeat(2, min-content);
   padding: 20px
 }
 
-.dashboardGoalFormTitle {
-  margin-top: 0px;
+.dashboardGoalForm {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+
+.dashboardGoalTextarea {
+  font-size: 18px;
+  width: 90%;
 }
 
 .dashboardGoalEntry {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
   display: grid;
   grid-gap: 15px;
+  justify-content: end;
 }
 
 .dashboardWeeklyActivities {
@@ -422,7 +441,7 @@ h1 {
   grid-column: 3 / 4;
 }
 
-textarea {
+.nutritionNatLangTextarea {
   font-size: 18px;
   height: auto;
   width: 100%;

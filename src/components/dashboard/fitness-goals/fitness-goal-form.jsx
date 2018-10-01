@@ -37,11 +37,10 @@ class GoalForm extends Component {
   render() {
     return (
     <div className="dashboardGoalForm">
-      <h4 className="dashboardGoalFormTitle">Enter Goals:</h4>
       <form onSubmit={this._handleSubmit} className="newGoalForm">
-        <label htmlFor="goalDescription">Goal</label>
-        <textarea name="goalDescription" onChange={this.handleDescriptionChange} /><br/>
-        <label htmlFor="goalDate">Date</label>
+        <label htmlFor="goalDescription">Enter Goal:</label><br />
+        <textarea className="dashboardGoalTextarea" name="goalDescription" onChange={this.handleDescriptionChange} /><br/>
+        <label htmlFor="goalDate">Date:</label><br/>
         <input type="datetime-local" name="goalDate" defaultValue={generateCurrentDateTime()} onChange={this.handleDateChange}/><br/>
         <input type="submit"/>
       </form>
