@@ -128,13 +128,13 @@ export default class Activities extends Component {
           <Chart
             chartType="ColumnChart"
             rows={[
-              ["Sunday", this.state.sun],
-              ["Monday", this.state.mon],
-              ["Tuesday", this.state.tues],
-              ["Wednesday", this.state.wed],
-              ["Thursday", this.state.thurs],
-              ["Friday", this.state.fri],
-              ["Saturday", this.state.sat]
+              ["Sun", this.state.sun],
+              ["Mon", this.state.mon],
+              ["Tue", this.state.tues],
+              ["Wed", this.state.wed],
+              ["Thur", this.state.thurs],
+              ["Fri", this.state.fri],
+              ["Sat", this.state.sat]
             ]}
             columns={[
               {
