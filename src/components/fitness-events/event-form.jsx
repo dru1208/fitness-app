@@ -8,10 +8,10 @@ class EventForm extends Component {
     super(props)
     this.state ={
       userID: this.props.userID,
-      name: "",
-      description: "",
-      location: "",
-      datetime: ""
+      name: null,
+      description: null,
+      location: null,
+      datetime: null
     }
   }
 
@@ -37,17 +37,21 @@ class EventForm extends Component {
     let name = this.state.name
     let description = this.state.description
     let location = this.state.location
-    let datetime = this.state.datetime
+    let datetime = this.state.datetime  ? this.state.datetime : generateCurrentDateTime()
     let userID = this.state.userID
-    axios.post('http://localhost:3000/api/events', {
-      id: userID,
-      name: name,
-      description: description,
-      location: location,
-      datetime: datetime
-    }).then((response) => {
-        this.props.handleNewEvent(response.data)
-    })
+    if (name && description && location && datetime) {
+      axios.post('http://localhost:3000/api/events', {
+        id: userID,
+        name: name,
+        description: description,
+        location: location,
+        datetime: datetime
+      }).then((response) => {
+        if (response.data) {
+          this.props.handleNewEvent(response.data)
+        }
+      })
+    }
   }
 
   render() {
