@@ -4,6 +4,7 @@ import axios from 'axios';
 const ImageUpload = (props) => {
 	return (
 		<main className="nutritionImageUpload border">
+			<h3>Image Upload:</h3>
 			<form onSubmit={props.uploadButtonHandler}>
 				<input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
 				<input type="datetime-local" name="datetime" />
