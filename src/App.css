@@ -121,6 +121,7 @@ li {
   grid-gap: 20px;
   padding: 2em 2em 2em 5em;
   justify-items: center;
+  font-size: 80%;
 }
 
 .feedHeader {
@@ -166,6 +167,7 @@ li {
   grid-template-rows: repeat(2, min-content) 5fr;
   grid-gap: 20px;
   padding: 2em 2em 2em 5em;
+  font-size: 60%;
 }
 
 .profileHeader {
@@ -248,6 +250,7 @@ li {
   grid-column: 2;
   padding: 20px;
   text-align: center;
+  font-size: 80%;
 }
 
 .eventEntry {
@@ -396,6 +399,7 @@ li {
 .dashboardGoalForm {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  font-size: 60%;
 }
 
 .dashboardGoalTextarea {
@@ -409,18 +413,21 @@ li {
   display: grid;
   grid-gap: 15px;
   justify-content: end;
+  font-size: 60%;
 }
 
 .dashboardWeeklyActivities {
   grid-row: 2;
   grid-column: 2;
   padding: 20px;
+  font-size: 60%;
 }
 
 .dashboardNutrition {
   grid-row: 2;
   grid-column: 1;
   padding: 20px;
+  font-size: 60%;
 }
 
 .dashboardFeedList {
