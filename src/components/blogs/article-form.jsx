@@ -28,7 +28,6 @@ class articleForm extends Component {
         <h2>New article</h2>
           <main className="container">
             <section className="newarticle">
-              <h3 className="title">Post a article</h3>
               <form onSubmit={this._handleSubmit} className="newArticleForm">
 
                 <label htmlFor="articleTitle">Title</label>

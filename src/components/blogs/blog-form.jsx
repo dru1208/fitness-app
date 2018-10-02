@@ -29,7 +29,6 @@ class blogForm extends Component {
         <h2>New Blog</h2>
           <main className="container">
             <section className="newBlog">
-              <h3 className="title">Post a blog</h3>
               <form onSubmit={this._handleSubmit} className="newBlogForm">
 
                 <label htmlFor="blogTitle">Title</label>
