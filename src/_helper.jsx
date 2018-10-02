@@ -2,6 +2,14 @@ const generateUserURL = (id, path) => {
   return `/users/${id}/${path}`
 }
 
+const generateBlogURL = (id) => {
+  return `http://localhost:3000/api/blogs/${id}`
+}
+
+const generateArticleURL = (id) => {
+  return `http://localhost:3000/api/articles/${id}`
+}
+
 const generateEventURL = (id) => {
   return `http://localhost:3000/api/events/${id}`
 }
@@ -28,6 +36,8 @@ const generateCurrentDateTime = () => {
 export {
   generateUserURL,
   generateEventURL,
+  generateArticleURL,
+  generateBlogURL,
   generateFullUserURL,
   generateCurrentDateTime,
   generateFitnessGoalDeleteURL

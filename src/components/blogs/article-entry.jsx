@@ -8,7 +8,13 @@ const ArticleEntry = (props) => {
         <header>
           <h3>{props.article.title}</h3>
         </header>
-          <p>{props.article.link}</p>
+          <a href={props.article.link}>{props.article.link}</a>
+        <footer>
+          <form onSubmit={props.handleArticleDestroy}>
+          <input type="hidden" name="articleID" value={props.article.id} />
+          <input type="submit" value="Delete" />
+        </form>
+        </footer>
       </article>
     </div>
   )

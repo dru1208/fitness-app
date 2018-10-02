@@ -68,7 +68,7 @@ class FitnessGoals extends Component {
   render() {
     return (
       <main className="dashboardGoals border">
-        <h1 className="dashboardGoalHeader">Recent Goals</h1>
+        <h2 className="dashboardGoalHeader">Recent Goals</h2>
         <div className="dashboardGoalInfo">
           <GoalForm user_id={this.state.user_id} getGoals={this.getGoals} />
           <GoalList generateCheckBox={this.generateCheckBox} data={this.state.data} handleDeleteGoal={this._handleDeleteGoal} />

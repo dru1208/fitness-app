@@ -119,9 +119,10 @@ li {
   grid-column: 2;
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
-  grid-gap: 30px;
-  padding: 2em 2em 2em 2em;
+  grid-gap: 20px;
+  padding: 2em 2em 2em 5em;
   justify-items: center;
+  font-size: 80%;
 }
 
 .feedHeader {
@@ -165,8 +166,9 @@ li {
   display: grid;
   grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: repeat(2, min-content) 5fr;
-  grid-gap: 30px;
-  padding: 2em 2em 2em 2em;
+  grid-gap: 20px;
+  padding: 2em 2em 2em 5em;
+  font-size: 60%;
 }
 
 .profileHeader {
@@ -232,8 +234,8 @@ li {
   grid-row: 2;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-gap: 30px;
-  padding: 2em 2em 2em 2em;
+  grid-gap: 20px;
+  padding: 2em 2em 2em 5em;
 }
 
 .eventForm {
@@ -253,6 +255,7 @@ li {
   grid-column: 2;
   padding: 20px;
   text-align: center;
+  font-size: 80%;
 }
 
 .eventEntry {
@@ -272,71 +275,73 @@ li {
   background-size: cover;
 }
 
-.landingForms{
+.landingForms {
   justify-content: center;
   margin: auto;
   width: 50%;
   color: #363636;
   background-color: white;
-  border: solid thin grey;
-  border-radius: 20px;
   padding: 50px;
-  display: grid;
-  grid-template-rows: repeat(3, min-content);
-  grid-template-columns: 1fr 1fr;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+  display: grid;
+  grid-template-rows: min-content min-content max-content;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  transition: transform .2s;
+  -webkit-animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -ms-animation: fadein 1.5s;
+  -o-animation: fadein 1.5s;
+  animation: fadein 1.5s;
+}
+
+.landingForms:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.loginLink {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  padding: 2%;
+  text-align: center;
+  font-size: 21px;
+  border:none;
+  background: #d4d3d3;
+  cursor: pointer;
+}
+
+.registrationLink {
+  grid-row: 2 / 3;
+  grid-column: 4 / 5;
+  padding: 2%;
+  text-align: center;
+  font-size: 21px;
+  border:none;
+  background: #d4d3d3;
+  cursor: pointer;
 }
 
 .landingHeader {
   font-size: 50px;
   text-align: center;
-  grid-column: 1 / 3;
+  grid-column: 1 / 5;
 }
 
-.landingImg {
-  width: auto;
-  height: auto;
+.formContent {
+  margin-left: 20px;
   grid-row: 3 / 4;
-  grid-column: 1 / 2;
-}
-
-
-.loginForm {
-  margin-left: 20px;
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
+  grid-column: 3 / 5;
   padding: 20px;
 }
 
-.registrationForm {
-  margin-left: 20px;
+.landingIconPic {
   grid-row: 2 / 4;
-  grid-column: 2 / 3;
-  padding: 20px;
-}
-
-/* Dashboard */
-
-.dashboardPage {
-  grid-row: 2;
-  display: grid;
-  grid-template-columns:  1.5fr 2fr;
-  grid-gap: 45px;
-  padding: 2em 5em;
-}
-
-.dashboardHeader {
-  grid-row: 1/2;
-  grid-column: 1/3;
-  padding: 20px;
-  text-transform: uppercase;
-  color: #212121;
-}
-
-.dashboardIconPic {
-  height: 80%;
-  width: 80%;
-  margin-left: 10%;
+  grid-column: 1 / 3;
+  height: 50%;
+  width: 50%;
+  margin: 20%;
   -webkit-animation: rotation 4s infinite linear;
 }
 
@@ -348,6 +353,29 @@ li {
     to {
         -webkit-transform: rotate(359deg);
     }
+}
+
+
+/* Dashboard */
+
+.dashboardPage {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns:  1.5fr 2fr;
+  grid-gap: 45px;
+  padding: 2em 5em;
+
+}
+
+.dashboardHeader {
+  grid-row: 1/2;
+  grid-column: 1/3;
+  padding: 20px;
+  text-transform: uppercase;
+  color: #212121;
+  display: flex;            /* new */
+  align-items: center;      /* new */
+  justify-content: center;
 }
 
 .dashboardGoals {
@@ -375,6 +403,7 @@ li {
 .dashboardGoalForm {
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  font-size: 60%;
 }
 
 .dashboardGoalTextarea {
@@ -388,18 +417,21 @@ li {
   display: grid;
   grid-gap: 15px;
   justify-content: end;
+  font-size: 60%;
 }
 
 .dashboardWeeklyActivities {
   grid-row: 2/3;
   grid-column: 2/3;
   padding: 20px;
+  font-size: 60%;
 }
 
 .dashboardNutrition {
   grid-row: 3/4;
   grid-column: 1/2;
   padding: 20px;
+  font-size: 60%;
 }
 
 .dashboardFeedList {
@@ -414,13 +446,24 @@ li {
   padding: 20px;
 }
 
+.dashboardSingleEventEntry {
+  font-size: 60%;
+  padding-bottom: 10px;
+  border-top: solid 1px grey;
+}
+
 /* nutrition page */
 .nutritionPage {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: grid;
+<<<<<<< HEAD
   grid-gap: 30px;
   padding: 2em 5em;
+=======
+  grid-gap: 20px;
+  padding: 2em 2em 2em 5em;
+>>>>>>> frontend-features
   grid-template-rows: repeat(3, min-content) 0;
   grid-template-columns: repeat(3, minmax(min-content, 1fr)) 0;
 }
@@ -488,8 +531,14 @@ th {
 
 
 .border {
+<<<<<<< HEAD
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+=======
+  border: solid thin grey;
+  border-radius: 5px;
+  box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
+>>>>>>> frontend-features
   padding: 50px;
   background-color:#f9f7ecc9;
   opacity: 0.8;
@@ -514,6 +563,7 @@ th {
   grid-template-rows: min-content 0.1fr min-content;
   grid-template-columns: 1fr 1fr;
   padding: 2em 5em;
+  grid-gap:30px;
 }
 
 .mapHeader {
@@ -665,5 +715,55 @@ th {
   background: rgba(0, 0, 0, 0.3);
 }
 
+.icons {
+  margin-right: 6px;
+}
 
+/* All forms */
+
+form {
+  display: grid;
+}
+
+label {
+  font-size: 18px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  border: none;
+  background-color: #efefef;
+  border-bottom: 1px solid black;
+}
+
+input[type="submit"] {
+   cursor: pointer;
+   width: 50%;
+   background-color: #474747;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    -o-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+input[type="datetime-local"] {
+  padding: 5px;
+}
 
