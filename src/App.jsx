@@ -15,7 +15,12 @@ import history from "./history.jsx"
 import { withRouter, Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 import { generateUserURL } from './_helper.jsx'
 import { injectGlobal } from 'emotion'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faMapMarkedAlt, faUtensils } from '@fortawesome/free-solid-svg-icons'
 
+
+library.add(faHome, faMapMarkedAlt, faUtensils)
 
 injectGlobal`
   * {
