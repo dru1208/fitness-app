@@ -19,6 +19,8 @@ const containerStyle = {
 }
 
 
+
+
 export class GymMap extends Component {
 
   constructor(props) {
@@ -67,11 +69,17 @@ export class GymMap extends Component {
   }
 
   render() {
+    const {google} = this.props;
 
     let generateMapMarkers = [];
     if (this.state.data && this.state.data.maps) {
       generateMapMarkers = this.state.data.maps.map ((marker, index) => {
         return <Marker position={marker} key={index}
+                       icon={{
+                         url: "/gym_map.svg",
+                         anchor: new google.maps.Point(32,32),
+                         scaledSize: new google.maps.Size(40,40)
+    }}
                        onClick={this.onMarkerClick}
                        name={marker.name}/>
       });
