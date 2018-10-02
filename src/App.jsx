@@ -17,10 +17,10 @@ import { generateUserURL } from './_helper.jsx'
 import { injectGlobal } from 'emotion'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faMapMarkedAlt, faUtensils } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faMapMarkedAlt, faUtensils, faFileAlt, faUser, faCalendarAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 
-library.add(faHome, faMapMarkedAlt, faUtensils)
+library.add(faHome, faMapMarkedAlt, faUtensils, faFileAlt, faUser, faCalendarAlt, faSignOutAlt)
 
 injectGlobal`
   * {
