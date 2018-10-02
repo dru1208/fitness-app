@@ -26,7 +26,7 @@ class EventMain extends Component {
     const options = {
       method: "DELETE",
       headers: {'content-type': 'application/json'},
-      data: e.target.eventID.value,
+      data: {id: e.target.eventID.value},
       url: generateEventURL(e.target.eventID.value)
     }
     axios(options)

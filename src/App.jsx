@@ -32,6 +32,7 @@ class App extends Component {
     this.state = {
       currentUser: null,
       userID: null,
+      location: "",
       jwt: null
     }
   }
@@ -55,6 +56,7 @@ class App extends Component {
           this.setState({
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
+            location: userInfo.location,
             jwt: response.data
           }, () => {
             history.push(generateUserURL(this.state.userID, "dashboard"))
@@ -86,6 +88,7 @@ class App extends Component {
           this.setState({
             currentUser: userInfo.firstName,
             userID: userInfo.userID,
+            location: userInfo.location,
             jwt: response.data
           }, () => {
             history.push(generateUserURL(this.state.userID, "dashboard"))
@@ -102,6 +105,17 @@ class App extends Component {
     })
   }
 
+  _handleLocationUpdate = (e) => {
+    e.preventDefault();
+      axios.patch('http://localhost:3000/api/users/' + this.state.userID, {
+        id: this.state.userID,
+        location: e.target.location.value,
+        password: e.target.password.value
+      }).then(response => {
+        this.setState({location: response.data.location})
+      })
+  }
+
 // do i need the user ID for navbar?? think some more
   render() {
 
@@ -112,9 +126,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "dashboard")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Dashboard name={this.state.currentUser} userID={this.state.userID}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID} />
+                <div id="page-wrap">
+                  <Dashboard name={this.state.currentUser} userID={this.state.userID}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -122,9 +138,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "map")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Maps jwt={this.state.jwt}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Maps jwt={this.state.jwt} location={this.state.location} handleLocationUpdate={this._handleLocationUpdate} />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -132,9 +150,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "nutrition")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Nutrition userID={this.state.userID} name={this.state.currentUser} id={this.state.userID} jwt={this.state.jwt}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -142,9 +162,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "blog")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <BlogMain name={this.state.currentUser} userID={this.state.userID}/>
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <BlogMain name={this.state.currentUser} userID={this.state.userID}/>
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -153,9 +175,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "events")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <EventMain userID={this.state.userID} />
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <EventMain userID={this.state.userID} />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
@@ -163,9 +187,11 @@ class App extends Component {
 
           <Route exact path={generateUserURL(this.state.userID, "recent")}
             render={() => (this.state.currentUser ?
-              (<div className="pageLayout">
-                <NavBar handleLogout={this._handleLogout} id={this.state.userID}/>
-                <Recent />
+              (<div id="App" className="pageLayout">
+                <NavBar pageWrapId={"page-wrap"} outerContainerId={"App"} handleLogout={this._handleLogout} id={this.state.userID}/>
+                <div id="page-wrap">
+                  <Recent />
+                </div>
               </div>) :
               <Redirect to="/" />
             )}
