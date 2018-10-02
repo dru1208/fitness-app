@@ -10,7 +10,10 @@ const ArticleEntry = (props) => {
         </header>
           <a href={props.article.link}>{props.article.link}</a>
         <footer>
-          <div>icon like here</div>
+          <form onSubmit={props.handleArticleDestroy}>
+          <input type="hidden" name="articleID" value={props.article.id} />
+          <input type="submit" value="Delete" />
+        </form>
         </footer>
       </article>
     </div>

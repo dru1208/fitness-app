@@ -7,7 +7,6 @@ import FeedList from './feed-list/feed-list.jsx';
 import FitnessGoals from './fitness-goals/fitness-goals.jsx'
 import EventEntry from './event-list/event-entry.jsx'
 import FeedEntry from './feed-list/feed-entry.jsx'
-import IconPic from './image.png'
 
 
 
@@ -27,8 +26,10 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboardPage">
         <div className="dashboardHeader">
-          <h1>Welcome Back, {this.state.currentUser}</h1>
-          <img className="dashboardIconPic" src={IconPic} alt="IMG"></img>
+          <h1 style={{"white-space": "pre-line"}}>
+            Welcome Back, {"\n"}
+            {this.state.currentUser}
+          </h1>
         </div>
         <FitnessGoals user_id={this.state.user_id} />
         <WeeklyActivities user_id={this.state.user_id} />

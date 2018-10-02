@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Pic from './img-01.png'
 import LoginForm from './login-form.jsx'
 import RegistrationForm from './registration.jsx'
-
+import LandingIconPic from './image.png'
 
 
 class LandingPage extends Component {
@@ -11,7 +11,7 @@ class LandingPage extends Component {
     super(props);
 
     this.state= {
-      currentForm: "showRegistrationForm"
+      currentForm: "showLoginForm"
     };
   }
 
@@ -27,13 +27,13 @@ class LandingPage extends Component {
     if (this.state.currentForm === "showLoginForm") {
       return (
         <div className="formContent">
-          <LoginForm closeForm={this.closeForm} handleLogin={this.props.handleLogin}/>
+          <LoginForm className="loginForm" closeForm={this.closeForm} handleLogin={this.props.handleLogin}/>
         </div>
       )
     } else if (this.state.currentForm === "showRegistrationForm") {
       return (
         <div className="formContent">
-          <RegistrationForm closeForm={this.closeForm} handleRegister={this.props.handleRegister}/>
+          <RegistrationForm className="registrationForm" closeForm={this.closeForm} handleRegister={this.props.handleRegister}/>
         </div>
       )
     }
@@ -64,6 +64,7 @@ class LandingPage extends Component {
             <li className="loginLink" onClick={this.showLoginForm}>Login</li>
             <li className="registrationLink" onClick={this.showRegistrationForm}>Registration</li>
             {this.generateForm()}
+            <img className="landingIconPic" src={LandingIconPic} alt="IMG"></img>
         </div>
       </div>
     )

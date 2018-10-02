@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const BlogEntry = (props) => {
-
+  console.log('this is id', props.blog.id)
   return (
     <div className="blogEntryWrapper">
       <article className="blogEntry border">
@@ -12,7 +12,10 @@ const BlogEntry = (props) => {
         </header>
           <div style={{"white-space": "pre-line"}}>{props.blog.content}</div>
         <footer>
-          <div>icon like here</div>
+        <form onSubmit={props.handleBlogDestroy}>
+          <input type="hidden" name="blogID" value={props.blog.id} />
+          <input type="submit" value="Delete" />
+        </form>
         </footer>
       </article>
     </div>

@@ -30,7 +30,7 @@ export default class EventEntry extends React.Component {
     return (
       <div className="dashboardEventEntry">
         { this.state.data.map((entry, index) =>
-          <div className="single-event" key={index}>
+          <div className="dashboardSingleEventEntry" key={index}>
             <h3 >{entry.name}</h3>
             <div className="event-description">{entry.description}</div>
             <div className="event-datetime-location">{entry.location} • {entry.datetime.split('T')[0]}</div>
