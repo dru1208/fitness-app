@@ -17,6 +17,7 @@ export class Maps extends Component {
     };
   }
 
+
   closeMap = (e) => {
     e.preventDefault();
     this.setState({
@@ -45,7 +46,8 @@ export class Maps extends Component {
   showGymMap = (e) => {
     e.preventDefault()
     this.setState({
-      currentMap: "showGymMap"
+      currentMap: "showGymMap",
+
     });
     this.generateMap();
   }
@@ -54,21 +56,25 @@ export class Maps extends Component {
     e.preventDefault()
     this.setState({
       currentMap: "showEventsMap"
+
     });
     this.generateMap();
   }
 
 
 
+
   render() {
+    let gymMapClass = this.state.currentMap === "showGymMap" ? "gymMapLink active" : "gymMapLink";
+    let eventsMapClass = this.state.currentMap === "showEventsMap" ? "eventsMapLink active" : "eventsMapLink";
 
     return (
       <div className="mapPage">
         <h1 className="mapHeader">Fitness Map</h1>
         <Location location={this.props.location} handleLocationUpdate={this.props.handleLocationUpdate}/>
         <ul className="mapLinks">
-            <li className="gymMapLink" onClick={this.showGymMap}>Nearby Gym Map</li>
-            <li className="eventsMapLink" onClick={this.showEventsMap}>Nearby Events Map</li>
+            <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>
+            <li className={eventsMapClass} onClick={this.showEventsMap}>Nearby Events Map</li>
         </ul>
         {this.generateMap()}
       </div>

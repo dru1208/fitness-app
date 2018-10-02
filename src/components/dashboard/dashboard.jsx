@@ -26,9 +26,8 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboardPage">
         <div className="dashboardHeader">
-          <h1 style={{"white-space": "pre-line"}}>
-            Welcome Back, {"\n"}
-            {this.state.currentUser}
+          <h1>
+            Welcome Back, {this.state.currentUser}
           </h1>
         </div>
         <FitnessGoals user_id={this.state.user_id} />
