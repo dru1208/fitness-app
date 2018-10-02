@@ -37,10 +37,6 @@ export class EventMap extends Component {
       mapData: [],
       showingInfoWindow: false,
       selectedPlace: {},
-      name: '',
-      description: '',
-      location: '',
-      datetime: '',
       loading: true
     }
   }

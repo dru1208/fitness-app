@@ -592,7 +592,7 @@ th {
   display: inline-block;
 }
 
-.gymMapButton:hover {
+.gymMapLink:hover {
   background-color: #faf5e8;
 }
 
@@ -610,12 +610,8 @@ th {
 }
 
 
-.eventsMapButton:hover {
+.eventsMapLink:hover {
   background-color: #faf5e8;
-}
-
-.eventsMapButton {
-  background-color: #blue;
 }
 
 .mapInfo {
@@ -630,6 +626,11 @@ th {
   text-align: center;
   grid-gap: 50px;
   background-color: #ddd;
+}
+
+.active {
+
+  background-color: #faf5e8;
 }
 
 
