@@ -122,7 +122,7 @@ export default class Activities extends Component {
 
     return (
       <main className="dashboardWeeklyActivities border">
-        <h1>Weekly Activities</h1>
+        <h3>Weekly Activities</h3>
 
           <div className={"dashboardCharts"}>
           <Chart
@@ -170,7 +170,7 @@ export default class Activities extends Component {
       <h3>Form Input</h3>
       <form onSubmit={this._handleSubmit} className="weeklyExercise">
         <label htmlFor="timeOnExercise">Time spent on exercise:</label>
-        <input name="timeOnExercise" />min(s)<br/>
+        <input name="timeOnExercise" /><br/>
         <label htmlFor="timeOfExercise">DateTime:</label>
         <input type="datetime-local" name="timeOfExercise" defaultValue={generateCurrentDateTime()}/><br/>
         <input type="submit"/>

@@ -70,7 +70,7 @@ export class Maps extends Component {
 
     return (
       <div className="mapPage">
-        <h1 className="mapHeader">Fitness Map</h1>
+        <h2 className="mapHeader">Fitness Map</h2>
         <Location location={this.props.location} handleLocationUpdate={this.props.handleLocationUpdate}/>
         <ul className="mapLinks">
             <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>

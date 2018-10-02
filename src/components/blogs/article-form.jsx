@@ -24,8 +24,8 @@ class articleForm extends Component {
 
   render() {
     return (
-      <div className="articleForm">
-        <h2>New article</h2>
+      <div className="articleForm border">
+        <h3>New article</h3>
           <main className="container">
             <section className="newarticle">
               <form onSubmit={this._handleSubmit} className="newArticleForm">

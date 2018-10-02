@@ -137,7 +137,7 @@ export default class Nutrition extends Component {
     return (
 
       <main className="nutritionPage">
-        <h1 className="nutritionHeader">Nutrition</h1>
+        <h2 className="nutritionHeader">Nutrition</h2>
         <NutritionInput userID={this.state.userID} submitNutritionHandler={this._submitNutritionHandler} />
         <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image} />
         <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />

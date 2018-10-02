@@ -10,6 +10,7 @@ const GoalList = (props) => {
 
   return (
     <div className="dashboardGoalEntry">
+    <h3>GoalList</h3>
       {generateGoals}
     </div>
   )

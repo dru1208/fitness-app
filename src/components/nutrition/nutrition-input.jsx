@@ -5,7 +5,7 @@ const Input = (props) => {
 
   return (
     <main className="nutritionInput border">
-      <h2>Enter daily nutritional data</h2>
+      <h3>Enter daily nutritional data</h3>
       <form onSubmit={props.submitNutritionHandler}>
         <label htmlFor="calories">Calories: </label>
         <input type="textbox" name="calories" /><br />

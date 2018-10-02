@@ -26,9 +26,9 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboardPage">
         <div className="dashboardHeader">
-          <h1>
+          <h2>
             Welcome Back, {this.state.currentUser}
-          </h1>
+          </h2>
         </div>
         <FitnessGoals user_id={this.state.user_id} />
         <WeeklyActivities user_id={this.state.user_id} />

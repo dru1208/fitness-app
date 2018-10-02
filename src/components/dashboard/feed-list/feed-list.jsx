@@ -5,7 +5,7 @@ const FeedList = (props) => {
 
   return (
   <div className="dashboardFeedList border">
-    <h1>Feed</h1>
+    <h3>Feed</h3>
       <FeedEntry />
   </div>
   )

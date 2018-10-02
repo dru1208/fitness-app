@@ -25,15 +25,14 @@ class blogForm extends Component {
 
   render() {
     return (
-      <div className="blogForm">
-        <h2>New Blog</h2>
+      <div className="blogForm border">
+        <h3>New Blog</h3>
           <main className="container">
             <section className="newBlog">
               <form onSubmit={this._handleSubmit} className="newBlogForm">
 
                 <label htmlFor="blogTitle">Title</label>
-                <input name="blogTitle" />
-
+                <input name="blogTitle" type="text"/>
                 <label htmlFor="blogContent">Content</label>
                 <textarea name="blogContent" />
                 <input type="submit" value="Post Blog"/>

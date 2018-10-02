@@ -38,10 +38,10 @@ class GoalForm extends Component {
     return (
     <div className="dashboardGoalForm">
       <form onSubmit={this._handleSubmit} className="newGoalForm">
-        <label htmlFor="goalDescription">Enter Goal:</label><br />
-        <textarea className="dashboardGoalTextarea" name="goalDescription" onChange={this.handleDescriptionChange} /><br/>
-        <label htmlFor="goalDate">Date:</label><br/>
-        <input type="datetime-local" name="goalDate" defaultValue={generateCurrentDateTime()} onChange={this.handleDateChange}/><br/>
+        <label htmlFor="goalDescription">Enter Goal:</label>
+        <textarea className="dashboardGoalTextarea" name="goalDescription" onChange={this.handleDescriptionChange} />
+        <label htmlFor="goalDate">Date:</label>
+        <input type="datetime-local" name="goalDate" defaultValue={generateCurrentDateTime()} onChange={this.handleDateChange}/>
         <input type="submit"/>
       </form>
     </div>

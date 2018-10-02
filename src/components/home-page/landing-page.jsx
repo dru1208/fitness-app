@@ -60,7 +60,7 @@ class LandingPage extends Component {
     return (
       <div className="landingPage">
         <div className="landingForms">
-          <div className="landingHeader">YourFitnessPal</div>
+          <h2 className="landingHeader">YourFitnessPal</h2>
             <li className="loginLink" onClick={this.showLoginForm}>Login</li>
             <li className="registrationLink" onClick={this.showRegistrationForm}>Registration</li>
             {this.generateForm()}
