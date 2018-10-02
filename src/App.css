@@ -309,20 +309,20 @@ li {
 }
 
 .loginLink {
-  grid-row: 2 / 3;
-  grid-column: 3 / 4;
   padding: 2%;
   text-align: center;
   font-size: 21px;
+  width: 50%;
+  display: inline-block;
   border:none;
   background: #d4d3d3;
   cursor: pointer;
 }
 
 .registrationLink {
-  grid-row: 2 / 3;
-  grid-column: 4 / 5;
+  width: 50%;
   padding: 2%;
+  display: inline-block;
   text-align: center;
   font-size: 21px;
   border:none;
@@ -332,7 +332,12 @@ li {
 
 .landingHeader {
   text-align: center;
-  grid-column: 1 / 5;
+  grid-column: 2 / 4;
+}
+
+.loginRegisterForm {
+  grid-row: 2/-1;
+  grid-column: 1/-1;
 }
 
 .formContent {
@@ -342,9 +347,8 @@ li {
 }
 
 .landingIconPic {
-  grid-row: 2 / 4;
-  grid-column: 1 / 3;
-  height: 50%;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
   width: 50%;
   margin: 20%;
   -webkit-animation: rotation 4s infinite linear;
@@ -400,6 +404,7 @@ li {
 .dashboardContent {
   font-size: 16px;
   line-height: 30px;
+  color:black;
 }
 
 .dashboardGoalInfo {
@@ -580,7 +585,7 @@ table {
 .locationForm {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  margin-left: 15%;
+  padding: 10px 10%;
 }
 
 .locationSubmitButton {
@@ -755,6 +760,7 @@ input[type="submit"] {
     text-transform: uppercase;
     font-size: 14px;
     border: none;
+    margin-top: 2%;
     border-radius: 5px;
     display: inline-block;
     vertical-align: middle;

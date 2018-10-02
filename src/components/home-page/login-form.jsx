@@ -5,7 +5,6 @@ const LoginForm = (props) => {
 
   return (
     <div className="loginForm">
-    <h3>Login</h3>
       <form onSubmit={props.handleLogin}>
         <label htmlFor="email">Email:</label>
         <input type="email" name="email"></input><br></br>

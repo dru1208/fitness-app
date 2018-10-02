@@ -73,8 +73,8 @@ export class Maps extends Component {
         <h2 className="mapHeader">Fitness Map</h2>
         <Location location={this.props.location} handleLocationUpdate={this.props.handleLocationUpdate}/>
         <ul className="mapLinks">
-            <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>
-            <li className={eventsMapClass} onClick={this.showEventsMap}>Nearby Events Map</li>
+          <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>
+          <li className={eventsMapClass} onClick={this.showEventsMap}>Nearby Events Map</li>
         </ul>
         {this.generateMap()}
       </div>

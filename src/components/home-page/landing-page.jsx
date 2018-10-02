@@ -61,9 +61,11 @@ class LandingPage extends Component {
       <div className="landingPage">
         <div className="landingForms">
           <h2 className="landingHeader">YourFitnessPal</h2>
+          <div className="loginRegisterForm">
             <li className="loginLink" onClick={this.showLoginForm}>Login</li>
             <li className="registrationLink" onClick={this.showRegistrationForm}>Registration</li>
             {this.generateForm()}
+          </div>
             <img className="landingIconPic" src={LandingIconPic} alt="IMG"></img>
         </div>
       </div>
