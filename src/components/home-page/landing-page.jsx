@@ -33,7 +33,7 @@ class LandingPage extends Component {
     } else if (this.state.currentForm === "showRegistrationForm") {
       return (
         <div className="formContent">
-          <RegistrationForm className="registrationForm" closeForm={this.closeForm} handleRegister={this.props.handleRegister}/>
+          <RegistrationForm className="registrationForm" closeForm={this.closeForm} handleRegister={this.props.handleRegister} selectImageHandler={this.props.selectImageHandler} image={this.props.image}/>
         </div>
       )
     }

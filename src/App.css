@@ -153,16 +153,36 @@ li {
   -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
-  justify-items: center;
+
   border-radius: 10px;
   padding: 20px;
   opacity: 0.5;
   transition: transform .2s;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .feedEntry:hover {
   opacity: 1;
   transform: scale(1.005);
+}
+
+.feedProfilePic {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.feedContentContainer {
+  grid-column: 2/5;
+  justify-self: start;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h3.feedTitle {
+  margin: 0;
+  text-align: left;
 }
 
 /* blog/profile page */
@@ -801,3 +821,4 @@ input[type="datetime-local"] {
 .newArticleForm input[type="submit"] {
   background-color: #474747
 }
+
