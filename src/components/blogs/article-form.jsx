@@ -34,7 +34,7 @@ class articleForm extends Component {
                 <input name="articleTitle" />
 
                 <label htmlFor="articleLink">Link</label>
-                <textarea name="articleLink" />
+                <textarea name="articleLink" /><br/>
                 <input type="submit" value="Post Article"/>
               </form>
             </section>

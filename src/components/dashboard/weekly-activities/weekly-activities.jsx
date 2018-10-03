@@ -177,7 +177,7 @@ export default class Activities extends Component {
         <input name="timeOnExercise" /><br/>
         <label htmlFor="timeOfExercise">DateTime:</label>
         <input type="datetime-local" name="timeOfExercise" defaultValue={generateCurrentDateTime()}/><br/>
-        <input type="submit"/>
+        <input className="forShadow" type="submit"/>
       </form>
       </main>
 
