@@ -5,9 +5,9 @@ const LocationUpdateForm = (props) => {
     <div>
       <form onSubmit={props.handleLocationUpdate}>
         <label htmlFor="location">Location: </label>
-        <input type="text" name="location" /><br />
+        <input type="text" name="location" />
         <label htmlFor="password">Password: </label>
-        <input type="password" name="password" /><br />
+        <input type="password" name="password" />
         <input className="locationSubmitButton" type="submit" value="Update Location"/>
       </form>
     </div>

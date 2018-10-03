@@ -172,7 +172,7 @@ li {
   display: grid;
   grid-template-columns: 1fr 5fr 5fr 1fr;
   grid-template-rows: repeat(2, min-content) 5fr;
-  grid-gap: 20px;
+  grid-gap: 30px;
   padding: 2em 2em 2em 5em;
 
 }
@@ -315,7 +315,7 @@ li {
   width: 50%;
   display: inline-block;
   border:none;
-  background: #d4d3d3;
+  background: #768b984d;
   cursor: pointer;
 }
 
@@ -326,7 +326,7 @@ li {
   text-align: center;
   font-size: 21px;
   border:none;
-  background: #d4d3d3;
+  background: #768b984d;
   cursor: pointer;
 }
 
@@ -372,7 +372,7 @@ li {
   display: grid;
   grid-template-columns:  1.5fr 2fr;
   grid-gap: 45px;
-  padding: 2em 5em;
+  padding: 2em 8em;
 
 }
 
@@ -392,7 +392,7 @@ li {
   grid-column: 1/2;
   padding: 20px;
   display: grid;
-  grid-template-columns: min-content, max-content;
+  grid-template-columns: 1fr;
   grid-template-rows: repeat(2, min-content);
 }
 
@@ -412,6 +412,8 @@ li {
   grid-template-rows: repeat(2, min-content);
   padding: 20px;
   grid-gap: 30px;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .dashboardGoalForm {
@@ -468,11 +470,11 @@ li {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: grid;
-  grid-gap: 30px;
-  padding: 2em 5em;
+  grid-gap: 20px;
+  padding: 2em 18em;
 
-  grid-template-rows: repeat(3, min-content) 0;
-  grid-template-columns: repeat(3, minmax(min-content, 1fr)) 0;
+  grid-template-rows: repeat(4, min-content);
+  grid-template-columns: repeat(3, minmax(min-content, 1fr));
 }
 
 .nutritionHeader {
@@ -480,19 +482,33 @@ li {
   grid-column: 1 / -1;
 }
 
-.nutritionInput {
+.nutritionLinks {
   grid-row: 2 / 3;
-  grid-column: 1 / 2;
+  grid-column: 1 / -1;
+  padding-left: 0px;
+  background: #768b984d;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
 }
 
-.nutritionImageUpload {
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
+.showNutritionInput {
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+  max-width: 99%;
 }
 
-.nutritionNatLang {
-  grid-row: 2 / 3;
-  grid-column: 3 / 4;
+.showImageUpload {
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+  max-width: 99%;
+}
+
+.showNutritionQuery {
+  grid-row: 3 / 4;
+  grid-column: 1 / -1;
+  max-width: 99%;
 }
 
 .nutritionNatLangTextarea {
@@ -508,7 +524,7 @@ li {
 .nutritionTable {
   line-height: 35px;
   margin-top: 30px;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
   grid-column: 1 / span 3;
 }
 
@@ -527,8 +543,13 @@ th, td {
   border-bottom: 1px solid grey;
 }
 
+.nutritionTableHeader {
+  font-size: 16px;
+}
+
 .tableCell {
   text-align: center;
+  font-size: 15px;
 }
 
 table {
@@ -542,7 +563,7 @@ table {
 .pageLayout {
   display: grid;
   grid-template-rows: min-content min-content;
-  background-color: #f9f7ecc9;
+  background-color: #eeeeee;
 }
 
 
@@ -550,8 +571,8 @@ table {
   border-radius: 5px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
   padding: 40px 50px;
-  background-color:white;
-  opacity: 0.8;
+  background-color:#fafafa;
+  opacity: 0.9;
   transition: transform .2s;
   -webkit-animation: fadein 1.5s;
   -moz-animation: fadein 1.5s;
@@ -585,7 +606,7 @@ table {
 .locationForm {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  padding: 10px 10%;
+  padding: 0 7em;
 }
 
 .locationSubmitButton {
@@ -801,3 +822,29 @@ input[type="datetime-local"] {
 .newArticleForm input[type="submit"] {
   background-color: #474747
 }
+
+.activeForm {
+  color: white;
+  border: 5px solid #25333c;
+  background-color: #25333c;
+}
+
+.activeNutritionLink {
+  color: white;
+}
+
+
+.nutritionInputClass,
+.nutritionImageUploadClass,
+.nutritionQueryClass {
+  padding: 2%;
+  text-align: center;
+  font-size: 21px;
+  width: 33%;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+
+
