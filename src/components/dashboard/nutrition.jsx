@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Chart } from "react-google-charts";
 import axios from "axios";
+
 export default class Nutrition extends Component {
   constructor(props) {
     super(props)
@@ -18,7 +19,7 @@ export default class Nutrition extends Component {
     })
     .then(response => {
       const data = response.data;
-      if (response.data) {
+      if (data) {
         this.setState({
           nutrition: {
             calories: data.calories,
@@ -35,40 +36,47 @@ export default class Nutrition extends Component {
   }
 
   render() {
-
     const generateNutritionChart = (options) => {
-      if (this.state.nutrition) {
-        return (
-          <div className="dashboardCharts">
-            <Chart
-              chartType="PieChart"
-              data={[
-                ["Nutrition", "Calories"],
-                ["Protein", this.state.nutrition.protein * 4],
-                ["Fat", this.state.nutrition.fat * 9],
-                ["Carbohydrates", this.state.nutrition.carbohydrates * 4]
-                // ["Cholesterol", this.state.nutrition.cholesterol],
-                // ["Sugar", this.state.nutrition.sugar],
-                // ["Sodium", this.state.nutrition.sodium]
-              ]}
-              options={pieOptions}
-              graph_id="PieChart"
-              width={"100%"}
-              height={"400px"}
-              legend_toggle
-            />
-            <h2>Total calories: {this.state.nutrition.calories}</h2>
-          </div>
-        )
-      }
+      return (
+        <div className="dashboardCharts">
+          <Chart
+            chartType="PieChart"
+            data={[
+              ["Nutrition", "Calories"],
+              ["Protein", this.state.nutrition.protein * 4],
+              ["Fat", this.state.nutrition.fat * 9],
+              ["Carbohydrates", this.state.nutrition.carbohydrates * 4]
+              // ["Cholesterol", this.state.nutrition.cholesterol],
+              // ["Sugar", this.state.nutrition.sugar],
+              // ["Sodium", this.state.nutrition.sodium]
+            ]}
+            options={pieOptions}
+            graph_id="PieChart"
+            width={"100%"}
+            height={"400px"}
+            legend_toggle
+          />
+          <h2>Total calories: {this.state.nutrition.calories}</h2>
+        </div>
+      )
     }
+
+    const generateNoNutritionMessage = () => {
+      return(
+        <div className="dashboardCharts">
+          <h3>Hey There!</h3>
+          <h4>From our data, it looks like you haven't eaten in a week - go get some food you must be famished. It's time to get off your butt and log your food!</h4>
+        </div>
+      )
+    }
+
 
     const pieOptions = {
       title: "Calories/Nutrient",
       titleTextStyle: {
         color: 'black',
         fontName: 'Roboto',
-        fontSize: 30,
+        fontSize: 18,
         bold: true,
         italic: false
       },
@@ -117,9 +125,16 @@ export default class Nutrition extends Component {
 
     return (
       <main className="dashboardNutrition border">
-          <div>
+        {this.state.nutrition ?
+          <div className="dashboardCharts">
             {generateNutritionChart(pieOptions)}
           </div>
+        :
+          <div className="dashboardCharts">
+            <h3>Hey There!</h3>
+            <h4>From our data, it looks like you haven't eaten in a week - go get some food you must be famished. It's time to get off your butt and log your food!</h4>
+          </div>
+        }
       </main>
     )
   }

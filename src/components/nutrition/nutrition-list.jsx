@@ -11,16 +11,16 @@ const NutritionList = (props) => {
       <table>
         <thead>
           <tr className="tableHeaderRow">
-            <th>Calories</th>
-            <th>Protein (g)</th>
-            <th>Fat (g)</th>
-            <th>Carbohydrates (g)</th>
-            <th>Sugar (g)</th>
-            <th>Sodium (g)</th>
-            <th>Cholesterol (g)</th>
-            <th>Serving Size</th>
-            <th>Food Name</th>
-            <th>Entry Date</th>
+            <th className="nutritionTableHeader">Calories</th>
+            <th className="nutritionTableHeader">Protein (g)</th>
+            <th className="nutritionTableHeader">Fat (g)</th>
+            <th className="nutritionTableHeader">Carbohydrates (g)</th>
+            <th className="nutritionTableHeader">Sugar (g)</th>
+            <th className="nutritionTableHeader">Sodium (g)</th>
+            <th className="nutritionTableHeader">Cholesterol (g)</th>
+            <th className="nutritionTableHeader">Serving Size</th>
+            <th className="nutritionTableHeader">Food Name</th>
+            <th className="nutritionTableHeader">Entry Date</th>
           </tr>
         </thead>
         <tbody>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { css } from 'emotion';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Location from "./location.jsx"
 import GymMap from "./gym-map.jsx";
@@ -70,11 +69,11 @@ export class Maps extends Component {
 
     return (
       <div className="mapPage">
-        <h1 className="mapHeader">Fitness Map</h1>
+        <h2 className="mapHeader">Fitness Map</h2>
         <Location location={this.props.location} handleLocationUpdate={this.props.handleLocationUpdate}/>
         <ul className="mapLinks">
-            <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>
-            <li className={eventsMapClass} onClick={this.showEventsMap}>Nearby Events Map</li>
+          <li className={gymMapClass} onClick={this.showGymMap} >Nearby Gym Map</li>
+          <li className={eventsMapClass} onClick={this.showEventsMap}>Nearby Events Map</li>
         </ul>
         {this.generateMap()}
       </div>

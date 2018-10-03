@@ -18,6 +18,7 @@ export default class BlogEntry extends React.Component {
     axios.get('http://localhost:3000/api/feeds')
       .then((response) => {
         const feeds = response.data;
+        console.log(feeds);
         this.setState({feeds: feeds})
       })
   }
@@ -33,13 +34,21 @@ export default class BlogEntry extends React.Component {
 
     return (
       <div className="feedEntryWrapper">
-      { sortedFeeds.map(entries =>
-        <div className="feedEntry border">
-          <header>
-            <h3>{entries.title}</h3>
-          </header>
+      { sortedFeeds.map((entries, index) =>
+        <div className="feedEntry border" key={index}>
+          {entries.profile_picture ?
+            <img src={entries.profile_picture} height="150" width="150" className="feedProfilePic" />
+          :
+            <img src="/blank.png" height="150" width="150" className="feedProfilePic" />
+          }
+          <div className="feedContentContainer">
+            <header>
+              <h2 className="feedTitle">{entries.title}</h2>
+              <p className="feedAuthor">{entries.first_name} {entries.last_name}</p>
+            </header>
             <p style={{"white-space": "pre-line"}}>{entries.content}</p>
             <a href={entries.link}>{entries.link}</a>
+          </div>
         </div>
       )}
       </div>

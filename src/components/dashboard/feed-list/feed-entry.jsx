@@ -28,8 +28,8 @@ export default class FeedEntry extends React.Component {
       <div className="dashboardFeedEntry">
         { sortedFeeds.map((entry, index) =>
           <div className="dashboardSingleEventEntry" key={index}>
-             <h3>{entry.title}</h3>
-             <div>{entry.content}</div>
+             <h4>{entry.title}</h4>
+             <div className="dashboardContent">{entry.content}</div>
              <a href={entry.link}>{entry.link}</a>
           </div>
         )}

@@ -38,7 +38,9 @@ class App extends Component {
       currentUser: null,
       userID: null,
       location: "",
-      jwt: null
+      jwt: null,
+      image: null,
+      imageName: null
     }
   }
 
@@ -72,13 +74,21 @@ class App extends Component {
 
   _handleRegister = (e) => {
     e.preventDefault();
+    let string = null;
+    let result = null;
+    if (this.state.image) {
+      string = this.state.image;
+      result = string.split("base64,");
+    }
     const registrationObj = {
       firstName: e.target.firstName.value,
       lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value,
       passwordConfirmation: e.target.passwordConfirmation.value,
-      location: e.target.location.value
+      location: e.target.location.value,
+      image: result ? result[1] : null,
+      imageName: this.state.imageName
     }
     const options = {
       method: "POST",
@@ -100,6 +110,20 @@ class App extends Component {
           })
         }
       })
+  }
+
+  //handles 'choose file' button
+  _selectImageHandler = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      this.setState({
+        imageName: event.target.files[0].name
+      })
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.setState({ image: e.target.result });
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
   _handleLogout = (e) => {
@@ -127,7 +151,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/" render={() => <LandingPage handleLogin={this._handleLogin} handleRegister={this._handleRegister} /> } />
+          <Route exact path="/" render={() => <LandingPage image={this.state.image} selectImageHandler={this._selectImageHandler} handleLogin={this._handleLogin} handleRegister={this._handleRegister} /> } />
 
           <Route exact path={generateUserURL(this.state.userID, "dashboard")}
             render={() => (this.state.currentUser ?

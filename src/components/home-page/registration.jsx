@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 
 
 const RegistrationForm = (props) => {
 
-
   return (
     <div className="registrationForm">
-    <h2>Registration Form</h2>
       <form onSubmit={props.handleRegister}>
         <label htmlFor="firstName">First Name:</label>
         <input type="text" name="firstName"></input><br></br>
@@ -24,10 +22,17 @@ const RegistrationForm = (props) => {
         <label htmlFor="passwordConfirmation">Password Confirmation:</label>
         <input type="password" name="passwordConfirmation"></input><br></br>
 
-
         <label htmlFor="location">Location (optional):</label>
-
         <input type="text" name="location"></input><br></br>
+
+        <label htmlFor="pic">Profile Picture (optional):</label>
+        <input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
+        {props.image &&
+          <div>
+              <p>Image preview:</p>
+              <img className="image-preview" src={props.image} height="150px" width="auto"/>
+          </div>
+        }
 
         <input type="submit" value="Submit"></input>
       </form>

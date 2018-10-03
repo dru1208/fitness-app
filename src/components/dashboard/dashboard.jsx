@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { css } from 'emotion';
 import WeeklyActivities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
@@ -26,9 +25,9 @@ export default class Dashboard extends Component {
     return (
       <main className="dashboardPage">
         <div className="dashboardHeader">
-          <h1>
+          <h2>
             Welcome Back, {this.state.currentUser}
-          </h1>
+          </h2>
         </div>
         <FitnessGoals user_id={this.state.user_id} />
         <WeeklyActivities user_id={this.state.user_id} />
