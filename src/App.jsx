@@ -87,7 +87,7 @@ class App extends Component {
       password: e.target.password.value,
       passwordConfirmation: e.target.passwordConfirmation.value,
       location: e.target.location.value,
-      image: result[1],
+      image: result ? result[1] : null,
       imageName: this.state.imageName
     }
     const options = {
