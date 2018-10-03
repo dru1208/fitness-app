@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { generateUserURL } from '../../_helper.jsx';
 import { push as Menu } from "react-burger-menu";
 

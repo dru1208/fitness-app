@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import EventList from './event-list.jsx'
 import EventForm from './event-form.jsx'
-import { css } from 'emotion'
 import { generateEventURL } from '../../_helper.jsx'
 import axios from 'axios'
 

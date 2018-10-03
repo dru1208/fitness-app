@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import { css } from 'emotion'
 import BlogHeader from './blog-header.jsx'
 import BlogList from './blog-list.jsx'
 import BlogForm from './blog-form.jsx'

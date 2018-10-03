@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { generateCurrentDateTime } from '../../_helper.jsx'
 
 const NutritionQuery = (props) => {

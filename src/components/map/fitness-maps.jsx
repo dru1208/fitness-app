@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { css } from 'emotion';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Location from "./location.jsx"
 import GymMap from "./gym-map.jsx";

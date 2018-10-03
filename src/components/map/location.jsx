@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LocationUpdateForm from './location-update.form.jsx'
 
 const Location = (props) => {

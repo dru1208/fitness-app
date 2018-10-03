@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import EventEntry from "./event-entry.jsx"
 
 import { generateEventURL } from '../../_helper.jsx'

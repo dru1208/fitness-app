@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BlogEntry from "./blog-entry.jsx"
 
 const BlogList = (props) => {

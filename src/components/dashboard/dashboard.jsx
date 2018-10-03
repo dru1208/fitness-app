@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { css } from 'emotion';
 import WeeklyActivities from './weekly-activities/weekly-activities.jsx';
 import Nutrition from './nutrition.jsx';
 import EventList from './event-list/event-list.jsx';
