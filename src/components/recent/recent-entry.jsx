@@ -38,7 +38,10 @@ export default class BlogEntry extends React.Component {
           <header>
             <h3>{entries.title}</h3>
           </header>
-            <p style={{"white-space": "pre-line"}}>{entries.content}</p>
+            <img src="" height="150" width="150" class="profilePic" />
+            <div class="recentContent">
+              <p style={{"white-space": "pre-line"}}>{entries.content}</p>
+            </div>
             <a href={entries.link}>{entries.link}</a>
         </div>
       )}

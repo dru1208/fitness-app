@@ -158,6 +158,9 @@ li {
   padding: 20px;
   opacity: 0.5;
   transition: transform .2s;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .feedEntry:hover {
@@ -794,4 +797,13 @@ input[type="datetime-local"] {
 
 .newArticleForm input[type="submit"] {
   background-color: #474747
+}
+
+.recentContent {
+  margin: 10px;
+  grid-column: 2/3;
+}
+
+.profilePic {
+  grid-column: 1/2;
 }
