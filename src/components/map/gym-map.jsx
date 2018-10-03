@@ -78,7 +78,7 @@ export class GymMap extends Component {
                        icon={{
                          url: "/gym_map.svg",
                          anchor: new google.maps.Point(32,32),
-                         scaledSize: new google.maps.Size(40,40)
+                         scaledSize: new google.maps.Size(46,46)
     }}
                        onClick={this.onMarkerClick}
                        name={marker.name}/>

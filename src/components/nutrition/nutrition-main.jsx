@@ -14,7 +14,8 @@ export default class Nutrition extends Component {
       userID: this.props.userID,
       nutrition: [],
       image: null,
-      imageName: null
+      imageName: null,
+      currentTask: "handleNutritionInput"
     };
   }
 
@@ -133,14 +134,71 @@ export default class Nutrition extends Component {
   }
 
 
-  render() {
-    return (
 
+
+  generateTask = () => {
+    if (this.state.currentTask === "handleNutritionInput")
+      return (
+        <div className="showNutritionInput">
+        <NutritionInput userID={this.state.userID} submitNutritionHandler={this._submitNutritionHandler} />
+        </div>
+        )
+    else if (this.state.currentTask === "handleImageUpload")
+      return (
+        <div className="showImageUpload">
+        <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image} />
+        </div>
+        )
+    else (this.state.currentTask === "handleNutritionQuery")
+      return (
+        <div className="showNutritionQuery">
+          <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />
+        </div>
+        )
+  }
+
+
+  handleNutritionInput = (e) => {
+    e.preventDefault();
+    this.setState({
+      currentTask: "handleNutritionInput"
+    })
+    this.generateTask();
+
+  }
+
+  handleImageUpload = (e) => {
+    e.preventDefault();
+    this.setState({
+      currentTask:"handleImageUpload"
+    })
+    this.generateTask();
+  }
+
+  handleNutritionQuery = (e) => {
+    e.preventDefault();
+    this.setState({
+      currentTask:"handleNutritionQuery"
+    })
+    this.generateTask();
+  }
+
+  render() {
+
+  let nutritionInputClass = this.state.currentTask === "handleNutritionInput" ? "nutritionInputClass activeNutritionLink" : "nutritionInputClass";
+  let nutritionImageUploadClass = this.state.currentTask === "handleImageUpload" ? "nutritionImageUploadClass activeNutritionLink" : "nutritionImageUploadClass";
+  let nutritionQueryClass = this.state.currentTask === "handleNutritionQuery" ? "nutritionQueryClass activeNutritionLink" : "nutritionQueryClass";
+
+
+    return (
       <main className="nutritionPage">
         <h2 className="nutritionHeader">Nutrition</h2>
-        <NutritionInput userID={this.state.userID} submitNutritionHandler={this._submitNutritionHandler} />
-        <ImageUpload uploadButtonHandler={this._uploadButtonHandler} selectImageHandler={this._selectImageHandler} image={this.state.image} />
-        <NutritionQuery handleQuerySubmit={this._handleQuerySubmit} />
+        <ul className="nutritionLinks">
+          <li className={nutritionInputClass} onClick={this.handleNutritionInput}>Daily Nutrition Data</li>
+          <li className={nutritionImageUploadClass} onClick={this.handleImageUpload}>Image Upload</li>
+          <li className={nutritionQueryClass} onClick={this.handleNutritionQuery}>Natural Language Data</li>
+        </ul>
+        {this.generateTask()}
         <NutritionList nutritionList={this.state.nutrition} />
       </main>
     );

@@ -6,7 +6,6 @@ const RegistrationForm = (props) => {
 
   return (
     <div className="registrationForm">
-    <h3>Registration Form</h3>
       <form onSubmit={props.handleRegister}>
         <label htmlFor="firstName">First Name:</label>
         <input type="text" name="firstName"></input><br></br>

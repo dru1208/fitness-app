@@ -5,7 +5,10 @@ class blogForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      userID: this.props.userID
+      userID: this.props.userID,
+      letterCount: 300
+
+
     }
   }
 
@@ -23,21 +26,32 @@ class blogForm extends Component {
     }
   }
 
+  _handleChange = (e) => {
+    e.preventDefault();
+    if (e.target.name === "blogContent") {
+      let remaining = e.target.value.length;
+      this.setState({
+        letterCount: 300 - remaining
+      });
+    }
+  }
+
+
+
   render() {
     return (
       <div className="blogForm border">
         <h3>New Blog</h3>
           <main className="container">
             <section className="newBlog">
-              <form onSubmit={this._handleSubmit} className="newBlogForm">
-
+              <form onChange={this._handleChange} onSubmit={this._handleSubmit} className="newBlogForm">
                 <label htmlFor="blogTitle">Title</label>
                 <input name="blogTitle" type="text"/>
                 <label htmlFor="blogContent">Content</label>
                 <textarea name="blogContent" />
                 <input type="submit" value="Post Blog"/>
               </form>
-                <span>300</span>
+                <span>{this.state.letterCount}</span>
             </section>
           </main>
       </div>
