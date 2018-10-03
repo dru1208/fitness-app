@@ -43,9 +43,10 @@ export default class BlogEntry extends React.Component {
           }
           <div className="feedContentContainer">
             <header>
-              <h3 className="feedTitle">{entries.title}</h3>
+              <h2 className="feedTitle">{entries.title}</h2>
+              <p className="feedAuthor">{entries.first_name} {entries.last_name}</p>
             </header>
-            <p>{entries.content}</p>
+            <p style={{"white-space": "pre-line"}}>{entries.content}</p>
             <a href={entries.link}>{entries.link}</a>
           </div>
         </div>

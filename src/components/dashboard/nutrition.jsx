@@ -19,7 +19,6 @@ export default class Nutrition extends Component {
     })
     .then(response => {
       const data = response.data;
-      console.log(data)
       if (data) {
         this.setState({
           nutrition: {

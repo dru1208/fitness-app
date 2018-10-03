@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+
 @-moz-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -171,6 +172,10 @@ li {
 .feedProfilePic {
   grid-column: 1/2;
   grid-row: 1/2;
+  border: 1px;
+  border-style: solid;
+  border-color: #B2B2B2;
+  border-radius: 10px;
 }
 
 .feedContentContainer {
@@ -180,11 +185,16 @@ li {
   padding-right: 10px;
 }
 
-h3.feedTitle {
+h2.feedTitle {
   margin: 0;
   text-align: left;
 }
 
+p.feedAuthor {
+  margin: 0;
+  text-align: left;
+  font-style: italic;
+}
 /* blog/profile page */
 
 .profilePage {
@@ -325,7 +335,7 @@ h3.feedTitle {
 
 .eventEntryForm {
   display: grid;
-  grid-template-rows: 1.25fr repeat(3, 1fr);
+  grid-template-rows: 1.25fr repeat(2, 1fr);
 }
 
 .event-name {
@@ -547,7 +557,6 @@ h3.feedTitle {
   display: grid;
   grid-gap: 20px;
   padding: 2em 18em;
-
   grid-template-rows: repeat(4, min-content);
   grid-template-columns: repeat(3, minmax(min-content, 1fr));
 }
