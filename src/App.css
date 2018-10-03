@@ -171,6 +171,10 @@ li {
 .feedProfilePic {
   grid-column: 1/2;
   grid-row: 1/2;
+  border: 1px;
+  border-style: solid;
+  border-color: #B2B2B2;
+  border-radius: 10px;
 }
 
 .feedContentContainer {
@@ -180,11 +184,16 @@ li {
   padding-right: 10px;
 }
 
-h3.feedTitle {
+h2.feedTitle {
   margin: 0;
   text-align: left;
 }
 
+p.feedAuthor {
+  margin: 0;
+  text-align: left;
+  font-style: italic;
+}
 /* blog/profile page */
 
 .profilePage {
