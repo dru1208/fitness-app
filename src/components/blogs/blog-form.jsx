@@ -49,9 +49,9 @@ class blogForm extends Component {
                 <input name="blogTitle" type="text"/>
                 <label htmlFor="blogContent">Content</label>
                 <textarea name="blogContent" />
+                <span className="blogCounter">{this.state.letterCount}</span>
                 <input type="submit" value="Post Blog"/>
               </form>
-                <span>{this.state.letterCount}</span>
             </section>
           </main>
       </div>

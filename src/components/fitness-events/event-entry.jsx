@@ -5,7 +5,7 @@ const EventEntry = (props) => {
 
   const generateDeleteButton = () => {
     if (props.userID === props.event.user_id) {
-      return <input type="submit" value="Delete Event" />
+      return <input type="submit" value="Delete Event" className="event-delete" />
     }
   }
 
@@ -22,7 +22,7 @@ const EventEntry = (props) => {
   return (
 
     <div className="eventEntry border">
-      <form onSubmit={props.handleDestroy}>
+      <form onSubmit={props.handleDestroy} className="eventEntryForm">
         <input type="hidden" name="eventID" value={props.event.id} />
         <h3 className="event-name">{props.event.name}</h3>
         <div className="event-description">{props.event.description}</div>

@@ -5,16 +5,12 @@ const ArticleEntry = (props) => {
   return (
     <div className="articleEntryWrapper">
       <article className="articleEntry border">
-        <header>
-          <h3>{props.article.title}</h3>
-        </header>
-          <a href={props.article.link}>{props.article.link}</a>
-        <footer>
-          <form onSubmit={props.handleArticleDestroy}>
+        <h3 className="articleEntryHeader">{props.article.title}</h3>
+        <a className="articleEntryLink" href={props.article.link}>{props.article.link}</a>
+        <form onSubmit={props.handleArticleDestroy}>
           <input type="hidden" name="articleID" value={props.article.id} />
-          <input type="submit" value="Delete" />
+          <input className="articleEntryDelete" type="submit" value="Delete" />
         </form>
-        </footer>
       </article>
     </div>
   )

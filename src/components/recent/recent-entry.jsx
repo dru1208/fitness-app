@@ -37,9 +37,9 @@ export default class BlogEntry extends React.Component {
       { sortedFeeds.map(entries =>
         <div className="feedEntry border">
           {entries.profile_picture ?
-            <img src={entries.profile_picture} height="150" width="150" class="feedProfilePic" />
+            <img src={entries.profile_picture} height="150" width="150" className="feedProfilePic" />
           :
-            <img src="/blank.png" height="150" width="150" class="feedProfilePic" />
+            <img src="/blank.png" height="150" width="150" className="feedProfilePic" />
           }
           <div className="feedContentContainer">
             <header>

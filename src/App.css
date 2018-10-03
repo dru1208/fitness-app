@@ -242,18 +242,51 @@ h3.feedTitle {
 .blogEntry {
   background-color: #5ab9ea;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
-  justify-items: center;
   border-radius: 10px;
   padding: 20px;
+  display: grid;
+  grid-template-rows: 1.25fr repeat(2, 1fr);
+}
+
+.blogEntryHeader {
+  grid-row: 1 / 2;
+}
+
+.blogEntryContent {
+  grid-row: 2 / 3;
+}
+
+.blogEntryDelete {
+  grid-row: 3 / 4;
+  margin: 0 auto;
+}
+
+.blogCounter {
+  text-align: right;
 }
 
 .articleEntry {
   background-color: #5ab9ea;
   box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.2);
-  justify-items: center;
   border-radius: 10px;
   padding: 20px;
+  display: grid;
+  grid-template-rows: 1.25fr repeat(2, 1fr);
 }
+
+.articleEntryHeader {
+  grid-row: 1 / 2;
+}
+
+.articleEntryLink {
+  grid-row: 2 / 3;
+}
+
+.articleEntryDelete {
+  grid-row: 3 / 4;
+  margin: 0 auto;
+}
+
 
 /* Event Page */
 
@@ -288,6 +321,28 @@ h3.feedTitle {
 .eventEntry {
   background-color: white;
   padding: 20px;
+}
+
+.eventEntryForm {
+  display: grid;
+  grid-template-rows: 1.25fr repeat(3, 1fr);
+}
+
+.event-name {
+  grid-row: 1 / 2;
+}
+
+.event-description {
+  grid-row: 2 / 3;
+}
+
+.event-datetime-location {
+  grid-row: 3 / 4;
+}
+
+.event-delete {
+  grid-row: 4 / 5;
+  margin: 0 auto;
 }
 
 /* Landing page */
@@ -582,7 +637,7 @@ table {
 
 .pageLayout {
   display: grid;
-  grid-template-rows: min-content min-content;
+  grid-template-rows: min-content minmax(100vh, min-content);
   background-color: #eeeeee;
 }
 
@@ -614,7 +669,7 @@ table {
   grid-template-rows: min-content 0.1fr min-content;
   grid-template-columns: 1fr 1fr;
   padding: 2em 5em;
-  grid-gap:30px;
+  grid-gap: 30px;
 }
 
 .mapHeader {
@@ -623,14 +678,38 @@ table {
   align-self: center;
 }
 
-.locationForm {
+.locationSettings {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   padding: 0 7em;
 }
 
+.locationForm {
+  display: grid;
+  grid-template-rows: repeat(4, 20px) 55px
+}
+
+.locationLabel {
+  grid-row: 1 / 2;
+}
+
+.location {
+  grid-row: 2 / 3;
+}
+
+.locationPasswordLabel {
+  grid-row: 3 / 4;
+}
+
+.locationPassword {
+  grid-row: 4 / 5;
+}
+
+
 .locationSubmitButton {
   margin-left: 1%;
+  grid-row: 5 / 6;
+  margin: 0 auto;
 }
 
 .mapLinks {
@@ -792,30 +871,31 @@ input[type="textbox"]{
 }
 
 input[type="submit"] {
-   cursor: pointer;
-   width: 50%;
-   background-color: #474747;
-    color: white;
-    padding: 8px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    border: none;
-    margin-top: 2%;
-    border-radius: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    -webkit-transition-property: color;
-    -o-transition-property: color;
-    transition-property: color;
-    -webkit-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    transition-duration: 0.3s;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 50%;
+  background-color: #474747;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  margin-top: 2%;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 input[type="datetime-local"] {
