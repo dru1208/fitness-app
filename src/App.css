@@ -159,8 +159,8 @@ li {
   opacity: 0.5;
   transition: transform .2s;
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr min-content;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .feedEntry:hover {
@@ -799,11 +799,15 @@ input[type="datetime-local"] {
   background-color: #474747
 }
 
-.recentContent {
-  margin: 10px;
-  grid-column: 2/3;
-}
-
 .profilePic {
   grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.feedContentContainer {
+  grid-column: 2/5;
+}
+
+h3.feedTitle {
+  margin: 0;
 }
