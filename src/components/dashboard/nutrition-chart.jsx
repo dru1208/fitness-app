@@ -8,8 +8,8 @@ const NutritionChart = (props) => {
               data={[
                 ["Nutrition", "Calories"],
                 ["Protein", props.protein * 4],
-                ["Fat", props.nutrition.fat * 9],
-                ["Carbohydrates", props.nutrition.carbohydrates * 4]
+                ["Fat", props.fat * 9],
+                ["Carbohydrates", props.carbohydrates * 4]
                 // ["Cholesterol", this.state.nutrition.cholesterol],
                 // ["Sugar", this.state.nutrition.sugar],
                 // ["Sodium", this.state.nutrition.sodium]
@@ -20,7 +20,7 @@ const NutritionChart = (props) => {
               height={"400px"}
               legend_toggle
             />
-            <h4>Total calories: {props.nutrition.calories}</h4>
+            <h4>Total calories: {props.calories}</h4>
           </div>
 }
 

@@ -20,8 +20,7 @@ export default class Nutrition extends Component {
     })
     .then(response => {
       const data = response.data;
-      console.log(data)
-      if (response.data.length > 0) {
+      if (data) {
         this.setState({
           nutrition: {
             calories: data.calories,
@@ -118,6 +117,7 @@ export default class Nutrition extends Component {
 
     return (
       <main className="dashboardNutrition border">
+
         {generateNutritionChart()}
         {generateNoNutritionMessage()}
       </main>
