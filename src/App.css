@@ -457,13 +457,9 @@ li {
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: grid;
-<<<<<<< HEAD
-  grid-gap: 30px;
-  padding: 2em 5em;
-=======
   grid-gap: 20px;
   padding: 2em 2em 2em 5em;
->>>>>>> frontend-features
+
   grid-template-rows: repeat(3, min-content) 0;
   grid-template-columns: repeat(3, minmax(min-content, 1fr)) 0;
 }

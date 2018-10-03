@@ -117,11 +117,9 @@ export default class Nutrition extends Component {
 
     return (
       <main className="dashboardNutrition border">
-        {this.state.nutrition &&
           <div>
             {generateNutritionChart(pieOptions)}
           </div>
-        }
       </main>
     )
   }
