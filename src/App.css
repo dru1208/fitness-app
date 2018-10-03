@@ -570,7 +570,7 @@ p.feedAuthor {
   grid-row: 2 / 3;
   grid-column: 1 / -1;
   padding-left: 0px;
-  background: #768b984d;
+  background: #7daac54d;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -876,7 +876,7 @@ input[type="password"],
 input[type="text"],
 input[type="textbox"]{
   border: none;
-  background-color: white;
+  background-color: #f9f9f9;
   border-bottom: 1px solid black;
 }
 
@@ -926,12 +926,13 @@ input[type="datetime-local"] {
 
 .newArticleForm input {
    border: none;
-  background-color: white;
+  background-color: #f9f9f9;
   border-bottom: 1px solid black;
 }
 
 .newArticleForm input[type="submit"] {
-  background-color: #474747
+  background-color: #328fdc;
+  border: none;
 }
 
 
@@ -943,7 +944,7 @@ input[type="datetime-local"] {
 
 .activeNutritionLink {
   color: white;
-  background-color: #25333c;
+  background-color: #1a85da;
 }
 
 
