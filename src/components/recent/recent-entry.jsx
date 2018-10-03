@@ -34,8 +34,8 @@ export default class BlogEntry extends React.Component {
 
     return (
       <div className="feedEntryWrapper">
-      { sortedFeeds.map(entries =>
-        <div className="feedEntry border">
+      { sortedFeeds.map((entries, index) =>
+        <div className="feedEntry border" key={index}>
           {entries.profile_picture ?
             <img src={entries.profile_picture} height="150" width="150" className="feedProfilePic" />
           :
@@ -45,7 +45,7 @@ export default class BlogEntry extends React.Component {
             <header>
               <h3 className="feedTitle">{entries.title}</h3>
             </header>
-            <p style={{"white-space": "pre-line"}}>{entries.content}</p>
+            <p>{entries.content}</p>
             <a href={entries.link}>{entries.link}</a>
           </div>
         </div>
