@@ -18,7 +18,7 @@ const GoalList = (props) => {
 
   return (
     <div className="dashboardGoalEntry">
-    <h3>GoalList</h3>
+    <h3>Recent Goals:</h3>
       {generateGoals()}
     </div>
   )

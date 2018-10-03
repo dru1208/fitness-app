@@ -69,7 +69,6 @@ class LandingPage extends Component {
             <li className={registrationFormClass} onClick={this.showRegistrationForm}>Registration</li>
             {this.generateForm()}
           </div>
-            <img className="landingIconPic" src={LandingIconPic} alt="IMG"></img>
         </div>
       </div>
     )

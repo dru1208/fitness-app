@@ -196,7 +196,7 @@ export default class Nutrition extends Component {
         <ul className="nutritionLinks">
           <li className={nutritionInputClass} onClick={this.handleNutritionInput}>Daily Nutrition Data</li>
           <li className={nutritionImageUploadClass} onClick={this.handleImageUpload}>Image Upload</li>
-          <li className={nutritionQueryClass} onClick={this.handleNutritionQuery}>Natural Language Data</li>
+          <li className={nutritionQueryClass} onClick={this.handleNutritionQuery}>Search</li>
         </ul>
         {this.generateTask()}
         <NutritionList nutritionList={this.state.nutrition} />

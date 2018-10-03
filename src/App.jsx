@@ -141,10 +141,10 @@ class App extends Component {
         location: e.target.location.value,
         password: e.target.password.value
       }).then(response => {
-        this.setState({location: response.data.location}, () => {
-          console.log(response.data.location)
-          // update  jwt in the backend and send over
-        })
+        if (response.data) {
+          const userInfo = jwt_decode(response.data)
+          this.setState({jwt: response.data, location: userInfo.location})
+        }
       })
   }
 

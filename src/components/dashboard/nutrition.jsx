@@ -56,7 +56,7 @@ export default class Nutrition extends Component {
             height={"400px"}
             legend_toggle
           />
-          <h2>Total calories: {this.state.nutrition.calories}</h2>
+          <h4>Total calories: {this.state.nutrition.calories}</h4>
         </div>
       )
     }
@@ -72,14 +72,6 @@ export default class Nutrition extends Component {
 
 
     const pieOptions = {
-      title: "Calories/Nutrient",
-      titleTextStyle: {
-        color: 'black',
-        fontName: 'Roboto',
-        fontSize: 18,
-        bold: true,
-        italic: false
-      },
       backgroundColor: { fill: 'transparent' },
       pieHole: 0.6,
       slices: [
@@ -127,6 +119,7 @@ export default class Nutrition extends Component {
       <main className="dashboardNutrition border">
         {this.state.nutrition ?
           <div className="dashboardCharts">
+            <h3>Nutrition Snapshot</h3>
             {generateNutritionChart(pieOptions)}
           </div>
         :

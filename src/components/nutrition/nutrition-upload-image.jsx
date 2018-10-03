@@ -8,7 +8,7 @@ const ImageUpload = (props) => {
 				<input type="file" onChange={props.selectImageHandler} name="pic" accept="image/*"/>
 				<input type="datetime-local" name="datetime" />
 				{props.image &&
-					<div>
+					<div className="nutritionUploadImageButton">
 						<input type="submit" value="Upload" />
 					</div>
 				}

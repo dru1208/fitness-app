@@ -1,5 +1,5 @@
 import React from 'react'
-import LocationUpdateForm from './location-update.form.jsx'
+import LocationUpdateForm from './location-update-form.jsx'
 
 const Location = (props) => {
   return(

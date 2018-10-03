@@ -61,6 +61,18 @@ h4 {
   text-align: center;
 }
 
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4{
+  font-size: 1.5em;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -130,7 +142,6 @@ li {
   grid-gap: 20px;
   padding: 2em 2em 2em 5em;
   justify-items: center;
-  font-size: 80%;
 }
 
 .feedHeader {
@@ -364,13 +375,13 @@ p.feedAuthor {
   grid-template-columns: 1fr;
   background-image: url("./components/home-page/background.jpg");
   height: 100vh;
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .landingForms {
   justify-content: center;
   margin: auto;
-  width: 50%;
+  width: 35%;
   color: #363636;
   background-color: white;
   padding: 50px;
@@ -725,7 +736,8 @@ table {
 .mapLinks {
   grid-row: 2 / 3;
   padding: 0;
-  grid-column: 1 / 3
+  grid-column: 1 / 3;
+  background-color: #7daac54d;
 }
 
 .mapContent {
@@ -745,7 +757,7 @@ table {
 }
 
 .gymMapLink:hover {
-  background-color: #faf5e8;
+  background-color: #1a85da;
 }
 
 
@@ -763,7 +775,7 @@ table {
 
 
 .eventsMapLink:hover {
-  background-color: #faf5e8;
+  background-color: #1a85da;
 }
 
 
@@ -781,8 +793,8 @@ table {
 }
 
 .active {
-
-  background-color: #faf5e8;
+  color: white;
+  background-color: #1a85da;
 }
 
 
@@ -836,7 +848,7 @@ table {
 
 /* General sidebar styles */
 .bm-menu {
-  background-image: url(./components/home-page/background.jpg);
+  background-image: url(./components/nav-bar/eberhard-grossgasteiger-1080932-unsplash.jpg);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -958,6 +970,10 @@ input[type="datetime-local"] {
   display: inline-block;
   border: none;
   cursor: pointer;
+}
+
+.nutritionUploadImageButton {
+  text-align: center;
 }
 
 .nutritionInput input[type="submit"] {

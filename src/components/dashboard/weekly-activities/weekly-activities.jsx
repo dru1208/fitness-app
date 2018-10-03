@@ -171,7 +171,7 @@ export default class Activities extends Component {
             legendToggle
           />
         </div >
-      <h3>Form Input</h3>
+      <h4>Exercise Time:</h4>
       <form onSubmit={this._handleSubmit} className="weeklyExercise">
         <label htmlFor="timeOnExercise">Time spent on exercise:</label>
         <input name="timeOnExercise" /><br/>
