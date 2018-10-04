@@ -6,7 +6,7 @@ class blogForm extends Component {
     super(props)
     this.state = {
       userID: this.props.userID,
-      letterCount: 300
+      letterCount: 2000
 
 
     }
@@ -31,7 +31,7 @@ class blogForm extends Component {
     if (e.target.name === "blogContent") {
       let remaining = e.target.value.length;
       this.setState({
-        letterCount: 300 - remaining
+        letterCount: 2000 - remaining
       });
     }
   }
