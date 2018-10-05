@@ -21,3 +21,17 @@ Nutrition input can be done through 3 methods. First, a typical form is availabl
 ## Server
 Rails API backend can be found at the following URL:
 https://github.com/dru1208/fitness-app-server
+
+![landing page](https://github.com/dru1208/fitness-app/blob/master/docs/1.png?raw=true)
+
+![dashboard: fitness goals and weekly exercise time](https://github.com/dru1208/fitness-app/blob/master/docs/2.png?raw=true)
+
+![dashboard: nutrition pie chart and events](https://github.com/dru1208/fitness-app/blob/master/docs/3.png?raw=true)
+
+![nutrition: image upload](https://github.com/dru1208/fitness-app/blob/master/docs/4.png?raw=true)
+
+![maps: gym map](https://github.com/dru1208/fitness-app/blob/master/docs/5.png?raw=true)
+
+![maps: event map](https://github.com/dru1208/fitness-app/blob/master/docs/6.png?raw=true)
+
+![sidebar menu](https://github.com/dru1208/fitness-app/blob/master/docs/7.png?raw=true)
